@@ -3,7 +3,7 @@ package com.mylearning.dependecnyInjection.bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service  //business logic or service logic
 public class UserService {
 
     // @Autowired // field injection
