@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.myLearning.productService</groupId>
-    <artifactId>first-project</artifactId>
+    <artifactId>first-project-autoconfiguration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>first-project</name>
     <description>first-project</description>
