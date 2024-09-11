@@ -18,12 +18,12 @@ public class UserService {
     private SocialMediaService socialMediaService;
 
     //setter injection
-    public void setSocialMediaService(SocialMediaService socialMediaService) {
+    public void setSocialMediaService(@Qualifier("facebook") SocialMediaService socialMediaService) {
         this.socialMediaService = socialMediaService;
     }
 
     //constructor injection most preferred
-    public UserService(SocialMediaService socialMediaService) {
+    public UserService(@Qualifier("instagram") SocialMediaService socialMediaService) {
         this.socialMediaService = socialMediaService;
     }
 
