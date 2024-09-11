@@ -1,6 +1,6 @@
-package com.mylearning.productservice.firstproject;
+package com.mylearning.condition;
 
-import com.mylearning.productservice.firstproject.condition.DataSourceConfig;
+import com.mylearning.condition.condition.DataSourceConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

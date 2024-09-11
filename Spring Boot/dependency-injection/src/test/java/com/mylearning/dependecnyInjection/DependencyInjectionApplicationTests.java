@@ -1,10 +1,10 @@
-package com.mylearning.productservice.firstproject;
+package com.mylearning.dependecnyInjection;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FirstProjectApplicationTests {
+class DependencyInjectionApplicationTests {
 
     @Test
     void contextLoads() {

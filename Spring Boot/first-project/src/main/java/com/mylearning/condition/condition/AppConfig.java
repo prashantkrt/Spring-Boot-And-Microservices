@@ -1,4 +1,4 @@
-package com.mylearning.productservice.firstproject.condition;
+package com.mylearning.condition.condition;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
