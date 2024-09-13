@@ -1,16 +1,15 @@
 package com.mylearning.webservices.restfulwebservices.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 // model layer
 @Entity
-@Table(name = "table")
+@Table(name = "course")
 public class Course {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
     private String courseName;
     private String description;

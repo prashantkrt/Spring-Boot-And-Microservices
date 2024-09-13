@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  course-service:
+    build: . # We are using Dockerfile
+    container_name: course-service
+    depends_on:
+      - docker-mysql
+#    restart: on-failure
+    ports:
+      - 10555:8085
+
+  docker-mysql:
+    image: mysql
+#    restart: always
+    container_name: docker-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin@123
+      MYSQL_DATABASE: DEV
+      MYSQL_ROOT_HOST: '%' # can access from anywhere
+    ports:
+      - 6666:3306 # locally we can connect mysql to docker-mysql using localhost:6666
+    volumes:
+      - mysql-data:/var/lib/mysql # docker volume: mapped to container volume , mysql-data folder created and mapped to container
+      # - /opt/mysql_data:/var/lib/mysql here in opt create mysql_data folder map to container volume
+
+volumes:
+  mysql-data:
+
+## automatically creates a default network for all services within the same
