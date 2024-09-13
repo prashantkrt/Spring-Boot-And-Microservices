@@ -20,7 +20,7 @@ public class EmployeeService {
         return employeeDao.save(newEmployee);
     }
 
-    public List<Employee> getAllEmployees() {
+    public Iterable<Employee> getAllEmployees() {
        return employeeDao.findAll();
     }
 
