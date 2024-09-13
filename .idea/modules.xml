@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Spring Boot/Restful webservices/Restful-webservices.iml" filepath="$PROJECT_DIR$/Spring Boot/Restful webservices/Restful-webservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring Boot and Microservices .iml" filepath="$PROJECT_DIR$/.idea/Spring Boot and Microservices .iml" />
     </modules>
   </component>
