@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/Spring Boot/first-project/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/dependency-injection/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Restful webservices/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot/CRUD-H2/pom.xml" />
       </list>
     </option>
   </component>
