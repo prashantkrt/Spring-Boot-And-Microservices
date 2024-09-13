@@ -10,4 +10,8 @@ import org.springframework.stereotype.Service;
 public interface CourseService {
     // to add to a database
     public Course addCourses(CourseDto courseDto);
+
+    public List<Course> getAllCourses(List<Long> courseIds);
+
+    public Course getCourseById(Long id);
 }
