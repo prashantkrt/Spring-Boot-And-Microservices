@@ -27,4 +27,14 @@ public class EmployeeService {
     public Employee getEmployeeById(int id) throws Exception {
         return employeeDao.findById((long)id).orElseThrow(()->new Exception("Error"));
     }
+
+    public Employee updateEmployee(int id , EmployeeDto employeeDto) {
+        Employee employee =  employeeDao.findById((long)id).get();
+        return employeeDao.save(employee);
+    }
+
+    public String deleteEmployeeById(int id){
+        employeeDao.deleteById((long)id);
+        return "deleted Successfully";
+    }
 }
