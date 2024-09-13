@@ -33,4 +33,16 @@ public class CourseServiceImpl implements CourseService {
     public Course getCourseById(Long id) throws EntityNotFoundException {
         return repo.findById(id).orElseThrow(() ->new EntityNotFoundException("No course found with the given id"));
     }
+
+    @Override
+    public Course updateCourse(CourseDto course) {
+        Course courseToUpdate = CourseMapper.getCourse(course);
+        return repo.save(courseToUpdate);
+    }
+
+    @Override
+    public String deleteCourse(Long id) {
+      repo.deleteById(id);
+      return "Successfully deleted course with id: " + id;
+    }
 }

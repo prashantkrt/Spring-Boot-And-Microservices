@@ -1,5 +1,6 @@
 package com.mylearning.webservices.restfulwebservices.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class Course {
     private String description;
     private String traineeName;
     private String duration; // days
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private Date startDate;
     private String courseType;  // Live or Recording
     private Double price;
