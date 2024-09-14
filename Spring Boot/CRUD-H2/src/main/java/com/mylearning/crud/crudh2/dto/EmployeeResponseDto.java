@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EmployeeDto {
+public class EmployeeResponseDto {
+    private String employeeUniqueCode;
     private String name;
     private double salary;
     private String department;
