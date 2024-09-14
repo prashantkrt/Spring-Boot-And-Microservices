@@ -1,6 +1,8 @@
 package com.mylearning.crud.crudh2.controller;
 
 import com.mylearning.crud.crudh2.dto.EmployeeRequestDto;
+import com.mylearning.crud.crudh2.dto.EmployeeResponseDto;
+import com.mylearning.crud.crudh2.dto.ServiceResponse;
 import com.mylearning.crud.crudh2.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +17,13 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping("addEmployee")
-    public ResponseEntity<?> addEmployee(@RequestBody EmployeeRequestDto employeeDto) {
-        return new ResponseEntity<>(employeeService.addEmployee(employeeDto), HttpStatus.CREATED); // 201
+    public ServiceResponse<EmployeeResponseDto> addEmployee(@RequestBody EmployeeRequestDto employeeDto) {
+        return new ServiceResponse<>(HttpStatus.CREATED,employeeService.addEmployee(employeeDto)); // 201
     }
 
     @GetMapping("/getEmployee")
-    public ResponseEntity<?> getEmployeeById(@RequestParam int id) throws Exception {
-        return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
+    public ServiceResponse<EmployeeResponseDto>  getEmployeeById(@RequestParam int id) throws Exception {
+        return new ServiceResponse<>(HttpStatus.OK,employeeService.getEmployeeById(id));
     }
 
     @PutMapping("updateEmployee")
