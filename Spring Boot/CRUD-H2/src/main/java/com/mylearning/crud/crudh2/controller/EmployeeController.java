@@ -18,7 +18,18 @@ public class EmployeeController {
 
     @PostMapping("addEmployee")
     public ServiceResponse<EmployeeResponseDto> addEmployee(@RequestBody EmployeeRequestDto employeeDto) {
-        return new ServiceResponse<>(HttpStatus.CREATED,employeeService.addEmployee(employeeDto)); // 201
+        //return new ServiceResponse<>(HttpStatus.CREATED,employeeService.addEmployee(employeeDto)); // 201
+        ServiceResponse<EmployeeResponseDto> serviceResponse = new ServiceResponse<>();
+        try{
+            EmployeeResponseDto employeeResponseDto = employeeService.addEmployee(employeeDto);
+            serviceResponse.setResponse(employeeResponseDto);
+            serviceResponse.setStatus(HttpStatus.CREATED);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return serviceResponse;
     }
 
     @GetMapping("/getEmployee")
@@ -26,13 +37,14 @@ public class EmployeeController {
         return new ServiceResponse<>(HttpStatus.OK,employeeService.getEmployeeById(id));
     }
 
-    @PutMapping("updateEmployee")
-    public ResponseEntity<?> updateEmployee(@RequestParam int id, EmployeeRequestDto employeeDto) {
+
+    @PutMapping("updateEmployee/{empId}")
+    public ResponseEntity<?> updateEmployee(@PathVariable("empId") int id, EmployeeRequestDto employeeDto) {
         return new ResponseEntity<>(employeeService.updateEmployee(id, employeeDto), HttpStatus.OK);
     }
 
     @DeleteMapping("deleteEmployee")
-    public ResponseEntity<?> deleteEmployee(@RequestParam int id) {
+    public ResponseEntity<?> deleteEmployee(@RequestParam("empId") int id) {
         return new ResponseEntity<>(employeeService.deleteEmployeeById(id), HttpStatus.OK);
     }
 }
