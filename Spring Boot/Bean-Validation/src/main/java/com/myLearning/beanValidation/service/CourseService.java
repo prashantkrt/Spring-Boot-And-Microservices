@@ -11,11 +11,11 @@ import java.util.stream.StreamSupport;
 
 @Service
 public interface CourseService {
-    public CourseRequestDto addCourse(CourseRequestDto courseRequestDto);
+    public CourseResponseDto addCourse(CourseRequestDto courseRequestDto);
 
-    public List<CourseRequestDto> getAllCourseList();
+    public List<CourseResponseDto> getAllCourseList();
 
-    public List<CourseResponseDto> getAllCourseById(Iterable<Long> id);
+    public List<CourseResponseDto> getAllCourseById(Iterable<Integer> id);
 
     public CourseResponseDto getCourseById(int id);
 
