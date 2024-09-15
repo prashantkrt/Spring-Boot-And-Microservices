@@ -11,11 +11,13 @@
         <module name="Restful-webservices" />
         <module name="CRUD-H2" />
         <module name="first-project-autoconfiguration" />
+        <module name="Bean-Validation" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Bean-Validation" options="-parameters" />
       <module name="CRUD-H2" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="dependecy-injection" options="-parameters" />
