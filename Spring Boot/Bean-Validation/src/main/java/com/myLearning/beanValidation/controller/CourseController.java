@@ -62,7 +62,7 @@ public class CourseController {
     }
 
     @PutMapping("updateCourse/{courseId}")
-    public ServiceResponse<CourseResponseDto> updateCourse(@PathVariable Integer courseId, @RequestBody CourseRequestDto courseDto) {
+    public ServiceResponse<CourseResponseDto> updateCourse(@PathVariable("courseId") Integer courseId, @RequestBody CourseRequestDto courseDto) {
         return new ServiceResponse<>(courseService.updateCourse(courseId, courseDto), HttpStatus.OK);
     }
 
