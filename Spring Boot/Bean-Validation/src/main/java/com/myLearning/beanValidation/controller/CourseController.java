@@ -13,6 +13,15 @@ import java.util.List;
 @RequestMapping("/")
 public class CourseController {
 
+    /*
+    * @NotNull ⇒ to say that a field must not be null
+    * @NotEmpty ⇒ to say that a field must not be empty like list []
+    * @NotBlank ⇒ combination of above two @NotNull + @NotEmpty
+    * @Min and @Max => to say that a numerical field must is only valid when it's value is above or below a certain value
+    * @Pattern => to say that a string is only valid when it matches a certain regular expression
+    * @Email => to say string must be valid email
+    * */
+
     private final CourseService courseService;
 
     public CourseController(CourseService courseService) {
