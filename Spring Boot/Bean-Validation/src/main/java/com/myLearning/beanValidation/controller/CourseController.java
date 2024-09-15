@@ -5,7 +5,6 @@ import com.myLearning.beanValidation.dto.CourseResponseDto;
 import com.myLearning.beanValidation.dto.ServiceResponse;
 import com.myLearning.beanValidation.service.CourseService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,26 +21,53 @@ public class CourseController {
 
     @PostMapping("addCourse")
     public ServiceResponse<CourseResponseDto> addCourse(@RequestBody CourseRequestDto courseDto) {
-        return null;
+        ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
+        try {
+            CourseResponseDto employeeResponseDto = courseService.addCourse(courseDto);
+            serviceResponse.setResponse(employeeResponseDto);
+            serviceResponse.setStatus(HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return serviceResponse;
     }
 
     @GetMapping("getAllCourseByIds")
-    public ServiceResponse<List<CourseResponseDto>> getAllCourses(@RequestParam("courseIdList") List<Long> courseIds) {
-        return null;
+    public ServiceResponse<List<CourseResponseDto>> getAllCourses(@RequestParam("courseIdList") Iterable<Integer> courseIds) {
+        ServiceResponse<List<CourseResponseDto>> serviceResponse = new ServiceResponse<>();
+        try {
+            List<CourseResponseDto> courseResponseDtoList = courseService.getAllCourseById(courseIds);
+            serviceResponse.setResponse(courseResponseDtoList);
+            serviceResponse.setStatus(HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return serviceResponse;
     }
 
     @GetMapping("getCourseById")
-    public ServiceResponse<CourseResponseDto> getCourseById(@RequestParam("courseId") Long id) {
-        return null;
+    public ServiceResponse<CourseResponseDto> getCourseById(@RequestParam("courseId") Integer id) {
+        ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
+        try {
+            CourseResponseDto courseResponseDto = courseService.getCourseById(id);
+            serviceResponse.setResponse(courseResponseDto);
+            serviceResponse.setStatus(HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return serviceResponse;
     }
 
-    @PutMapping("updateCourse")
-    public ServiceResponse<CourseResponseDto> updateCourse(@RequestBody CourseRequestDto courseDto) {
-        return null;
+    @PutMapping("updateCourse/{courseId}")
+    public ServiceResponse<CourseResponseDto> updateCourse(@PathVariable Integer courseId, @RequestBody CourseRequestDto courseDto) {
+        return new ServiceResponse<>(courseService.updateCourse(courseId, courseDto), HttpStatus.OK);
     }
 
     @DeleteMapping("deleteCourse")
-    public ServiceResponse<?> deleteCourse(@RequestParam("courseId") Long id) {
-        return new ServiceResponse<>();
+    public ServiceResponse<?> deleteCourse(@RequestParam("courseId") Integer id) {
+        return new ServiceResponse<>(courseService.deleteCourseById(id), HttpStatus.OK);
     }
 }

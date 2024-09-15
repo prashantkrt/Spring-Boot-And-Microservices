@@ -11,5 +11,5 @@ import org.springframework.http.HttpStatus;
 @Setter
 public class ServiceResponse<T> {
     private T response;
-    private HttpStatus httpStatus;
+    private HttpStatus status;
 }
