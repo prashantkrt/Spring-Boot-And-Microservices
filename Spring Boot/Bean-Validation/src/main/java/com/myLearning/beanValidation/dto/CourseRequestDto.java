@@ -18,4 +18,6 @@ public class CourseRequestDto {
     private String courseType;
     private Double price;
     private boolean isCertificateAvailable;
+    private String emailAddress;
+    private String mobileNumber;
 }

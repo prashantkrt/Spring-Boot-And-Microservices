@@ -56,6 +56,8 @@ public class CourseServiceImpl implements CourseService {
         course.setCertificateAvailable(courseRequestDto.isCertificateAvailable());
         course.setTraineeName(courseRequestDto.getTraineeName());
         course.setPrice(courseRequestDto.getPrice());
+        course.setMobileNumber(courseRequestDto.getMobileNumber());
+        course.setEmailAddress(courseRequestDto.getEmailAddress());
         Course updatedCourse = courseRepo.save(course);
         return AppUtils.getResponseFromCourse(updatedCourse);
     }

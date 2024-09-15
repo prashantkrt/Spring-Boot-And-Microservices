@@ -19,4 +19,6 @@ public class CourseResponseDto {
     private Double price;
     private boolean isCertificateAvailable;
     private String courseUniqueCode;
+    private String mobileNumber;
+    private String emailAddress;
 }
