@@ -4,6 +4,7 @@ import com.myLearning.beanValidation.dto.CourseRequestDto;
 import com.myLearning.beanValidation.dto.CourseResponseDto;
 import com.myLearning.beanValidation.dto.ServiceResponse;
 import com.myLearning.beanValidation.service.CourseService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class CourseController {
     }
 
     @PostMapping("addCourse")
-    public ServiceResponse<CourseResponseDto> addCourse(@RequestBody CourseRequestDto courseDto) {
+    public ServiceResponse<CourseResponseDto> addCourse(@RequestBody @Valid CourseRequestDto courseDto) {
         ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
         try {
             CourseResponseDto employeeResponseDto = courseService.addCourse(courseDto);
@@ -71,7 +72,7 @@ public class CourseController {
     }
 
     @PutMapping("updateCourse/{courseId}")
-    public ServiceResponse<CourseResponseDto> updateCourse(@PathVariable("courseId") Integer courseId, @RequestBody CourseRequestDto courseDto) {
+    public ServiceResponse<CourseResponseDto> updateCourse(@PathVariable("courseId") Integer courseId, @RequestBody @Valid CourseRequestDto courseDto) {
         return new ServiceResponse<>(courseService.updateCourse(courseId, courseDto), HttpStatus.OK);
     }
 

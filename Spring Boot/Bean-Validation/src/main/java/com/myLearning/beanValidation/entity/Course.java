@@ -1,44 +1,36 @@
 package com.myLearning.beanValidation.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 
 @Entity(name = "course")
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
-    @NotBlank(message = "Course Name cannot be null or empty")
     private String courseName;
     private String description;
-    @NotEmpty(message = "Trainer name should not be empty")
     private String traineeName;
-    @NotNull(message = "course duration should not be null")
     private String duration;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    @PastOrPresent(message = "Course Date can be past or present date only")
     private Date startDate;
-    @NotEmpty(message = "Course Type should not be empty or null")
     private String courseType;
     private Double price;
     private boolean isCertificateAvailable;
-    @Pattern(regexp = "^(0|91)?[6-9][0-9]{9}",message = "Please enter the valid mobile number")
     private String mobileNumber;
-    @Email(message = "Email address is invalid")
     private String emailAddress;
 }
 
