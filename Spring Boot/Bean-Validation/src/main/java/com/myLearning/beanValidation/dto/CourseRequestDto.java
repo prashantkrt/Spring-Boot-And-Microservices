@@ -12,6 +12,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class CourseRequestDto {
+
     @NotBlank(message = "Course Name cannot be null or empty")
     private String courseName;
 
@@ -28,7 +29,7 @@ public class CourseRequestDto {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @PastOrPresent(message = "Course Date can be past or present date only")
-//    @Past(message = "Only past date is allowed")
+    // @Past(message = "Only past date is allowed")
     private Date startDate;
 
     @NotEmpty(message = "Course Type should not be empty or null")
@@ -37,7 +38,6 @@ public class CourseRequestDto {
     @Min(value = 1500, message = "Price value should be more than 1500/-")
     @Max(value = 5000, message = "Price value should not be more than 5000/-")
     private Double price;
-
 
     private boolean isCertificateAvailable;
 
