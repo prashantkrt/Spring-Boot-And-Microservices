@@ -25,6 +25,7 @@ public class CourseController {
 
     private final CourseService courseService;
 
+    // constructor injection
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
     }
