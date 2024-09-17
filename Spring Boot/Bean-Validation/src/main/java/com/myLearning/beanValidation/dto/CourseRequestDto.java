@@ -1,6 +1,7 @@
 package com.myLearning.beanValidation.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.myLearning.beanValidation.annotation.CourseTypeValidation;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -33,6 +34,7 @@ public class CourseRequestDto {
     private Date startDate;
 
     @NotEmpty(message = "Course Type should not be empty or null")
+    @CourseTypeValidation(message = "Course type should be live or recording")
     private String courseType;
 
     @Min(value = 1500, message = "Price value should be more than 1500/-")
