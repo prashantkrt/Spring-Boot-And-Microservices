@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/Spring Boot/CRUD-H2/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Bean-Validation/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Exception-handling/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot/Logging/pom.xml" />
       </list>
     </option>
   </component>
