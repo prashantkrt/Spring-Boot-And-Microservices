@@ -66,17 +66,16 @@ public class CourseController {
         return serviceResponse;
     }
 
+    //removed try/catch so that it can be handled by global exception handler
+    //@Pattern(regexp = "^[0-9]{1,10}$", message = "Course Id input should be between 1 to 10 digits only")
     @GetMapping("getCourseById")
     public ServiceResponse<CourseResponseDto> getCourseById(@RequestParam("courseId") Integer id) {
         ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
-        try {
-            CourseResponseDto courseResponseDto = courseService.getCourseById(id);
-            serviceResponse.setResponse(courseResponseDto);
-            serviceResponse.setStatus(HttpStatus.CREATED);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
+        CourseResponseDto courseResponseDto = courseService.getCourseById(id);
+        serviceResponse.setResponse(courseResponseDto);
+        serviceResponse.setStatus(HttpStatus.CREATED);
+
         return serviceResponse;
     }
 
