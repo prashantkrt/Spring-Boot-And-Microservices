@@ -16,8 +16,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class CourseController {
+    
     // http://localhost:8084/swagger-ui/index.html
+
     private final CourseService courseService;
+
     Logger logger = LoggerFactory.getLogger(CourseController.class);
 
     public CourseController(CourseService courseService) {
@@ -68,7 +71,6 @@ public class CourseController {
         serviceResponse.setResponse(courseResponseDto);
         serviceResponse.setStatus(HttpStatus.OK);
         logger.info("Exiting CourseController:updateCourse api");
-        //return new ServiceResponse<>(courseService.updateCourse(courseId, courseDto), HttpStatus.OK);
         return serviceResponse;
     }
 
@@ -77,15 +79,4 @@ public class CourseController {
         logger.info("Inside CourseController:deleteCourse api");
         return new ServiceResponse<>(courseService.deleteCourseById(id), HttpStatus.OK);
     }
-
-    @GetMapping("log")
-    public String loggingLevel() {
-        logger.trace("This is a TRACE message"); // more details about the internal flow in depth from start
-        logger.debug("This is a DEBUG message"); // Information of the flow of the system
-        logger.info("This is an INFO message"); // events occurring at runtime
-        logger.warn("This is a WARN message"); // gives the warnings for the errors caused by deprecated APIs
-        logger.error("This is an ERROR message"); // Runtime error, when ever runtime error comes and to track it
-        return "This is a demo api for logging";
-    }
-
 }
