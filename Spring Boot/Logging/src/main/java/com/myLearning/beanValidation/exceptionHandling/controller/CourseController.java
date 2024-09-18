@@ -5,6 +5,8 @@ import com.myLearning.beanValidation.exceptionHandling.dto.CourseResponseDto;
 import com.myLearning.beanValidation.exceptionHandling.dto.ServiceResponse;
 import com.myLearning.beanValidation.exceptionHandling.service.CourseService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,78 +16,73 @@ import java.util.List;
 @RequestMapping("/")
 public class CourseController {
 
-    /*
-     * @NotNull ⇒ to say that a field must not be null
-     * @NotEmpty ⇒ to say that a field must not be empty like list []
-     * @NotBlank ⇒ combination of above two @NotNull + @NotEmpty
-     * @Min and @Max => to say that a numerical field must is only valid when it's value is above or below a certain value
-     * @Pattern => to say that a string is only valid when it matches a certain regular expression
-     * @Email => to say string must be valid email
-     * */
+    Logger logger = LoggerFactory.getLogger(CourseController.class);
 
     private final CourseService courseService;
 
-    // constructor injection
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
     }
 
-    /*
-     * if we have the global exception handler then there is no sense to use try catch to handle the exception
-     * I have used here just for learning purpose
-     * */
     @PostMapping("addCourse")
     public ServiceResponse<CourseResponseDto> addCourse(@RequestBody @Valid CourseRequestDto courseDto) {
         ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
-        try {
-            CourseResponseDto employeeResponseDto = courseService.addCourse(courseDto);
-            serviceResponse.setResponse(employeeResponseDto);
-            serviceResponse.setStatus(HttpStatus.CREATED);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        CourseResponseDto employeeResponseDto = courseService.addCourse(courseDto);
+        serviceResponse.setResponse(employeeResponseDto);
+        serviceResponse.setStatus(HttpStatus.CREATED);
         return serviceResponse;
     }
 
-    /*
-     * if we have the global exception handler then there is no sense to use try catch to handle the exception
-     * I have used here just for learning purpose
-     * */
+
     @GetMapping("getAllCourseByIds")
     public ServiceResponse<List<CourseResponseDto>> getAllCourses(@RequestParam("courseIdList") Iterable<Integer> courseIds) {
         ServiceResponse<List<CourseResponseDto>> serviceResponse = new ServiceResponse<>();
-        try {
-            List<CourseResponseDto> courseResponseDtoList = courseService.getAllCourseById(courseIds);
-            serviceResponse.setResponse(courseResponseDtoList);
-            serviceResponse.setStatus(HttpStatus.CREATED);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            serviceResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        List<CourseResponseDto> courseResponseDtoList = courseService.getAllCourseById(courseIds);
+        serviceResponse.setResponse(courseResponseDtoList);
+        serviceResponse.setStatus(HttpStatus.CREATED);
         return serviceResponse;
     }
 
-    //removed try/catch so that it can be handled by global exception handler
-    //@Pattern(regexp = "^[0-9]{1,10}$", message = "Course Id input should be between 1 to 10 digits only")
     @GetMapping("getCourseById")
     public ServiceResponse<CourseResponseDto> getCourseById(@RequestParam("courseId") Integer id) {
         ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
-
         CourseResponseDto courseResponseDto = courseService.getCourseById(id);
         serviceResponse.setResponse(courseResponseDto);
         serviceResponse.setStatus(HttpStatus.CREATED);
-
         return serviceResponse;
     }
 
     @PutMapping("updateCourse/{courseId}")
     public ServiceResponse<CourseResponseDto> updateCourse(@PathVariable("courseId") Integer courseId, @RequestBody @Valid CourseRequestDto courseDto) {
-        return new ServiceResponse<>(courseService.updateCourse(courseId, courseDto), HttpStatus.OK);
+        ServiceResponse<CourseResponseDto> serviceResponse = new ServiceResponse<>();
+        CourseResponseDto courseResponseDto = courseService.updateCourse(courseId, courseDto);
+        serviceResponse.setResponse(courseResponseDto);
+        serviceResponse.setStatus(HttpStatus.OK);
+        //return new ServiceResponse<>(courseService.updateCourse(courseId, courseDto), HttpStatus.OK);
+        return serviceResponse;
     }
 
     @DeleteMapping("deleteCourse")
     public ServiceResponse<?> deleteCourse(@RequestParam("courseId") Integer id) {
         return new ServiceResponse<>(courseService.deleteCourseById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("log")
+    public String loggingLevel() {
+        //        different logging levels: - s
+        //       TRACE < DEBUG < INFO < WARN < ERROR < FATAL(log4j)< OFF
+        //       1. TRACE (most detailed)
+        //       2. DEBUG (widely used) recommended
+        //       3. INFO (widely used) recommended
+        //       4. WARN
+        //       5. ERROR (widely used)
+        //       6. FATAL (most critical)
+        //       7. OFF (disables logging)
+        logger.trace("This is a TRACE message"); // more details about the internal flow in depth from start
+        logger.debug("This is a DEBUG message"); // Information of the flow of the system
+        logger.info("This is an INFO message"); // events occurring at runtime
+        logger.warn("This is a WARN message"); // gives the warnings for the errors caused by deprecated APIs
+        logger.error("This is an ERROR message"); // Runtime error, when ever runtime error comes and to track it
+        return "This is a demo api for logging";
     }
 }
