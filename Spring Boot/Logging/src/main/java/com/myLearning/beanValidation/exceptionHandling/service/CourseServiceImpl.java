@@ -29,6 +29,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponseDto addCourse(CourseRequestDto courseRequestDto) {
         logger.info("CourseService::addCourse method execution started");
         try {
+            logger.debug("CourseService::addCourse method input -> {}",courseRequestDto.toString());
             Course course = AppUtils.getCourseFromDto(courseRequestDto);
             course = courseRepo.save(course);
             logger.debug("Course entity from the Database -> {}", course.toString());
@@ -39,7 +40,7 @@ public class CourseServiceImpl implements CourseService {
             return AppUtils.getResponseFromCourse(course);
         } catch (Exception e) {
             logger.error("CourseService::addCourse exception occur while persisting the course object to Database ->{}", e.getMessage());
-            throw new CourseServiceBusinessException(e.getMessage());
+            throw new CourseServiceBusinessException("CourseService::addCourse method failed "+e.getMessage());
         }
     }
 
@@ -57,7 +58,7 @@ public class CourseServiceImpl implements CourseService {
             }).collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("CourseService::getAllCourseList exception occur while fetching the Course object from Database ->{}", e.getMessage());
-            throw new CourseServiceBusinessException(e.getMessage());
+            throw new CourseServiceBusinessException("CourseService::getAllCourseList method failed  "+e.getMessage());
         }
     }
 
@@ -70,7 +71,7 @@ public class CourseServiceImpl implements CourseService {
             return list.stream().map(AppUtils::getResponseFromCourse).collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("CourseService::getAllCourseById exception occur while fetching the Course object from Database ->{}", e.getMessage());
-            throw new CourseServiceBusinessException(e.getMessage());
+            throw new CourseServiceBusinessException("CourseService::getAllCourseById method failed "+e.getMessage());
         }
     }
 
@@ -78,12 +79,13 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponseDto getCourseById(int id) {
         logger.info("CourseService::getCourseById method execution started");
         try {
+            logger.debug("CourseService::getCourseById method input ->{}",id);
             Course course = courseRepo.findById(id).orElseThrow(() -> new CourseServiceBusinessException("No course with the given Id"));
             logger.info("CourseService::getCourseById method execution ended");
             return AppUtils.getResponseFromCourse(course);
         } catch (Exception e) {
             logger.error("CourseService::getCourseById exception occur while fetching the Course object from Database ->{}", e.getMessage());
-            throw new CourseServiceBusinessException(e.getMessage());
+            throw new CourseServiceBusinessException("CourseService::getCourseById method failed "+e.getMessage());
         }
     }
 
@@ -91,6 +93,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponseDto updateCourse(int id, CourseRequestDto courseRequestDto) {
         try {
             logger.info("CourseService::updateCourse method execution started");
+            logger.debug("CourseService::updateCourse method input ->{}",courseRequestDto.toString());
             Course course = courseRepo.findById(id).orElseThrow(() -> new CourseServiceBusinessException("No course with the given Id"));
             logger.debug("CourseService::updateCourse method Course from Database {}", course.toString());
             course.setCourseType(courseRequestDto.getCourseType());
@@ -109,7 +112,7 @@ public class CourseServiceImpl implements CourseService {
             return courseResponseDto;
         } catch (Exception e) {
             logger.error("CourseService::updateCourse exception occur while updating the Course object to Database ->{}", e.getMessage());
-            throw new CourseServiceBusinessException(e.getMessage());
+            throw new CourseServiceBusinessException("CourseService::updateCourse method failed "+e.getMessage());
         }
     }
 
@@ -117,12 +120,13 @@ public class CourseServiceImpl implements CourseService {
     public String deleteCourseById(int id) {
         try {
             logger.info("CourseService::deleteCourseById method execution started");
+            logger.debug("CourseService::deleteCourseById method input {}",id);
             courseRepo.deleteById(id);
             logger.info("CourseService::deleteCourseById method execution ended");
             return "Deleted course with the given Id  " + id;
         } catch (Exception e) {
             logger.error("CourseService::deleteCourseById exception occur while deleting the Course object from Database ->{}", e.getMessage());
-            throw new CourseServiceBusinessException(e.getMessage());
+            throw new CourseServiceBusinessException("CourseService::deleteCourseById method failed "+e.getMessage());
         }
     }
 }
