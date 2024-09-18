@@ -16,8 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class CourseController {
-    
-    // http://localhost:8084/swagger-ui/index.html
+
+    // http://localhost:8084/swagger-ui.html
+    // http://localhost:8084/v3/api-docs
 
     private final CourseService courseService;
 
