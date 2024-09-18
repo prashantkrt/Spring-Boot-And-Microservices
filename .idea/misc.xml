@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/Spring Boot/Bean-Validation/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Exception-handling/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Logging/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot/Rest-Endpoint-Documentation-SwaggerAPI3/pom.xml" />
       </list>
     </option>
   </component>

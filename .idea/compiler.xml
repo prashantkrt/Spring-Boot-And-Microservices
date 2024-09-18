@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Logging" />
+        <module name="Rest-Endpoint-Documentation" />
         <module name="CRUD-H2" />
         <module name="Exception-Handling" />
         <module name="dependecy-injection" />
@@ -23,6 +24,7 @@
       <module name="CRUD-H2" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
       <module name="Logging" options="-parameters" />
+      <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="dependecy-injection" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
