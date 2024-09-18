@@ -20,11 +20,11 @@ public class ApplicationGlobalExceptionHandler {
     // This exception comes when we have passed the bad request for the field
     // MethodArgumentNotValidException
     // any bad request will come up here as all comes under MethodArgumentNotValidException
-    // like yeh tab aaega  "courseType": "kk" ( it should be Live or Recording) jab courseTypeValidation fail hoga
+    // like yeh tab aaega "courseType": "kk" (it should be Live or Recording) jab courseTypeValidation fail hoga
 
     // this is the way to handle the Validation exception which we use such as @NotNull, @NotEmpty, @AntValidation...
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST) // if not given then 200 Ok will come
+    @ResponseStatus(HttpStatus.BAD_REQUEST) // if not given, then 200 Ok will come
     public ServiceResponse<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         ServiceResponse<?> response = new ServiceResponse<>();
         List<ErrorDto> errorDtoList = new ArrayList<>();

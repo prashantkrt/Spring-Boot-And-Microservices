@@ -17,6 +17,18 @@ import java.util.stream.Collectors;
 @Service
 public class CourseServiceImpl implements CourseService {
 
+    // by default in springBoot, only Info, Warn and error is enabled
+    //        different logging levels:-
+    //       -> -> -> -> ....
+    //       TRACE < DEBUG < INFO < WARN < ERROR < FATAL(log4j)< OFF
+    //       1. TRACE (most detailed)
+    //       2. DEBUG (widely used) recommended
+    //       3. INFO (widely used) recommended
+    //       4. WARN
+    //       5. ERROR (widely used)
+    //       6. FATAL (most critical)
+    //       7. OFF (disables logging)
+
     private final CourseRepo courseRepo;
 
     Logger logger = LoggerFactory.getLogger(CourseServiceImpl.class);
