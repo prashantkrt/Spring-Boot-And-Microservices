@@ -41,6 +41,7 @@ public class CourseRequestDto {
     @Max(value = 5000, message = "Price value should not be more than 5000/-")
     private Double price;
 
+    //optional
     private boolean isCertificateAvailable;
 
     @Pattern(regexp = "^(0|91)?[6-9][0-9]{9}", message = "Please enter the valid mobile number")
