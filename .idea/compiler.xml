@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Exception-Handling" />
         <module name="dependecy-injection" />
         <module name="Restful-webservices" />
         <module name="CRUD-H2" />
@@ -19,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Bean-Validation" options="-parameters" />
       <module name="CRUD-H2" options="-parameters" />
+      <module name="Exception-Handling" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="dependecy-injection" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
