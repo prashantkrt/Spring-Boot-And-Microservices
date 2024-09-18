@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class CourseController {
-
+    // http://localhost:8084/swagger-ui/index.html
     private final CourseService courseService;
     Logger logger = LoggerFactory.getLogger(CourseController.class);
 
