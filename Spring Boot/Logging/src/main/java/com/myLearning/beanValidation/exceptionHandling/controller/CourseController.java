@@ -16,9 +16,8 @@ import java.util.List;
 @RequestMapping("/")
 public class CourseController {
 
-    Logger logger = LoggerFactory.getLogger(CourseController.class);
-
     private final CourseService courseService;
+    Logger logger = LoggerFactory.getLogger(CourseController.class);
 
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
@@ -70,6 +69,7 @@ public class CourseController {
     @GetMapping("log")
     public String loggingLevel() {
         //        different logging levels: - s
+        //       -> -> -> -> ....
         //       TRACE < DEBUG < INFO < WARN < ERROR < FATAL(log4j)< OFF
         //       1. TRACE (most detailed)
         //       2. DEBUG (widely used) recommended
@@ -84,5 +84,20 @@ public class CourseController {
         logger.warn("This is a WARN message"); // gives the warnings for the errors caused by deprecated APIs
         logger.error("This is an ERROR message"); // Runtime error, when ever runtime error comes and to track it
         return "This is a demo api for logging";
+
+        /*
+        * When the logging level is set to DEBUG,
+        * it will capture log messages of that level and all higher-severity levels.
+        *
+        * What Will Be Captured:
+           DEBUG: Detailed information intended for diagnosing issues.
+           INFO: General operational messages that confirm the application is working as expected.
+           WARN: Warnings about potentially harmful situations.
+           ERROR: Error events that might still allow the application to continue running.
+           FATAL: Critical issues that could lead to an application crash or failure.
+
+         What Will Not Be Captured:
+            TRACE (if available): More granular, verbose logging meant for deeper troubleshooting will not be captured since it is lower than DEBUG.
+        * */
     }
 }
