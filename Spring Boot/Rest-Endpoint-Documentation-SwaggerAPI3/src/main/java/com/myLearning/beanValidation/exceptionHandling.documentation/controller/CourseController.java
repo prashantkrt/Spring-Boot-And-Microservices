@@ -2,20 +2,27 @@ package com.myLearning.beanValidation.exceptionHandling.documentation.controller
 
 import com.myLearning.beanValidation.exceptionHandling.documentation.dto.CourseRequestDto;
 import com.myLearning.beanValidation.exceptionHandling.documentation.dto.CourseResponseDto;
+import com.myLearning.beanValidation.exceptionHandling.documentation.dto.ErrorDto;
 import com.myLearning.beanValidation.exceptionHandling.documentation.dto.ServiceResponse;
 import com.myLearning.beanValidation.exceptionHandling.documentation.service.CourseService;
 import com.myLearning.beanValidation.exceptionHandling.documentation.utils.AppUtils;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//tagging each controller type by its tag ⇒ this comes under CourseController
+@Tag(
+        name = "Course Controller",
+        description = "CRUD RestApi to create , Read , Update and Delete"
+)
 @RestController
 @RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
@@ -51,8 +58,21 @@ public class CourseController {
             summary = "fetching the course details using course id list as input",
             description = "This api fetch the course details from H2 DB "
     )
+    // define your own api response provide the details with code ,description etc
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP STATUS OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP STATUS INTERNAL SERVER ERROR"
+//                    content = @Content(schema = @Schema(implementation = ErrorDto.class))
+            )
+    }
+    )
     @GetMapping("getAllCourseByIds")
-    public ServiceResponse<List<CourseResponseDto>> getAllCourses(@RequestParam(value = "courseIdList",required = true) Iterable<Integer> courseIds) {
+    public ServiceResponse<List<CourseResponseDto>> getAllCourses(@RequestParam(value = "courseIdList", required = true) Iterable<Integer> courseIds) {
         log.info("Inside CourseController:getAllCourses api");
         log.info("CourseController:getAllCourses Request Payload -> {} ", courseIds.toString());
         ServiceResponse<List<CourseResponseDto>> serviceResponse = new ServiceResponse<>();
@@ -63,6 +83,21 @@ public class CourseController {
         return serviceResponse;
     }
 
+
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "HTTP STATUS CREATED"
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "HTTP STATUS BAD REQUEST"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP STATUS INTERNAL SERVER ERROR"
+            )
+    })
     @Operation(
             summary = "fetching the course details using course id as input",
             description = "This api fetch the course details from H2 DB "

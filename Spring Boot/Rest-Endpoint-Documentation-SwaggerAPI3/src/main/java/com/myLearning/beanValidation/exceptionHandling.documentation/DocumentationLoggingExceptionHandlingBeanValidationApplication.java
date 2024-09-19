@@ -29,7 +29,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         ),
         externalDocs = @ExternalDocumentation(
                 description = "Course RestAPI Documentation details",
-                url = "https://prashantkrt.github.io/"),
+                url = "https://prashantkrt.github.io/"
+        ),
         servers = {
                 @Server(url = "http://localhost:8084/", description = "Base server url"),
                 @Server(url = "http://localhost:8084/swagger-ui.html", description = "Swagger UI"),
