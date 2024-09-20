@@ -12,7 +12,14 @@
         <option value="$PROJECT_DIR$/Spring Boot/Exception-handling/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Logging/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Rest-Endpoint-Documentation-SwaggerAPI3/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/Course-Service-Producer/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
