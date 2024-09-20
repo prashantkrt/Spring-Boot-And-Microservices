@@ -9,13 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
-        <module name="Course-Service" />
+        <module name="Course-Service-Producer" />
         <module name="CRUD-H2" />
         <module name="Exception-Handling" />
-        <module name="dependecy-injection" />
         <module name="Restful-webservices" />
         <module name="first-project-autoconfiguration" />
+        <module name="Dependency-injection" />
         <module name="Bean-Validation" />
+        <module name="Faculty-Service-Consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,12 +28,13 @@
       <module name="Bean-Validation" options="-parameters" />
       <module name="CRUD-H2" options="-parameters" />
       <module name="Consuming-Restful-Web-Services" options="-parameters" />
-      <module name="Course-Service" options="-parameters" />
+      <module name="Course-Service-Producer" options="-parameters" />
+      <module name="Dependency-injection" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
+      <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
-      <module name="dependecy-injection" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
     </option>
   </component>

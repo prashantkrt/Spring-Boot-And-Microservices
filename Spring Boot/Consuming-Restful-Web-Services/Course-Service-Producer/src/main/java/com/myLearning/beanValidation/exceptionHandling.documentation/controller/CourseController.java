@@ -2,7 +2,6 @@ package com.myLearning.beanValidation.exceptionHandling.documentation.controller
 
 import com.myLearning.beanValidation.exceptionHandling.documentation.dto.CourseRequestDto;
 import com.myLearning.beanValidation.exceptionHandling.documentation.dto.CourseResponseDto;
-import com.myLearning.beanValidation.exceptionHandling.documentation.dto.ErrorDto;
 import com.myLearning.beanValidation.exceptionHandling.documentation.dto.ServiceResponse;
 import com.myLearning.beanValidation.exceptionHandling.documentation.service.CourseService;
 import com.myLearning.beanValidation.exceptionHandling.documentation.utils.AppUtils;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//tagging each controller type by its tag ⇒ this comes under CourseController
 @Tag(
         name = "Course Controller",
         description = "CRUD RestApi to create , Read , Update and Delete"
@@ -27,9 +25,6 @@ import java.util.List;
 @RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 public class CourseController {
-
-    // http://localhost:8084/swagger-ui.html
-    // http://localhost:8084/v3/api-docs
 
     private final CourseService courseService;
 
@@ -58,7 +53,7 @@ public class CourseController {
             summary = "fetching the course details using course id list as input",
             description = "This api fetch the course details from H2 DB "
     )
-    // define your own api response provide the details with code ,description etc
+
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",

@@ -32,9 +32,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 url = "https://prashantkrt.github.io/"
         ),
         servers = {
-                @Server(url = "http://localhost:8084/", description = "Base server url"),
-                @Server(url = "http://localhost:8084/swagger-ui.html", description = "Swagger UI"),
-                @Server(url = "http://localhost:8084/v3/api-docs", description = "App documents")
+                @Server(url = "http://localhost:8085/", description = "Base server url"),
+                @Server(url = "http://localhost:8085/swagger-ui.html", description = "Swagger UI"),
+                @Server(url = "http://localhost:8085/v3/api-docs", description = "App documents")
         }
 )
 public class CourseServiceProducerApplication {
