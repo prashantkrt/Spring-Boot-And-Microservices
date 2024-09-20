@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/Course-Service-Producer/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/Faculty-Service-Consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot/Restful-webservices/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

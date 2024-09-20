@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spring Boot/CRUD-H2/CRUD-H2.iml" filepath="$PROJECT_DIR$/Spring Boot/CRUD-H2/CRUD-H2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Spring Boot/Restful webservices/Restful-webservices.iml" filepath="$PROJECT_DIR$/Spring Boot/Restful webservices/Restful-webservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring Boot and Microservices .iml" filepath="$PROJECT_DIR$/.idea/Spring Boot and Microservices .iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring Boot/CRUD-H2/src/main/main.iml" filepath="$PROJECT_DIR$/Spring Boot/CRUD-H2/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring Boot/CRUD-H2/src/test/test.iml" filepath="$PROJECT_DIR$/Spring Boot/CRUD-H2/src/test/test.iml" />
