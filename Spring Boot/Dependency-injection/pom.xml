@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.myLearning.dependecnyInjection</groupId>
-    <artifactId>dependecy-injection</artifactId>
+    <artifactId>Dependency-injection</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dependency-injection</name>
     <description>dependency-injection</description>
