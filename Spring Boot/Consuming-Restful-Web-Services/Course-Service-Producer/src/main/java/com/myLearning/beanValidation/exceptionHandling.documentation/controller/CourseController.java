@@ -49,7 +49,7 @@ public class CourseController {
         return serviceResponse;
     }
 
-    @GetMapping
+    @GetMapping("/fetchAllCourses")
     public ServiceResponse<List<CourseResponseDto>> findALlCourse(){
         return new ServiceResponse<>(courseService.viewAllCourses(), HttpStatus.OK);
     }

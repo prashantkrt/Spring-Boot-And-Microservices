@@ -18,13 +18,13 @@ public class FacultyService {
     @Autowired
     private RestTemplate restTemplate;
 
-    //consuming the restful web services, of Course-Service Application
+    // consuming the restful web services, of Course-Service Application
     public ServiceResponse<CourseResponseDto> addNewCourseToDashboard(CourseRequestDto courseRequestDto) {
         return restTemplate.postForObject(BASE_URL + "addCourse", courseRequestDto, ServiceResponse.class);
     }
 
     public ServiceResponse<List<CourseResponseDto>> fetchAllCoursesFromDashboard() {
-        return restTemplate.getForObject(BASE_URL + "fetchAllCourses", ServiceResponse.class);
+        return restTemplate.getForObject(BASE_URL + "/fetchAllCourses", ServiceResponse.class);
     }
 
     // For any path variable request
@@ -36,7 +36,7 @@ public class FacultyService {
         // return restTemplate.getForObject(BASE_URL + "getCourseById/{courseId}",ServiceResponse.class, courseId);
 
         // Using String Concatenation:
-        return restTemplate.getForObject(BASE_URL + "fetchCourseById/" + courseId, ServiceResponse.class);
+        return restTemplate.getForObject(BASE_URL + "/getCourse" + courseId, ServiceResponse.class);
     }
 
 
@@ -80,24 +80,27 @@ public class FacultyService {
         *
         *
         * */
+        //concatenation way
+        //return restTemplate.getForObject(BASE_URL + "getCourseById?courseId="+courseId ,ServiceResponse.class);
         return restTemplate.getForObject(BASE_URL + "getCourseById?courseId={courseId}", ServiceResponse.class, courseId);
     }
 
-    public void updateCourseInDashboard(int courseId,CourseRequestDto courseRequestDTO){
+    public void updateCourseInDashboard(int courseId, CourseRequestDto courseRequestDTO) {
         // put has the return type as void
-        restTemplate.put(BASE_URL+"updateCourse/"+courseId, courseRequestDTO);
+        restTemplate.put(BASE_URL + "updateCourse/" + courseId, courseRequestDTO);
     }
 
-    public void deleteCourseFromDashboard(int courseId){
+    public void deleteCourseFromDashboard(int courseId) {
         // same for delete, it doesn't return anything
-        restTemplate.delete(BASE_URL+"deleteCourse&courseId={courseId}",courseId);
+        restTemplate.delete(BASE_URL + "deleteCourse?courseId={courseId}", courseId);
     }
 
     // Taken from GPT for learning perspective
     // For RestTemplate, Exploring.
     // My own way
     // through this approach, we can return
-    public ServiceResponse<CourseResponseDto> updateCourseToDashboard(Integer id, CourseRequestDto courseRequestDto) {
+
+    public ServiceResponse<CourseResponseDto> updateCourseToDashboard2(Integer id, CourseRequestDto courseRequestDto) {
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-Type", "application/json");
@@ -106,14 +109,37 @@ public class FacultyService {
         HttpEntity<CourseRequestDto> requestEntity = new HttpEntity<>(courseRequestDto, headers);
 
         // Make the PUT request and get the response as an Employee object
-        ResponseEntity<CourseResponseDto> responseEntity = restTemplate.exchange(
-                BASE_URL+"updateCourse/",
+        ResponseEntity<ServiceResponse> responseEntity = restTemplate.exchange(
+                BASE_URL + "updateCourse/" + id,
                 HttpMethod.PUT,
                 requestEntity,
-                CourseResponseDto.class,
-                id
+                ServiceResponse.class
         );
-        return new ServiceResponse<>(responseEntity.getBody(), HttpStatus.resolve(responseEntity.getStatusCode().value()));
+        ServiceResponse<CourseResponseDto> serviceResponse =  responseEntity.getBody();
+        return serviceResponse;
+    }
+
+
+
+    public ServiceResponse<?> deleteCourseToDashboard2(Integer id) {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Content-Type", "application/json");
+
+        // Create HttpEntity that includes the request body and headers
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        // Make the PUT request and get the response as an Employee object
+        ResponseEntity<?> responseEntity = restTemplate.exchange(
+                BASE_URL + "deleteCourse?courseId=" + id, // Ensure the URL is correct
+                HttpMethod.DELETE,
+                requestEntity,
+                ServiceResponse.class
+        );
+        ServiceResponse<?> serviceResponse = (ServiceResponse<?>) responseEntity.getBody();
+        serviceResponse.setStatus(HttpStatus.resolve(responseEntity.getStatusCode().value()));
+        return serviceResponse;
+
     }
 
 }

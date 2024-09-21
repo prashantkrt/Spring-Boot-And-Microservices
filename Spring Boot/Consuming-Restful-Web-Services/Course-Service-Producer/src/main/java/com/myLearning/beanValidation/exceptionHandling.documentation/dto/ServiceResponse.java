@@ -18,5 +18,7 @@ public class ServiceResponse<T> {
     private List<ErrorDto> error;
 
     public ServiceResponse(T response, HttpStatus status) {
+        this.response = response;
+        this.status = status;
     }
 }
