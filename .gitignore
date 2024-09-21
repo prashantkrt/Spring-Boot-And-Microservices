@@ -1,0 +1,3 @@
+app.log
+*.log
+app.log.*
