@@ -34,3 +34,4 @@ build/
 
 app.log
 *.log
+app.log.*
