@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
+        <module name="Spring-Boot-Actuator" />
         <module name="Course-Service-Producer" />
         <module name="CRUD-H2" />
         <module name="Exception-Handling" />
@@ -35,6 +36,7 @@
       <module name="Logging" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
+      <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
     </option>
   </component>
