@@ -7,12 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorDto {
-    private String fieldName;
-    private String errorMessage;
-
-    public ErrorDto(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
+public class ErrorResponseDTO {
+    private String message;
+    private int statusCode;
+    private String timestamp;
 }
 
