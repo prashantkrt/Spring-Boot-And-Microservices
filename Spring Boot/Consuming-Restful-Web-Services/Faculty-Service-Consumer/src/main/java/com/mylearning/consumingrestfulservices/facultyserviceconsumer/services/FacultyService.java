@@ -84,15 +84,19 @@ public class FacultyService {
     }
 
     public void updateCourseInDashboard(int courseId,CourseRequestDto courseRequestDTO){
+        // put has the return type as void
         restTemplate.put(BASE_URL+"updateCourse/"+courseId, courseRequestDTO);
     }
 
     public void deleteCourseFromDashboard(int courseId){
+        // same for delete, it doesn't return anything
         restTemplate.delete(BASE_URL+"deleteCourse&courseId={courseId}",courseId);
     }
 
     // Taken from GPT for learning perspective
-    // For RestTemplate, we don't have direct Put so taken from gpt
+    // For RestTemplate, Exploring.
+    // My own way
+    // through this approach, we can return
     public ServiceResponse<CourseResponseDto> updateCourseToDashboard(Integer id, CourseRequestDto courseRequestDto) {
 
         HttpHeaders headers = new HttpHeaders();
@@ -103,7 +107,7 @@ public class FacultyService {
 
         // Make the PUT request and get the response as an Employee object
         ResponseEntity<CourseResponseDto> responseEntity = restTemplate.exchange(
-                BASE_URL,
+                BASE_URL+"updateCourse/",
                 HttpMethod.PUT,
                 requestEntity,
                 CourseResponseDto.class,
