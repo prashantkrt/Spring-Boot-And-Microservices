@@ -127,4 +127,10 @@ public class CourseServiceImpl implements CourseService {
             throw new CourseServiceBusinessException("CourseService::deleteCourseById method failed " + e.getMessage());
         }
     }
+
+    @Override
+    public List<CourseResponseDto> viewAllCourses() {
+        List<Course> courses = courseRepo.findAll();
+        return courses.stream().map(AppUtils::getResponseFromCourse).collect(Collectors.toList());
+    }
 }

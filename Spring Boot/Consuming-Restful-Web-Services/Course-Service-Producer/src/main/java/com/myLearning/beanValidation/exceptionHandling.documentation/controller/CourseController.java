@@ -49,6 +49,11 @@ public class CourseController {
         return serviceResponse;
     }
 
+    @GetMapping
+    public ServiceResponse<List<CourseResponseDto>> findALlCourse(){
+        return new ServiceResponse<>(courseService.viewAllCourses(), HttpStatus.OK);
+    }
+
     @Operation(
             summary = "fetching the course details using course id list as input",
             description = "This api fetch the course details from H2 DB "

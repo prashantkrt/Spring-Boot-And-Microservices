@@ -20,4 +20,6 @@ public interface CourseService {
     public CourseResponseDto updateCourse(int id, CourseRequestDto employeeDto);
 
     public String deleteCourseById(int id);
+
+    public List<CourseResponseDto> viewAllCourses();
 }
