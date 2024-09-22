@@ -19,6 +19,9 @@ public class FeatureReleasesEndPoint {
     // selector is similar to PathVariable in RestController
     // Endpoint doesn't support the complex object that's why we are passing it as String param
 
+    //  Using postman api
+    //  requestBody { "features": "Hello World" }
+    //  releases/{crq}/{releaseDt}
     @WriteOperation //POST
     public void addNewReleaseInfo(@Selector String crq, @Selector String releaseDt, String features){
         ProdRelease release = ProdRelease.builder().crq(crq)
@@ -27,17 +30,21 @@ public class FeatureReleasesEndPoint {
         prodReleases.add(release);
     }
 
+    // then fetch from actuator
+    //   /releases
     @ReadOperation //GET
     public List<ProdRelease> getAllReleases(){
         return prodReleases;
     }
 
     @ReadOperation //GET ⇒ By change request number
+    //   /releases/{crq}
     public ProdRelease getReleaseByCRQ(@Selector String crq){
         return prodReleases.stream().filter(prodRelease -> prodRelease.getCrq().equals(crq))
                 .findAny().get();
     }
 
+    //  /releases/{crq}
     @DeleteOperation //DELETE
     public void deleteRelease(@Selector String crq){
         prodReleases.remove(getReleaseByCRQ(crq));
