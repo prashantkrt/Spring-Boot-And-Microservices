@@ -16,6 +16,7 @@
         <module name="Exception-Handling" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
+        <module name="Creating-Excel" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
         <module name="Spring-Boot-Actuator" />
@@ -32,6 +33,7 @@
       <module name="CRUD-H2" options="-parameters" />
       <module name="Consuming-Restful-Web-Services" options="-parameters" />
       <module name="Course-Service-Producer" options="-parameters" />
+      <module name="Creating-Excel" options="-parameters" />
       <module name="Dependency-injection" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
