@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class OrderService {
@@ -31,13 +31,19 @@ public class OrderService {
 
     /*
     *
-    *   Generating a random double between 1 and 99999 (5 digits max)
-        double randomDouble = 1 + (99999 - 1) * random.nextDouble();
+    *  Generating a random double between 1 and 99999 (5 digits max)
+       double randomDouble = 1 + (99999 - 1) * random.nextDouble();
     *  At least 1
-    * .mapToObj(i ->
-       new Order ("order" + i, 1 + new Random().nextInt(4), new Random().nextDouble(100000))).collect(Collectors.toList());
+    * .mapToObj(i -> { return
+           new Order ("order" + i, 1 + new Random().nextInt(4), new Random().nextDouble(100000))).collect(Collectors.toList()
+           }
+         );
     *
     *
     * */
+
+    public Order saveOrder(Order order) {
+        return orderRepo.save(order);
+    }
 
 }
