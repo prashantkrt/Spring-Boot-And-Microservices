@@ -9,16 +9,17 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
-        <module name="Spring-Boot-Actuator" />
         <module name="Course-Service-Producer" />
         <module name="CRUD-H2" />
         <module name="Spring-Boot-Email" />
+        <module name="Spring-Boot-Scheduler" />
         <module name="Exception-Handling" />
         <module name="Restful-webservices" />
-        <module name="first-project-autoconfiguration" />
         <module name="Dependency-injection" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
+        <module name="Spring-Boot-Actuator" />
+        <module name="first-project-autoconfiguration" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,6 +40,7 @@
       <module name="Restful-webservices" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
+      <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
     </option>
   </component>
