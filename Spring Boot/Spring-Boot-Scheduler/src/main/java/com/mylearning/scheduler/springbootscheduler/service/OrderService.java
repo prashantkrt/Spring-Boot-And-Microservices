@@ -31,13 +31,14 @@ public class OrderService {
 
     /*
     *
-    *  Generating a random double between 1 and 99999 (5 digits max)
-       double randomDouble = 1 + (99999 - 1) * random.nextDouble();
-    *  At least 1
-    * .mapToObj(i -> { return
-           new Order ("order" + i, 1 + new Random().nextInt(4), new Random().nextDouble(100000))).collect(Collectors.toList()
-           }
-         );
+    *  Generating a random double between 1 and 99,999 (5 digits max)
+    *  double randomDouble = 1 + (99999 - 1) * random.nextDouble();
+    *
+    *  At least 1 quantity as new Random().nextInt(4) gives 0,1,2,3,4
+    *  .mapToObj(i -> { return
+    *       new Order ("order" + i, 1 + new Random().nextInt(4), new Random().nextDouble(100000))).collect(Collectors.toList()
+    *       }
+    *    );
     *
     *
     * */
