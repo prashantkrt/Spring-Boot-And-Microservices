@@ -57,7 +57,7 @@ public class Helper {
             // Finally, write the workbook to the output stream
             workbook.write(outputStream);
 
-            return new ByteArrayInputStream(outputStream.toByteArray());
+            return new ByteArrayInputStream(outputStream.toByteArray());// outputStream.toByteArray() => [] byte
 
         } catch (Exception e) {
             logger.error("An error occurred while creating the Excel sheet {}", e.getMessage());
