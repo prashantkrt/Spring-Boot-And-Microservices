@@ -22,9 +22,9 @@ public class StudentTable {
     @Column(name = "Name",length = 100,nullable = false)
     private String name;
 
-    @Column(name = "Gender",length = 10,nullable = false)
-    private String gender;
-
     @Column(name = "Age",length = 10,nullable = false)
     private int age;
+
+    @Column(name = "Gender",length = 10,nullable = false)
+    private String gender;
 }
