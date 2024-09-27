@@ -22,6 +22,7 @@
         <module name="Faculty-Service-Consumer" />
         <module name="Spring-Boot-Actuator" />
         <module name="first-project-autoconfiguration" />
+        <module name="Spring-Boot-Profiles" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -44,6 +45,7 @@
       <module name="Scheduler" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
+      <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
     </option>
