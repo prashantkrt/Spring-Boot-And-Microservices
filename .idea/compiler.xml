@@ -21,6 +21,7 @@
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
         <module name="Spring-Boot-Actuator" />
+        <module name="Multi-DB-Configuration" />
         <module name="first-project-autoconfiguration" />
         <module name="Spring-Boot-Profiles" />
       </profile>
@@ -40,6 +41,7 @@
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Logging" options="-parameters" />
+      <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="Scheduler" options="-parameters" />
