@@ -35,7 +35,7 @@ public class MultiDBRestController {
      *
      * */
 
-    @GetMapping("/")
+    @GetMapping("/products")
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return ResponseEntity.ok()
@@ -48,6 +48,8 @@ public class MultiDBRestController {
                 .body(products);
     }
 
+
+    @GetMapping("/customers")
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();
         return ResponseEntity.ok()
