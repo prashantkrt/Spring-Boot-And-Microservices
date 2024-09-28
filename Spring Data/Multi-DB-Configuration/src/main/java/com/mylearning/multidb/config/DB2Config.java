@@ -8,15 +8,23 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+        basePackages = "com.mylearning.multidb.model",
+        entityManagerFactoryRef = "db2EntityManagerFactory",
+        transactionManagerRef = "db2TransactionManager"
+)
 public class DB2Config {
     /*
      *  Earlier Spring manages, now we have to manager it
@@ -28,14 +36,14 @@ public class DB2Config {
      * */
 
     // DataSource
-    @Bean
+    @Bean(name="db2DataSource")
     @ConfigurationProperties(prefix = "db2.datasource")
     public DataSource db2DataSource() {
         return DataSourceBuilder.create().build();
     }
 
     //EntityManager
-    @Bean
+    @Bean(name="db2EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean db2EntityManagerFactory(EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
 
         Map<String, Object> db2Properties = new HashMap<>();
@@ -54,7 +62,7 @@ public class DB2Config {
     }
 
     //Transaction Management
-    @Bean
+    @Bean(name="db2TransactionManager")
     public PlatformTransactionManager db2TransactionManager(
             @Qualifier("db2EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);

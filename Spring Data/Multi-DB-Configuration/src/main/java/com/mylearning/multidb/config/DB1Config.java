@@ -7,14 +7,22 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
 
 @Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+        basePackages = "com.mylearning.multidb.model",
+        entityManagerFactoryRef = "db1EntityManagerFactory",
+        transactionManagerRef = "db1TransactionManager"
+)
 public class DB1Config {
 
     /*
@@ -63,22 +71,7 @@ public class DB1Config {
             @Qualifier("db1EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
-
 }
 
 
-//src
-// └── main
-//     ├── java
-//     │   └── com.myLearning
-//     │        ├── db1
-//     │        │    ├── entity (Entity classes for D1 Mysql DB)
-//     │        │    └── repository (Repositories for DB1 Mysql DB)
-//     │        ├── db2
-//     │        │    ├── entity (Entity classes for DB2 PostgreSQl DB)
-//     │        │    └── repository (Repositories for DB2 PostgreSQl DB)
-//     │        └── config
-//     │             ├── PrimaryDatabaseConfig.java
-//     │             └── SecondaryDatabaseConfig.java
-//     └── resources
-//         └── application.properties
+
