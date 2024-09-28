@@ -1,6 +1,5 @@
 package com.mylearning.multidb.config;
 
-
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -16,24 +15,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "com.mylearning.multidb.model",
+        basePackages = "com.mylearning.multidb.repository.db2",
         entityManagerFactoryRef = "db2EntityManagerFactory",
         transactionManagerRef = "db2TransactionManager"
 )
 public class DB2Config {
-    /*
-     *  Earlier Spring manages, now we have to manager it
-     *
-     *  1. DataSource
-     *  2. EntityManager
-     *  3. Transaction Management
-     *
-     * */
 
     // DataSource
     @Bean(name="db2DataSource")
@@ -46,18 +36,24 @@ public class DB2Config {
     @Bean(name="db2EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean db2EntityManagerFactory(EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
 
-        Map<String, Object> db2Properties = new HashMap<>();
+        HashMap<String, Object> db2Properties = new HashMap<>();
 
         // commonly used props
-        db2Properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
-        db2Properties.put("hibernate.hbm2ddl.auto", "UPDATE");
+        db2Properties.put("hibernate.hbm2ddl.auto", "update");
         db2Properties.put("hibernate.show_sql", "true");
         db2Properties.put("hibernate.format_sql", "true");
+        db2Properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+
+        // adding some extra props
+        db2Properties.put("hibernate.use_sql_comments", "true");
+        db2Properties.put("hibernate.order_inserts", "true");
+        db2Properties.put("hibernate.order_updates", "true");
+
 
         return entityManagerFactoryBuilder.dataSource(db2DataSource())
-                .packages("com.mylearning.multidb.model")
+                .packages("com.mylearning.multidb.model.productModel")
                 .properties(db2Properties)
-                .persistenceUnit("postgres")
+                .persistenceUnit("newDB")
                 .build();
     }
 
@@ -67,5 +63,4 @@ public class DB2Config {
             @Qualifier("db2EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
-
 }

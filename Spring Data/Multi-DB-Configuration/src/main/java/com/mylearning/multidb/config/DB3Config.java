@@ -1,66 +1,71 @@
-package com.mylearning.multidb.config;
-
-import jakarta.persistence.EntityManagerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
-import java.util.HashMap;
-
-@Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(
-        basePackages = "com.mylearning.multidb.model",
-        entityManagerFactoryRef = "db3EntityManagerFactory",
-        transactionManagerRef = "db3TransactionManager"
-)
-public class DB3Config {
-
-    // DataSource
-    @Bean(name="db3DataSource")
-    @ConfigurationProperties(prefix = "db3.datasource")
-    public DataSource db3DataSource() {
-        return DataSourceBuilder.create().build();
-    }
-
-    //EntityManager
-    @Bean(name="db3EntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean db3EntityManagerFactory(EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
-
-        HashMap<String, Object> db3Properties = new HashMap<>();
-
-        // commonly used props
-        db3Properties.put("hibernate.hbm2ddl.auto", "UPDATE");
-        db3Properties.put("hibernate.show_sql", "true");
-        db3Properties.put("hibernate.format_sql", "true");
-        db3Properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-
-        // adding some extra props
-        db3Properties.put("hibernate.use_sql_comments", "true");
-        db3Properties.put("hibernate.order_inserts", "true");
-        db3Properties.put("hibernate.order_updates", "true");
-
-
-        return entityManagerFactoryBuilder.dataSource(db3DataSource())
-                .packages("com.mylearning.multidb.model")
-                .properties(db3Properties)
-                .persistenceUnit("myDB")
-                .build();
-    }
-
-    //Transaction Management
-    @Bean(name="db3TransactionManager")
-    public PlatformTransactionManager db3TransactionManager(
-            @Qualifier("db3EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
-        return new JpaTransactionManager(entityManagerFactory);
-    }
-}
+//package com.mylearning.multidb.config;
+//
+//
+//import jakarta.persistence.EntityManagerFactory;
+//import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.boot.context.properties.ConfigurationProperties;
+//import org.springframework.boot.jdbc.DataSourceBuilder;
+//import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+//import org.springframework.orm.jpa.JpaTransactionManager;
+//import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+//import org.springframework.transaction.PlatformTransactionManager;
+//import org.springframework.transaction.annotation.EnableTransactionManagement;
+//
+//import javax.sql.DataSource;
+//import java.util.HashMap;
+//import java.util.Map;
+//
+//@Configuration
+//@EnableTransactionManagement
+//@EnableJpaRepositories(
+//        basePackages = "com.mylearning.multidb.repository",
+//        entityManagerFactoryRef = "db2EntityManagerFactory",
+//        transactionManagerRef = "db2TransactionManager"
+//)
+//public class DB2Config {
+//    /*
+//     *  Earlier Spring manages, now we have to manager it
+//     *
+//     *  1. DataSource
+//     *  2. EntityManager
+//     *  3. Transaction Management
+//     *
+//     * */
+//
+//    // DataSource
+//    @Bean(name="db2DataSource")
+//    @ConfigurationProperties(prefix = "db2.datasource")
+//    public DataSource db2DataSource() {
+//        return DataSourceBuilder.create().build();
+//    }
+//
+//    //EntityManager
+//    @Bean(name="db2EntityManagerFactory")
+//    public LocalContainerEntityManagerFactoryBean db2EntityManagerFactory(EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
+//
+//        Map<String, Object> db2Properties = new HashMap<>();
+//
+//        // commonly used props
+//        db2Properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
+//        db2Properties.put("hibernate.hbm2ddl.auto", "UPDATE");
+//        db2Properties.put("hibernate.show_sql", "true");
+//        db2Properties.put("hibernate.format_sql", "true");
+//
+//        return entityManagerFactoryBuilder.dataSource(db2DataSource())
+//                .packages("com.mylearning.multidb.model")
+//                .properties(db2Properties)
+//                .persistenceUnit("postgres")
+//                .build();
+//    }
+//
+//    //Transaction Management
+//    @Bean(name="db2TransactionManager")
+//    public PlatformTransactionManager db2TransactionManager(
+//            @Qualifier("db2EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
+//        return new JpaTransactionManager(entityManagerFactory);
+//    }
+//
+//}

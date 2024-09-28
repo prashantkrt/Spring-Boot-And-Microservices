@@ -1,4 +1,4 @@
-package com.mylearning.multidb.model;
+package com.mylearning.multidb.model.customerModel;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

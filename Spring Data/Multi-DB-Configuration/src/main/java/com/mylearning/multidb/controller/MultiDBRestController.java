@@ -1,7 +1,7 @@
 package com.mylearning.multidb.controller;
 
-import com.mylearning.multidb.model.Customer;
-import com.mylearning.multidb.model.Product;
+import com.mylearning.multidb.model.customerModel.Customer;
+import com.mylearning.multidb.model.productModel.Product;
 import com.mylearning.multidb.service.CustomerService;
 import com.mylearning.multidb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

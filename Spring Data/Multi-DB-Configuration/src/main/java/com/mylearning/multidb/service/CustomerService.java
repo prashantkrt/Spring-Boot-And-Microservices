@@ -1,8 +1,8 @@
 package com.mylearning.multidb.service;
 
 
-import com.mylearning.multidb.model.Customer;
-import com.mylearning.multidb.repository.CustomerRepository;
+import com.mylearning.multidb.model.customerModel.Customer;
+import com.mylearning.multidb.repository.db1.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

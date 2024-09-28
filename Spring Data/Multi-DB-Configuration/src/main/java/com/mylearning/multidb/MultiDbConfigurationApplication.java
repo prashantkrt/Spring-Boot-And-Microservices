@@ -1,9 +1,9 @@
 package com.mylearning.multidb;
 
-import com.mylearning.multidb.model.Customer;
-import com.mylearning.multidb.model.Product;
-import com.mylearning.multidb.repository.CustomerRepository;
-import com.mylearning.multidb.repository.ProductRepository;
+import com.mylearning.multidb.model.customerModel.Customer;
+import com.mylearning.multidb.model.productModel.Product;
+import com.mylearning.multidb.repository.db1.CustomerRepository;
+import com.mylearning.multidb.repository.db2.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
