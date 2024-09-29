@@ -30,7 +30,7 @@ public class PaytmController {
             kafkaTemplate.send(topicName, message);
         }
     }
-
+//  Postman request
 //    {
 //        "payload": {
 //        "sourceAccount": "PradeepICICI",
