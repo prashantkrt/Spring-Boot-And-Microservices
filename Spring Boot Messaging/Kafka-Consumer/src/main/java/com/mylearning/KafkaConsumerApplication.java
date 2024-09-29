@@ -15,11 +15,11 @@ public class KafkaConsumerApplication {
         SpringApplication.run(KafkaConsumerApplication.class, args);
     }
 
-//    @KafkaListener(topics = "myLearning", groupId = "Payment_Consumer_Group")
-//    public void receiveMessage(String message) {
-//        System.out.println("Message received: " + message);
-//        log.info("Message received from producer and consumed by the consumer : {}", message);
-//    }
+    @KafkaListener(topics = "myLearning", groupId = "myLearning_Consumer_Group")
+    public void receiveMessage(String message) {
+        System.out.println("Message received: " + message);
+        log.info("Message received from producer and consumed by the consumer : {}", message);
+    }
 
     @KafkaListener(topics = "payment-topic")
     public void paymentConsumer1(PaymentRequest paymentRequest){
