@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
+        <module name="Kafka-Consumer" />
         <module name="Course-Service-Producer" />
         <module name="CRUD-H2" />
         <module name="Spring-Boot-Email" />
@@ -41,6 +42,7 @@
       <module name="Dependency-injection" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
+      <module name="Kafka-Consumer" options="-parameters" />
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Multi-DB-Configuration" options="-parameters" />

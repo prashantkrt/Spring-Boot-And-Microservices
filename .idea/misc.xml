@@ -26,6 +26,7 @@
         <option value="$PROJECT_DIR$/Spring Boot/Spring-Boot-Profiles/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Multi-DB-Configuration/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot Messaging/Kafka-Producer/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot Messaging/Kafka-Consumer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,7 +1,7 @@
-package com.mylearning.produce.controller;
+package com.mylearning.controller;
 
-import com.mylearning.produce.dto.PaymentRequest;
-import com.mylearning.produce.dto.PaytmRequest;
+import com.mylearning.dto.PaymentRequest;
+import com.mylearning.dto.PaytmRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
