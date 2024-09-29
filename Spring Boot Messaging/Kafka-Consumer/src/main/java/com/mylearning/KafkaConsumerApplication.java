@@ -21,8 +21,8 @@ public class KafkaConsumerApplication {
 //        log.info("Message received from producer and consumed by the consumer : {}", message);
 //    }
 
-    @KafkaListener(topics = "payment-topic",groupId = "Payment_Consumer_Group")
-    public void paymentConsumer1(PaymentRequest paymentRequest) throws JsonProcessingException {
+    @KafkaListener(topics = "payment-topic")
+    public void paymentConsumer1(PaymentRequest paymentRequest){
         System.out.println(paymentRequest);
         //log.info("paymentConsumer1 consumed message {} ", new ObjectMapper().writeValueAsString(paymentRequest));
         log.info("paymentConsumer1 consumed message {} ", paymentRequest.toString());
