@@ -14,6 +14,7 @@
         <module name="Spring-Boot-Email" />
         <module name="Spring-Boot-Scheduler" />
         <module name="Scheduler" />
+        <module name="Kafka-Producer" />
         <module name="Exception-Handling" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
@@ -40,6 +41,7 @@
       <module name="Dependency-injection" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
+      <module name="Kafka-Producer" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
