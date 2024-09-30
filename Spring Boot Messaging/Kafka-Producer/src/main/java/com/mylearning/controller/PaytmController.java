@@ -41,10 +41,12 @@ public class PaytmController {
 
     @RequestMapping(value = "/paytm/payment", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public String doPayment(@RequestBody PaytmRequest<PaymentRequest> paytmRequest) {
-        PaymentRequest paymentRequest = paytmRequest.getPayload();
-        paymentRequest.setTransactionId(UUID.randomUUID().toString());
-        paymentRequest.setTransactionDate(new Date());
-        kafkaTemplate.send(paymentTopicName, paymentRequest);
+        for (int i = 1; i <= 500; i++) {
+            PaymentRequest paymentRequest = paytmRequest.getPayload();
+            paymentRequest.setTransactionId(UUID.randomUUID().toString());
+            paymentRequest.setTransactionDate(new Date());
+            kafkaTemplate.send(paymentTopicName, paymentRequest);
+        }
         return "payment instantiate successfully...";
     }
 
