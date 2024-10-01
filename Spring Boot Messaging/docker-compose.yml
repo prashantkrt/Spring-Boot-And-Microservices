@@ -8,7 +8,7 @@ services:
     volumes:
       - zookeeper_data:/var/lib/zookeeper  # Data persistence
     environment:
-      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_TICK_TIME: 2000  #This means that every 2 seconds, the Zookeeper server sends a heartbeat to clients (Kafka) to check if they are still connected.
     networks:
       - kafka_network
 
