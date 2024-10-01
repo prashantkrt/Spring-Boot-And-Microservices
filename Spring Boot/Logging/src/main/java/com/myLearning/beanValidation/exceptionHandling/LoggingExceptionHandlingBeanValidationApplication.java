@@ -11,7 +11,6 @@ public class LoggingExceptionHandlingBeanValidationApplication {
      * 2. Log4j2
      * 3. Logback (default to spring boot) because of the Logback classic which has sl4j
      * and sl4j is the abstraction of all the logging framework
-     *
      * */
     public static void main(String[] args) {
         SpringApplication.run(LoggingExceptionHandlingBeanValidationApplication.class, args);

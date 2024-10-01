@@ -24,8 +24,8 @@
         <module name="Faculty-Service-Consumer" />
         <module name="Spring-Boot-Actuator" />
         <module name="Multi-DB-Configuration" />
-        <module name="first-project-autoconfiguration" />
         <module name="Spring-Boot-Profiles" />
+        <module name="first-project-autoconfiguration" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
