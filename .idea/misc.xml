@@ -29,6 +29,8 @@
         <option value="$PROJECT_DIR$/Spring Boot Messaging/Kafka-Consumer/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/first-project-autoconfiguration/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Producer-Example/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Kakfa-Consumer-Example/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Consumer-Example/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

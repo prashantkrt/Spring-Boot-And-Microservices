@@ -25,6 +25,7 @@
         <module name="Spring-Boot-Actuator" />
         <module name="Kafka-Producer-Example" />
         <module name="Multi-DB-Configuration" />
+        <module name="Kafka-Consumer-Example" />
         <module name="Spring-Boot-Profiles" />
         <module name="first-project-autoconfiguration" />
       </profile>
@@ -44,6 +45,7 @@
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Kafka-Consumer" options="-parameters" />
+      <module name="Kafka-Consumer-Example" options="-parameters" />
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Kafka-Producer-Example" options="-parameters" />
       <module name="Logging" options="-parameters" />
