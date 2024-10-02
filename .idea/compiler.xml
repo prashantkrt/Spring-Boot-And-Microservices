@@ -11,11 +11,13 @@
         <module name="Rest-Endpoint-Documentation" />
         <module name="Kafka-Consumer" />
         <module name="Course-Service-Producer" />
+        <module name="Kafka-Serialization-Producer" />
         <module name="CRUD-H2" />
         <module name="Spring-Boot-Email" />
         <module name="Spring-Boot-Scheduler" />
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
+        <module name="Kafka-DeSerialization-Example" />
         <module name="Exception-Handling" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
@@ -26,7 +28,6 @@
         <module name="Kafka-Producer-Example" />
         <module name="Multi-DB-Configuration" />
         <module name="Kafka-Consumer-Example" />
-        <module name="Kafka-Serilization-Producer" />
         <module name="Spring-Boot-Profiles" />
         <module name="first-project-autoconfiguration" />
       </profile>
@@ -47,9 +48,10 @@
       <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Kafka-Consumer" options="-parameters" />
       <module name="Kafka-Consumer-Example" options="-parameters" />
+      <module name="Kafka-DeSerialization-Example" options="-parameters" />
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Kafka-Producer-Example" options="-parameters" />
-      <module name="Kafka-Serilization-Producer" options="-parameters" />
+      <module name="Kafka-Serialization-Producer" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />

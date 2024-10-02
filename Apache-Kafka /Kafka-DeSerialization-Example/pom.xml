@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.myLearning</groupId>
-    <artifactId>Kafka-Serilization-Producer</artifactId>
+    <artifactId>Kafka-DeSerialization-Example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Kafka-Serilization-Producer</name>
-    <description>Kafka-Serilization-Producer</description>
+    <name>Kafka-DeSerialization-Example</name>
+    <description>Kafka-DeSerialization-Example</description>
     <url/>
     <licenses>
         <license/>

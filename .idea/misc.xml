@@ -32,6 +32,8 @@
         <option value="$PROJECT_DIR$/Apache-Kafka /Kakfa-Consumer-Example/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Consumer-Example/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Serilization-Producer/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-DeSerialization-Example/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Serialization-Producer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
