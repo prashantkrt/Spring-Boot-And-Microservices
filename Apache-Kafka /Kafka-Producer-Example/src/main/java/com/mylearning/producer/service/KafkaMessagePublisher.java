@@ -11,23 +11,28 @@ import java.util.concurrent.ExecutionException;
 
 @Service
 public class KafkaMessagePublisher {
+    /*
+    * for String as key as well as Object we don't need to use serializer props in app.props file
+    * for JSON we need to else it will give error
+    *
+    * */
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
     public void sendMessage(String message) throws ExecutionException, InterruptedException {
 
         // it has a return type in CompletableFuture
-        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myLearning", message);
+        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myLearning2", message);
         future.whenComplete((result, exception) -> {
 
-            System.out.println(result.getRecordMetadata().partition()); // prints the partition
-            System.out.println(result.getRecordMetadata().offset()); // prints the offset number
-            System.out.println(result.getRecordMetadata().topic()); // prints the topic
+            System.out.println("Partition number: -> "+result.getRecordMetadata().partition()); // prints the partition
+            System.out.println("Offset number: -> "+result.getRecordMetadata().offset()); // prints the offset number
+            System.out.println("Topic name: ->"+result.getRecordMetadata().topic()); // prints the topic
 
             if (exception == null) {
-                System.out.println("Sent message: = [ " + message + "]" + " [ =" + result.getRecordMetadata().offset() + "]");
+                System.out.println("Sent message: = [" + message + "]" + " [" + result.getRecordMetadata().offset() + "]");
             } else {
-                System.out.println("Unable to send message = [ " + message + " ] due to : " + exception.getMessage());
+                System.out.println("Unable to send message = [" + message + "] due to : " + exception.getMessage());
             }
         });
     }

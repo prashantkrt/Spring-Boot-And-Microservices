@@ -20,7 +20,10 @@ public class EventController {
     @GetMapping("/publish/{message}")
     public ResponseEntity<?> publishMessage(@PathVariable String message) {
         try {
-            kafkaMessagePublisher.sendMessage(message);
+            // writing bulk messages for multiple partition distribution
+            for (int i = 0; i < 5000; i++) {
+            kafkaMessagePublisher.sendMessage(message+"no:"+i);
+            }
             return ResponseEntity.ok("message published successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
