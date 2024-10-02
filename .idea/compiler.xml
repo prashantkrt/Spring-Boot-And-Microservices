@@ -26,6 +26,7 @@
         <module name="Kafka-Producer-Example" />
         <module name="Multi-DB-Configuration" />
         <module name="Kafka-Consumer-Example" />
+        <module name="Kafka-Serilization-Producer" />
         <module name="Spring-Boot-Profiles" />
         <module name="first-project-autoconfiguration" />
       </profile>
@@ -48,6 +49,7 @@
       <module name="Kafka-Consumer-Example" options="-parameters" />
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Kafka-Producer-Example" options="-parameters" />
+      <module name="Kafka-Serilization-Producer" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
