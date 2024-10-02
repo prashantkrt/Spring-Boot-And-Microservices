@@ -10,7 +10,22 @@ import org.springframework.stereotype.Service;
 public class KafkaMessageListener {
 
     @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
-    public void consume(String message) {
+    public void consume1(String message) {
+        log.info("Consumer consumed the message -> {}", message);
+    }
+
+    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
+    public void consume2(String message) {
+        log.info("Consumer consumed the message -> {}", message);
+    }
+
+    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
+    public void consume3(String message) {
+        log.info("Consumer consumed the message -> {}", message);
+    }
+
+    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
+    public void consume4(String message) {
         log.info("Consumer consumed the message -> {}", message);
     }
 }
