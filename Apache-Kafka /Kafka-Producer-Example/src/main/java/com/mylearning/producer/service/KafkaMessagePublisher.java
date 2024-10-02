@@ -22,7 +22,7 @@ public class KafkaMessagePublisher {
     public void sendMessage(String message) throws ExecutionException, InterruptedException {
 
         // it has a return type in CompletableFuture
-        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myLearning2", message);
+        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myTopicDemo", message);
         future.whenComplete((result, exception) -> {
 
             System.out.println("Partition number: -> "+result.getRecordMetadata().partition()); // prints the partition
