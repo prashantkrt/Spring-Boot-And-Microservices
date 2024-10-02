@@ -1,0 +1,6 @@
+spring:
+  kafka:
+    producer:
+      properties:
+        spring.json.trusted.packages: com.mylearning.dto
+

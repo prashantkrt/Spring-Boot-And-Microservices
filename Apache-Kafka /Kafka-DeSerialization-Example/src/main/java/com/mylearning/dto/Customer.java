@@ -1,4 +1,4 @@
-package com.mylearning.producer.dto;
+package com.mylearning.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

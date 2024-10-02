@@ -1,10 +1,10 @@
-package com.mylearning.producer;
+package com.mylearning;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KafkaSerilizationProducerApplicationTests {
+class KakfaConsumerExampleApplicationTests {
 
     @Test
     void contextLoads() {

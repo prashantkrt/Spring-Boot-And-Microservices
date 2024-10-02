@@ -1,4 +1,4 @@
-package com.mylearning.consumer.consumer;
+package com.mylearning.consumer;
 
 
 import lombok.extern.slf4j.Slf4j;

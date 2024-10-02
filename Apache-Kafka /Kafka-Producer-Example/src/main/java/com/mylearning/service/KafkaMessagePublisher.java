@@ -1,4 +1,4 @@
-package com.mylearning.producer.service;
+package com.mylearning.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

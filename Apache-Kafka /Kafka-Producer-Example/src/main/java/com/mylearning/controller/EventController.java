@@ -1,7 +1,7 @@
-package com.mylearning.producer.controller;
+package com.mylearning.controller;
 
 
-import com.mylearning.producer.service.KafkaMessagePublisher;
+import com.mylearning.service.KafkaMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
-package com.mylearning.producer.controller;
+package com.mylearning.controller;
 
 
-import com.mylearning.producer.dto.Customer;
-import com.mylearning.producer.service.KafkaMessagePublisher;
+import com.mylearning.dto.Customer;
+import com.mylearning.service.KafkaMessagePublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

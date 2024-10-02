@@ -1,6 +1,6 @@
-package com.mylearning.consumer.consumer;
+package com.mylearning.consumer;
 
-import com.mylearning.consumer.dto.Customer;
+import com.mylearning.dto.Customer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

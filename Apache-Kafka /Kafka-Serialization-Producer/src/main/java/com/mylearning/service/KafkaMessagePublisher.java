@@ -1,7 +1,7 @@
-package com.mylearning.producer.service;
+package com.mylearning.service;
 
 
-import com.mylearning.producer.dto.Customer;
+import com.mylearning.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;

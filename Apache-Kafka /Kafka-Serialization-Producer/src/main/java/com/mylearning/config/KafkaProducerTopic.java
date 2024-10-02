@@ -1,4 +1,4 @@
-package com.mylearning.producer.config;
+package com.mylearning.config;
 
 
 import org.apache.kafka.clients.admin.NewTopic;
@@ -14,7 +14,7 @@ public class KafkaProducerTopic {
 
     @Bean
     public NewTopic createTopic() {
-        return new NewTopic("myTopicDemo", 3, (short) 1);
+        return new NewTopic("myTopicDemo2", 3, (short) 1);
     }
 
 

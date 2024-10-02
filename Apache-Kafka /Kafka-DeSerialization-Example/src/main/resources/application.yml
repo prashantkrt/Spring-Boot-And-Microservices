@@ -1,0 +1,13 @@
+spring:
+  kafka:
+    consumer:
+      properties:
+        spring.json.trusted.packages: com.mylearning.dto
+
+
+
+
+
+
+
+

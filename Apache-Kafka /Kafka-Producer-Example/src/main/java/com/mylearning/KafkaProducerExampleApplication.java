@@ -1,13 +1,13 @@
-package com.mylearning.producer;
+package com.mylearning;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KafkaSerializationProducerApplication {
+public class KafkaProducerExampleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KafkaSerializationProducerApplication.class, args);
+        SpringApplication.run(KafkaProducerExampleApplication.class, args);
     }
 
 }
