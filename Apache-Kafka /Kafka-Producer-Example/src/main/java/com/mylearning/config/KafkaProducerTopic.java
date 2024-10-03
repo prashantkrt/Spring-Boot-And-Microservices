@@ -18,7 +18,7 @@ public class KafkaProducerTopic {
     }
 
 
-
+// also we can add this way
 //    Map<String, String> config = new HashMap<>();
 //    config.put("retention.ms", "604800000");  // Retain data for 7 days (in milliseconds)
 //    config.put("cleanup.policy", "compact");  // Log compaction instead of deleting records
