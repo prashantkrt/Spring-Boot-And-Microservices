@@ -23,6 +23,9 @@ public class KafkaMessagePublisher {
 
         // it has a return type in CompletableFuture
         CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myTopicDemo", message);
+
+        // particular topic, data will be stored in the specific topic partition number
+        //CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myTopicDemo",2,null,message);
         future.whenComplete((result, exception) -> {
 
             System.out.println("Partition number: -> "+result.getRecordMetadata().partition()); // prints the partition

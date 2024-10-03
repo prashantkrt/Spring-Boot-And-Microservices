@@ -12,7 +12,7 @@ public class KafkaProducerTopic {
      * creating a topic programmatically
      * */
 
-    @Bean
+    @Bean(name="myConfig")
     public NewTopic createTopic() {
         return new NewTopic("myTopicDemo", 3, (short) 1);
     }
@@ -26,4 +26,6 @@ public class KafkaProducerTopic {
 //
 //    return new NewTopic("myTopicDemo", 3, (short) 2)
 //            .configs(config);  // Passing the topic-level configurations
+
+
 }
