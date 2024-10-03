@@ -7,29 +7,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Logging" />
-        <module name="Rest-Endpoint-Documentation" />
-        <module name="Kafka-Consumer" />
         <module name="Course-Service-Producer" />
-        <module name="Kafka-Serialization-Producer" />
-        <module name="CRUD-H2" />
         <module name="Spring-Boot-Email" />
         <module name="Spring-Boot-Scheduler" />
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
-        <module name="Kafka-DeSerialization-Example" />
         <module name="Exception-Handling" />
-        <module name="Restful-webservices" />
-        <module name="Dependency-injection" />
         <module name="Creating-Excel" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
-        <module name="Spring-Boot-Actuator" />
-        <module name="Kafka-Producer-Example" />
         <module name="Multi-DB-Configuration" />
         <module name="Kafka-Consumer-Example" />
-        <module name="Spring-Boot-Profiles" />
+        <module name="Kafka-producer-Test" />
         <module name="first-project-autoconfiguration" />
+        <module name="Logging" />
+        <module name="Rest-Endpoint-Documentation" />
+        <module name="Kafka-Consumer" />
+        <module name="Kafka-Serialization-Producer" />
+        <module name="CRUD-H2" />
+        <module name="Kafka-DeSerialization-Example" />
+        <module name="Restful-webservices" />
+        <module name="Dependency-injection" />
+        <module name="Spring-Boot-Actuator" />
+        <module name="Kafka-Consumer-Test" />
+        <module name="Kafka-Producer-Example" />
+        <module name="Spring-Boot-Profiles" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -48,10 +50,12 @@
       <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Kafka-Consumer" options="-parameters" />
       <module name="Kafka-Consumer-Example" options="-parameters" />
+      <module name="Kafka-Consumer-Test" options="-parameters" />
       <module name="Kafka-DeSerialization-Example" options="-parameters" />
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Kafka-Producer-Example" options="-parameters" />
       <module name="Kafka-Serialization-Producer" options="-parameters" />
+      <module name="Kafka-producer-Test" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
