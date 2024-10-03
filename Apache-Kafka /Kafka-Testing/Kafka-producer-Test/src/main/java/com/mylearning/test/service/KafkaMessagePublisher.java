@@ -1,6 +1,7 @@
 package com.mylearning.test.service;
 
 
+import com.mylearning.test.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -15,9 +16,9 @@ public class KafkaMessagePublisher {
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
-    public void sendMessage(String message) throws ExecutionException, InterruptedException {
+    public void sendMessage(Customer customer) throws ExecutionException, InterruptedException {
 
-        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myTopicDemo", message);
+        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("myTopicDemo", customer);
 
         future.whenComplete((result, exception) -> {
 
@@ -26,9 +27,9 @@ public class KafkaMessagePublisher {
             System.out.println("Topic name: ->"+result.getRecordMetadata().topic()); // prints the topic
 
             if (exception == null) {
-                System.out.println("Sent message: = [" + message + "]" + " [" + result.getRecordMetadata().offset() + "]");
+                System.out.println("Sent message: = [" + customer.toString() + "]" + " [" + result.getRecordMetadata().offset() + "]");
             } else {
-                System.out.println("Unable to send message = [" + message + "] due to : " + exception.getMessage());
+                System.out.println("Unable to send message = [" + customer.toString() + "] due to : " + exception.getMessage());
             }
         });
     }
