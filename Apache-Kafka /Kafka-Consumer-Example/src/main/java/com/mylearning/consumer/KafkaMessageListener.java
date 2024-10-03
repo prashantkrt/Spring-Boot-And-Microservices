@@ -16,7 +16,7 @@ public class KafkaMessageListener {
         log.info("Consumer 1 consumed the message -> {}", message+1);
     }
 
-    // specific partition
+    // specific partition and offset
     @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1",topicPartitions = {
             @TopicPartition(topic = "myTopicDemo",partitions = {"2"}, partitionOffsets = @PartitionOffset(partition = "2", initialOffset = "0")) // Start from offset 0 for partition 2)
     })
