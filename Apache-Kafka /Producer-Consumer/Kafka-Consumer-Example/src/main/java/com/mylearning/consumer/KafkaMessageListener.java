@@ -11,26 +11,54 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class KafkaMessageListener {
 
-    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
+    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1",
+            topicPartitions = {
+                    @TopicPartition(
+                            topic = "myTopicDemo",
+                            partitions = {"1"} // Ensure only one listener targets partition 1
+                    )
+            })
     public void consume1(String message) {
-        log.info("Consumer 1 consumed the message -> {}", message+1);
+        log.info("Consumer 1 consumed the message -> {}", message + 1);
     }
 
     // specific partition and offset
-    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1",topicPartitions = {
-            @TopicPartition(topic = "myTopicDemo",partitions = {"2"}, partitionOffsets = @PartitionOffset(partition = "2", initialOffset = "0")) // Start from offset 0 for partition 2)
-    })
+    @KafkaListener(
+            topics = "myTopicDemo",
+            groupId = "DemoGroup-1",
+            topicPartitions = {
+                    @TopicPartition(
+                            topic = "myTopicDemo",
+                            partitions = {"2"} // Ensure only one listener targets partition 2
+//                            partitionOffsets = @PartitionOffset(partition = "2", initialOffset = "0")  // Start from offset 0 for partition 2
+                    )
+            }
+    )
     public void consume2(String message) {
-        log.info("Consumer 2 consumed the message -> {}", message+2);
+        log.info("Consumer 2 consumed the message -> {}", message + 2);
     }
 
-    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
+    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1",
+            topicPartitions = {
+                    @TopicPartition(
+                            topic = "myTopicDemo",
+                            partitions = {"3"}
+
+                    )
+            })
     public void consume3(String message) {
-        log.info("Consumer 3 consumed the message -> {}", message+3);
+        log.info("Consumer 3 consumed the message -> {}", message + 3);
     }
 
-    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1")
+    @KafkaListener(topics = "myTopicDemo", groupId = "DemoGroup-1",
+            topicPartitions = {
+                    @TopicPartition(
+                            topic = "myTopicDemo",
+                            partitions = {"4"}
+
+                    )
+            })
     public void consume4(String message) {
-        log.info("Consumer 4 consumed the message -> {}", message+4);
+        log.info("Consumer 4 consumed the message -> {}", message + 4);
     }
 }

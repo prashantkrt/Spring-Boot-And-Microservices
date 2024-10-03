@@ -25,7 +25,6 @@
         <option value="$PROJECT_DIR$/Spring Boot/Miscellaneous/Scheduler/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/Spring-Boot-Profiles/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Multi-DB-Configuration/pom.xml" />
-        <option value="$PROJECT_DIR$/Spring Boot Messaging/Kafka-Producer/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot Messaging/Kafka-Consumer/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot/first-project-autoconfiguration/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Producer-Example/pom.xml" />
@@ -34,6 +33,11 @@
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Serilization-Producer/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-DeSerialization-Example/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Serialization-Producer/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Serialiazation-DeSerialization/Kafka-DeSerialization-Example/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Serialiazation-DeSerialization/Kafka-Serialization-Producer/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Producer-Consumer/Kafka-Producer-Example/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot Messaging/Kafka-Producer/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Producer-Consumer/Kafka-Consumer-Example/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
