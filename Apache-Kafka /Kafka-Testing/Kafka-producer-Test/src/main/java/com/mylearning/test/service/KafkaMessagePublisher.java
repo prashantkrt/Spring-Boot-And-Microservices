@@ -1,6 +1,5 @@
 package com.mylearning.test.service;
 
-
 import com.mylearning.test.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
