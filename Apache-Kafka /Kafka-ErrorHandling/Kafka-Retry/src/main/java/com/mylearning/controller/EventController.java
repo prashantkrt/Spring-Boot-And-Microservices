@@ -28,7 +28,7 @@ public class EventController {
             for (int i = 0; i < 5000; i++) {
                 customer.setId(i);
                 customer.setName("customer"+i);
-                customer.setEmail("customer"+ UUID.randomUUID().toString().split("-")[0] +"@gmlii.com");
+                //customer.setEmail("customer"+ UUID.randomUUID().toString().split("-")[0] +"@gmlii.com");
                 long tenDigitNumber = 1000000000L + (long)(new Random().nextDouble() * 9000000000L);
                 customer.setContactName(String.valueOf(tenDigitNumber));
                 kafkaMessagePublisher.sendMessage(customer);
