@@ -28,6 +28,7 @@
         <module name="Kafka-DeSerialization-Example" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
+        <module name="Kafka-Retry" />
         <module name="Spring-Boot-Actuator" />
         <module name="Kafka-Consumer-Test" />
         <module name="Kafka-Producer-Example" />
@@ -54,6 +55,7 @@
       <module name="Kafka-DeSerialization-Example" options="-parameters" />
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Kafka-Producer-Example" options="-parameters" />
+      <module name="Kafka-Retry" options="-parameters" />
       <module name="Kafka-Serialization-Producer" options="-parameters" />
       <module name="Kafka-producer-Test" options="-parameters" />
       <module name="Logging" options="-parameters" />

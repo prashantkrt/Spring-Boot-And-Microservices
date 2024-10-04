@@ -40,6 +40,7 @@
         <option value="$PROJECT_DIR$/Apache-Kafka /Producer-Consumer/Kafka-Consumer-Example/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Testing/Kafka-producer-Test/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Testing/Kafka-Consumer-Test/pom.xml" />
+        <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-ErrorHandling/Kafka-Retry/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
