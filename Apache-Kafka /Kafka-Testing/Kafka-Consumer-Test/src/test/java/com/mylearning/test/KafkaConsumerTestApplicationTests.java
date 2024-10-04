@@ -26,10 +26,7 @@ import static org.awaitility.Awaitility.await;
 class KafkaConsumerTestApplicationTests {
 
     @Container
-    public static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.1.1").asCompatibleSubstituteFor("apache/kafka")).withExposedPorts(9092, 9092);;
-
-    @Autowired
-    private KafkaMessageListener kafkaMessageListener;
+    public static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.1.1").asCompatibleSubstituteFor("apache/kafka")).withExposedPorts(9092, 9092);
 
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;

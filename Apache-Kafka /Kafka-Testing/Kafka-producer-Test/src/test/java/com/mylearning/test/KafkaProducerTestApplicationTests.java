@@ -23,7 +23,7 @@ import static org.awaitility.Awaitility.await;
 class KafkaProducerTestApplicationTests {
 
     @Container
-    public static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1").asCompatibleSubstituteFor("apache/kafka"));
+    public static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1").asCompatibleSubstituteFor("apache/kafka")).withExposedPorts(9092,9092);
 
     @Autowired
     private KafkaMessagePublisher kafkaMessagePublisher;
