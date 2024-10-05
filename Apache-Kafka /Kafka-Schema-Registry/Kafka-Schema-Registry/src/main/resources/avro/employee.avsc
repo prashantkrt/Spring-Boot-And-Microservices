@@ -1,0 +1,42 @@
+{
+  "namespace": "com.mylearning.registry.dto",
+  "type": "record",
+  "name": "Employee",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "emailId",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "dob",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "age",
+      "type": "int",
+      "default": null
+    }
+  ]
+}

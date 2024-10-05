@@ -12,6 +12,7 @@
         <module name="Spring-Boot-Scheduler" />
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
+        <module name="Kafka-Schema-Registry" />
         <module name="Exception-Handling" />
         <module name="Creating-Excel" />
         <module name="Bean-Validation" />
@@ -56,6 +57,7 @@
       <module name="Kafka-Producer" options="-parameters" />
       <module name="Kafka-Producer-Example" options="-parameters" />
       <module name="Kafka-Retry" options="-parameters" />
+      <module name="Kafka-Schema-Registry" options="-parameters" />
       <module name="Kafka-Serialization-Producer" options="-parameters" />
       <module name="Kafka-producer-Test" options="-parameters" />
       <module name="Logging" options="-parameters" />
