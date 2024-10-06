@@ -20,6 +20,7 @@
         <module name="Multi-DB-Configuration" />
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
+        <module name="Employ" />
         <module name="first-project-autoconfiguration" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
@@ -27,7 +28,6 @@
         <module name="Kafka-Serialization-Producer" />
         <module name="CRUD-H2" />
         <module name="Kafka-DeSerialization-Example" />
-        <module name="journalApp" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
         <module name="Kafka-Retry" />
@@ -39,6 +39,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Consuming-Restful-Web-Services" target="17" />
+      <module name="Employee-Management-System-Traditional-Approach" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -49,6 +50,8 @@
       <module name="Course-Service-Producer" options="-parameters" />
       <module name="Creating-Excel" options="-parameters" />
       <module name="Dependency-injection" options="-parameters" />
+      <module name="Employ" options="-parameters" />
+      <module name="Employee-Management-System-Traditional-Approach" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Kafka-Consumer" options="-parameters" />
@@ -71,7 +74,6 @@
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
-      <module name="journalApp" options="-parameters" />
     </option>
   </component>
 </project>

@@ -43,6 +43,7 @@
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-ErrorHandling/Kafka-Retry/pom.xml" />
         <option value="$PROJECT_DIR$/Apache-Kafka /Kafka-Schema-Registry/Kafka-Schema-Registry/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot Security/Employee-Management-System-Traditional/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot Security/Employee-Management-System-Traditional-Approach/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
