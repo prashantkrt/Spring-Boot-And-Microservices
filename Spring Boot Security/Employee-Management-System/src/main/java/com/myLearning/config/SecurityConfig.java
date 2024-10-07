@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class NewerSecurityConfig {
+public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -31,9 +31,9 @@ public class NewerSecurityConfig {
     @Bean
    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
        http.authorizeRequests()
-                .antMatchers("/nonSecure").permitAll()
+                .antMatchers("/demo/nonSecure","/employees/welcome").permitAll()
                 .and()
-                .authorizeRequests().antMatchers("/hello","/greet").authenticated()
+                .authorizeRequests().antMatchers("/hello","/greet","/employees/**").authenticated()
                 .and()
                 .httpBasic();
        return http.build();
