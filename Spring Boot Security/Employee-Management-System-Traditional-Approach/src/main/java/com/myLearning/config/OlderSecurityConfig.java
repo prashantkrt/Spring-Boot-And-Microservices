@@ -13,49 +13,49 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * Legacy Approach for Security suitable for spring 2x version
  *
  * */
-@Configuration
-@EnableWebSecurity
-public class OlderSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.inMemoryAuthentication()
-                .withUser("UserA")
-                .password(getPasswordEncoder().encode("user"))
-                .roles("USER","ADMIN");
-
-        auth.inMemoryAuthentication()
-                .withUser("UserB")
-                .password(getPasswordEncoder().encode("user"))
-                .roles("USER","ADMIN");
-
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password(getPasswordEncoder().encode("admin"))
-                .roles("ADMIN");
-    }
-
-    // there is a direct class use it
-    @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests()
-                .antMatchers("/nonSecure").permitAll()
-                .and()
-                .authorizeRequests().antMatchers("/hello","/greet").authenticated()
-                .and()
-                //.formLogin()
-                .httpBasic();
-          /*
-          *
-          * form login proper login page will be coming
-          * httpBasic pop up will come and ask for username and pass
-          * */
-    }
-}
+//@Configuration
+//@EnableWebSecurity
+//public class OlderSecurityConfig extends WebSecurityConfigurerAdapter {
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//        auth.inMemoryAuthentication()
+//                .withUser("UserA")
+//                .password(getPasswordEncoder().encode("user"))
+//                .roles("USER","ADMIN");
+//
+//        auth.inMemoryAuthentication()
+//                .withUser("UserB")
+//                .password(getPasswordEncoder().encode("user"))
+//                .roles("USER","ADMIN");
+//
+//        auth.inMemoryAuthentication()
+//                .withUser("admin")
+//                .password(getPasswordEncoder().encode("admin"))
+//                .roles("ADMIN");
+//    }
+//
+//    // there is a direct class use it
+//    @Bean
+//    public PasswordEncoder getPasswordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                .antMatchers("/nonSecure").permitAll()
+//                .and()
+//                .authorizeRequests().antMatchers("/hello","/greet").authenticated()
+//                .and()
+//                //.formLogin()
+//                .httpBasic();
+//          /*
+//          *
+//          * form login proper login page will be coming
+//          * httpBasic pop up will come and ask for username and pass
+//          * */
+//    }
+//}
