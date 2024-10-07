@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>com.myLearning</groupId>
-    <artifactId>Employ</artifactId>
+    <artifactId>Employee-Management-System</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Employee Management Application</name>
     <description>Employee Management Application</description>
