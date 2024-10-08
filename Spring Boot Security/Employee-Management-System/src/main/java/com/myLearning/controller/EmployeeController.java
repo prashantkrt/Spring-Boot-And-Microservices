@@ -3,6 +3,7 @@ package com.myLearning.controller;
 import com.myLearning.entity.Employee;
 import com.myLearning.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,17 +32,20 @@ public class EmployeeController {
 
     //only for HR
     @PostMapping("/create")
+    @PreAuthorize("hasAuthority('ROLE_HR')")
     public Employee onboardNewEmployee(@RequestBody Employee employee) {
         return service.createEmployee(employee);
     }
 
     //For HR and Manager
+    @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
     @GetMapping("/all")
     public List<Employee> getAll() {
         return service.getAllEmployees();
     }
 
     //For Employee
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Integer id) {
         return service.getEmployeeById(id);
