@@ -1,5 +1,6 @@
 package com.myLearning.config;
 
+import com.myLearning.service.EmployeeUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -22,14 +23,15 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
 
-        UserDetails userHR = User.withUsername("UserHR").password(passwordEncoder().encode("user")).roles("HR").build();
-        UserDetails userA = User.withUsername("UserA").password(passwordEncoder().encode("user")).roles("USER").build();
-        UserDetails UserManager1 = User.withUsername("UserManager1").password(passwordEncoder().encode("user")).roles("MANAGER").build();
-        UserDetails UserManager2 = User.withUsername("UserManager2").password(passwordEncoder().encode("user")).roles("MANAGER").build();
-        UserDetails UserUserManager = User.withUsername("UserUserManager").password(passwordEncoder().encode("user")).roles("USER", "MANAGER").build();
-        UserDetails UserAll = User.withUsername("UserAll").password(passwordEncoder().encode("user")).roles("MANAGER", "USER", "HR").build();
-
-        return new InMemoryUserDetailsManager(userHR, userA, UserManager1, UserManager2, UserUserManager, UserAll);
+//        UserDetails userHR = User.withUsername("UserHR").password(passwordEncoder().encode("user")).roles("HR").build();
+//        UserDetails userA = User.withUsername("UserA").password(passwordEncoder().encode("user")).roles("USER").build();
+//        UserDetails UserManager1 = User.withUsername("UserManager1").password(passwordEncoder().encode("user")).roles("MANAGER").build();
+//        UserDetails UserManager2 = User.withUsername("UserManager2").password(passwordEncoder().encode("user")).roles("MANAGER").build();
+//        UserDetails UserUserManager = User.withUsername("UserUserManager").password(passwordEncoder().encode("user")).roles("USER", "MANAGER").build();
+//        UserDetails UserAll = User.withUsername("UserAll").password(passwordEncoder().encode("user")).roles("MANAGER", "USER", "HR").build();
+//
+//        return new InMemoryUserDetailsManager(userHR, userA, UserManager1, UserManager2, UserUserManager, UserAll);
+        return new EmployeeUserDetailsService();
     }
 
     @Bean

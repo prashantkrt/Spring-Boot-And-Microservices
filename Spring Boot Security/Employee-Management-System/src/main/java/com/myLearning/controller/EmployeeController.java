@@ -19,10 +19,8 @@ public class EmployeeController {
      *  /id ⇒ Employee
      * */
 
-
     @Autowired
     private EmployeeService service;
-
 
     //publicly accessible
     @GetMapping("/welcome")
@@ -49,6 +47,12 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Integer id) {
         return service.getEmployeeById(id);
+    }
+
+    @PutMapping("/update")
+    @PreAuthorize("hasAuthority('ROLE_HR')")
+    public Employee updateRoles(@RequestBody Employee employee) {
+        return service.changeRoleOfEmployee(employee);
     }
 
 }
