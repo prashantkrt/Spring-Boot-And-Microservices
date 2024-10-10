@@ -65,7 +65,9 @@ public class SecurityConfig {
     }
 
 
-    // AuthenticationProvider for Username and password => DaoAuthenticationProvider
+    // Filter => AuthenticationManager => Provider Manager => AuthenticationProvider
+    // ******************************
+    // AuthenticationProvider for Username and password ⇒ DaoAuthenticationProvider
     // AuthenticationProvider for Oauth based
     // Authentication provider for token based
     @Bean
