@@ -55,7 +55,19 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(12);//2^12 rounds
     }
 
+    // just for learning even if you don't create bean for AuthManager it will work fine
+    // filter(DelegatingFilterProxy) coverts request to Authentication,
+    // Authentication has Credential(password) and Principal(currently authenticated user)
+    // has method ⇒ Authentication authenticate(Authentication authentication) {}
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
 
+
+    // AuthenticationProvider for Username and password => DaoAuthenticationProvider
+    // AuthenticationProvider for Oauth based
+    // Authentication provider for token based
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
