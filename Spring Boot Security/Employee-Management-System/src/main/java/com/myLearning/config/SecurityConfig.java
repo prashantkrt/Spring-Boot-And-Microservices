@@ -65,8 +65,8 @@ public class SecurityConfig {
     }
 
 
-    // Filter => AuthenticationManager => Provider Manager => AuthenticationProvider
-    // ******************************
+    // User Request => Filter => AuthenticationManager => Provider Manager => AuthenticationProvider
+    // *********************************************************************************************
     // AuthenticationProvider for Username and password ⇒ DaoAuthenticationProvider
     // AuthenticationProvider for Oauth based
     // Authentication provider for token based
