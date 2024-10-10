@@ -37,20 +37,20 @@ public class EmployeeController {
 
     //For HR and Manager
     @GetMapping("/all")
-   // @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
+    @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
     public List<Employee> getAll() {
         return service.getAllEmployees();
     }
 
     //For Employee
-   // @PreAuthorize("hasAuthority('ROLE_EMPLOYEE')")
+    @PreAuthorize("hasAuthority('ROLE_EMPLOYEE')")
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Integer id) {
         return service.getEmployeeById(id);
     }
 
     @PutMapping("/update")
-    //@PreAuthorize("hasAuthority('ROLE_HR')")
+    @PreAuthorize("hasAuthority('ROLE_HR')")
     public Employee updateRoles(@RequestBody Employee employee) {
         return service.changeRoleOfEmployee(employee);
     }

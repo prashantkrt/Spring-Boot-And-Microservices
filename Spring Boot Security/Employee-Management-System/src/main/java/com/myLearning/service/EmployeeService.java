@@ -1,7 +1,7 @@
 package com.myLearning.service;
 
-import com.myLearning.repository.EmployeeRepository;
 import com.myLearning.entity.Employee;
+import com.myLearning.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,11 @@ public class EmployeeService {
         employee.setPassword(passwordEncoder.encode(employee.getPassword()));
         employee.setRoles(DEFAULT_ROLE);
         return employeeRepository.save(employee);
+//        Employee emp = employeeRepository.findByUsername("user1").get();
+//        String rawPassword = "user";
+//        boolean matches = passwordEncoder.matches(rawPassword, emp.getPassword());
+//        System.out.println(matches+"->"+"Testing and validating");
+
     }
 
     public List<Employee> getAllEmployees() {
@@ -34,7 +39,7 @@ public class EmployeeService {
                 .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
     }
 
-    public Employee changeRoleOfEmployee(Employee employee){
+    public Employee changeRoleOfEmployee(Employee employee) {
         Employee existingEmployee = getEmployeeById(employee.getId());
         existingEmployee.setRoles(employee.getRoles());
         return employeeRepository.save(existingEmployee);
