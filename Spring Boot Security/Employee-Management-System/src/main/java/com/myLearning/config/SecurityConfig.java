@@ -58,7 +58,7 @@ public class SecurityConfig {
     // just for learning even if you don't create bean for AuthManager it will work fine
     // filter(DelegatingFilterProxy) coverts request to Authentication,
     // Authentication has Credential(password) and Principal(currently authenticated user)
-    // has method ⇒ Authentication authenticate(Authentication authentication) {}
+    // AuthManager has method ⇒ public Authentication authenticate(Authentication authentication) {}
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
