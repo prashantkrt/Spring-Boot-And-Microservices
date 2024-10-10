@@ -17,7 +17,7 @@ public class EmployeeUserDetails implements UserDetails {
     private List<GrantedAuthority> authorities;
 
     public EmployeeUserDetails(Employee employee) {
-        username = employee.getUserName();
+        username = employee.getUsername();
         password = employee.getPassword();
         authorities = Arrays.stream(employee.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
@@ -43,21 +43,21 @@ public class EmployeeUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

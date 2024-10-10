@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,8 +20,12 @@ public class Employee {
     private String name;
     private String dept;
     private double salary;
+    @Column(length = 50, unique = true)
+    @Email(message = "Email should be valid")
     private String email;
-    private String userName;
+    @Column(unique = true)
+    @NotBlank(message = "User name is mandatory")
+    private String username;
     private String password;
-    private String roles; // ROLE_HR , ROLE_MANAGER, ROLE_EMP
+    private String roles; // ROLE_HR , ROLE_MANAGER, ROLE_EMPLOYEE
 }

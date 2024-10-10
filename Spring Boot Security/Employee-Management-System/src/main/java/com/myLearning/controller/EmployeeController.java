@@ -28,29 +28,29 @@ public class EmployeeController {
         return "Welcome to Employee Management System";
     }
 
-    //only for HR
+
     @PostMapping("/create")
-    @PreAuthorize("hasAuthority('ROLE_HR')")
+    //@PreAuthorize("hasAuthority('ROLE_HR')")
     public Employee onboardNewEmployee(@RequestBody Employee employee) {
         return service.createEmployee(employee);
     }
 
     //For HR and Manager
-    @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
     @GetMapping("/all")
+   // @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
     public List<Employee> getAll() {
         return service.getAllEmployees();
     }
 
     //For Employee
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+   // @PreAuthorize("hasAuthority('ROLE_EMPLOYEE')")
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Integer id) {
         return service.getEmployeeById(id);
     }
 
     @PutMapping("/update")
-    @PreAuthorize("hasAuthority('ROLE_HR')")
+    //@PreAuthorize("hasAuthority('ROLE_HR')")
     public Employee updateRoles(@RequestBody Employee employee) {
         return service.changeRoleOfEmployee(employee);
     }
