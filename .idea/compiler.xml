@@ -29,6 +29,7 @@
         <module name="Kafka-Serialization-Producer" />
         <module name="CRUD-H2" />
         <module name="Kafka-DeSerialization-Example" />
+        <module name="Spring-AOP" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
         <module name="Kafka-Retry" />
@@ -72,6 +73,7 @@
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="Scheduler" options="-parameters" />
+      <module name="Spring-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
