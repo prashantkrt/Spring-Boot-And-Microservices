@@ -47,13 +47,11 @@ public class EmployeeController {
         return service.createEmployee(employee);
     }
 
-
     @GetMapping("/all")
     @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
     public List<Employee> getAll() {
         return service.getAllEmployees();
     }
-
 
     @PreAuthorize("hasAuthority('ROLE_EMPLOYEE')")
     @GetMapping("/{id}")

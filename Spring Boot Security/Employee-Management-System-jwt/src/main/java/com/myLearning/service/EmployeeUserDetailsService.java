@@ -24,24 +24,3 @@ public class EmployeeUserDetailsService implements UserDetailsService {
     }
 }
 
-/*
-*   Optional allows us to use
-*   map()
-*   filter()
-*   flatmap()
-*   ifPresent()
-*   ifPresentOrElse()
-*   orElse()
-*   orElseGet()
-*   orElseThrow()
-*   stream() etc..
-*
-*
-*   Optional<List<Integer>> optionalList = Optional.of(Arrays.asList(1, 2, 3, 4, 5));*
-*   Using map to transform the list
-*   Optional<List<Integer>> result = optionalList.map(list -> list.stream()
-*                                                             .map(x -> x * 2) // Multiply each element by 2
-*                                                             .toList());*
-*   System.out.println(result);  // Output: Optional[[2, 4, 6, 8, 10]]
-*
-* */
