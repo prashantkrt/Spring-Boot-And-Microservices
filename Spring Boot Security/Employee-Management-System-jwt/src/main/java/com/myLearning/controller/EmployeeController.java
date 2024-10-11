@@ -1,7 +1,9 @@
 package com.myLearning.controller;
 
+import com.myLearning.dto.AuthenticationRequest;
 import com.myLearning.entity.Employee;
 import com.myLearning.service.EmployeeService;
+import com.myLearning.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,14 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService service;
+
+    @Autowired
+    private JwtService jwtService;
+
+    @PostMapping("/authentication")
+    public String authenticateRequest(@RequestBody AuthenticationRequest authenticationRequest) {
+        return jwtService.generateJwtToken(authenticationRequest.getUserName());
+    }
 
     //publicly accessible
     @GetMapping("/welcome")
