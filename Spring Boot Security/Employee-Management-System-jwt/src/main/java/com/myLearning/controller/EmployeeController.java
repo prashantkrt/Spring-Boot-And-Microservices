@@ -12,13 +12,6 @@ import java.util.List;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    /*
-     *  Authorization:
-     *  /create ⇒ HR
-     *  /all ⇒ Manager and HR
-     *  /id ⇒ Employee
-     * */
-
     @Autowired
     private EmployeeService service;
 
