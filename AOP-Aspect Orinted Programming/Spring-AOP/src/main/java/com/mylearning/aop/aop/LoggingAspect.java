@@ -54,4 +54,18 @@ public class LoggingAspect {
         logger.info("Time Taken ->" + (endTime - startTime) + " ms");
         return object;
     }
+
+    // Validating
+    // Suppose if user sends -ve id value
+    // through Around we can handle and pass the +ve value
+    @Around("execution (* com.mylearning.aop.service.JobService.deleteJob(..)) && args(postId)")
+    public Object validation(ProceedingJoinPoint jp,int postId) throws Throwable {
+        if (postId<0) {
+            logger.info("PostId is negative, updating it");
+            postId=-postId;
+            logger.info("new Value "+postId);
+        }
+        Object obj=jp.proceed(new Object[] {postId});
+        return obj;
+    }
 }
