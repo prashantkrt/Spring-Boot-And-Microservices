@@ -36,8 +36,7 @@ public class JwtService {
 
     private Key getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRETS);
-
-        //ago to generate the signIn key
+        //algo to generate the signIn key
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }

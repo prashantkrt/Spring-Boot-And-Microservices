@@ -30,7 +30,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/employees/welcome", "/employees/create").permitAll()
+                .antMatchers("/employees/welcome", "/employees/create","/employees/authentication").permitAll()
                 .and()
                 .authorizeRequests().antMatchers("/employees/**").authenticated()
                 .and()
@@ -38,12 +38,13 @@ public class SecurityConfig {
                 .and()
                 .authenticationProvider(authenticationProvider())
                 .httpBasic();
+
         return http.build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12);//2^12 rounds
+        return new BCryptPasswordEncoder();
     }
 
 

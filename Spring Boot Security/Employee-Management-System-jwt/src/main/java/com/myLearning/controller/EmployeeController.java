@@ -6,6 +6,10 @@ import com.myLearning.service.EmployeeService;
 import com.myLearning.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,32 +24,37 @@ public class EmployeeController {
     @Autowired
     private JwtService jwtService;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     @PostMapping("/authentication")
     public String authenticateRequest(@RequestBody AuthenticationRequest authenticationRequest) {
-        return jwtService.generateJwtToken(authenticationRequest.getUserName());
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassword()));
+        if (authentication.isAuthenticated()) {
+            return jwtService.generateJwtToken(authenticationRequest.getUserName());
+        } else {
+            throw new UsernameNotFoundException("Authentication failed !");
+        }
     }
 
-    //publicly accessible
     @GetMapping("/welcome")
     public String welcome() {
         return "Welcome to Employee Management System";
     }
 
-
     @PostMapping("/create")
-    //@PreAuthorize("hasAuthority('ROLE_HR')")
     public Employee onboardNewEmployee(@RequestBody Employee employee) {
         return service.createEmployee(employee);
     }
 
-    //For HR and Manager
+
     @GetMapping("/all")
     @PreAuthorize("hasAuthority('ROLE_HR') or hasAnyAuthority('ROLE_MANAGER')")
     public List<Employee> getAll() {
         return service.getAllEmployees();
     }
 
-    //For Employee
+
     @PreAuthorize("hasAuthority('ROLE_EMPLOYEE')")
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Integer id) {

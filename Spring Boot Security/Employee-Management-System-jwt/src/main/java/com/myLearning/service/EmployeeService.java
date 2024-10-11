@@ -23,11 +23,6 @@ public class EmployeeService {
         employee.setPassword(passwordEncoder.encode(employee.getPassword()));
         employee.setRoles(DEFAULT_ROLE);
         return employeeRepository.save(employee);
-//        Employee emp = employeeRepository.findByUsername("user1").get();
-//        String rawPassword = "user";
-//        boolean matches = passwordEncoder.matches(rawPassword, emp.getPassword());
-//        System.out.println(matches+"->"+"Testing and validating");
-
     }
 
     public List<Employee> getAllEmployees() {
