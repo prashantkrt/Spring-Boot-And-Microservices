@@ -21,6 +21,7 @@
         <module name="Multi-DB-Configuration" />
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
+        <module name="Employee-Management-System-jwt" />
         <module name="first-project-autoconfiguration" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
@@ -52,6 +53,7 @@
       <module name="Dependency-injection" options="-parameters" />
       <module name="Employee-Management-System" options="-parameters" />
       <module name="Employee-Management-System-Traditional-Approach" options="-parameters" />
+      <module name="Employee-Management-System-jwt" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
       <module name="Faculty-Service-Consumer" options="-parameters" />
       <module name="Kafka-Consumer" options="-parameters" />
