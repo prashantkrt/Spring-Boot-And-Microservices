@@ -46,6 +46,7 @@
         <option value="$PROJECT_DIR$/Spring Boot Security/Employee-Management-System-Traditional-Approach/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot Security/Employee-Management-System/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Boot Security/Employee-Management-System-jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Boot Security/Spring-Security-OAuth2/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
