@@ -18,11 +18,13 @@
         <module name="Creating-Excel" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
+        <module name="Order-Microservice" />
         <module name="Multi-DB-Configuration" />
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
         <module name="Employee-Management-System-jwt" />
         <module name="first-project-autoconfiguration" />
+        <module name="Payment-Microservice" />
         <module name="Logging" />
         <module name="Rest-Endpoint-Documentation" />
         <module name="Kafka-Consumer" />
@@ -71,6 +73,8 @@
       <module name="Kafka-producer-Test" options="-parameters" />
       <module name="Logging" options="-parameters" />
       <module name="Multi-DB-Configuration" options="-parameters" />
+      <module name="Order-Microservice" options="-parameters" />
+      <module name="Payment-Microservice" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="Scheduler" options="-parameters" />

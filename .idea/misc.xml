@@ -49,6 +49,8 @@
         <option value="$PROJECT_DIR$/Spring Boot Security/Spring-Security-OAuth2/pom.xml" />
         <option value="$PROJECT_DIR$/AOP-Aspect Orinted Programming/Spring-AOP/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Cloud Microservices/User-Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Cloud Microservices/Order-Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Cloud Microservices/Payment-Microservice/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
