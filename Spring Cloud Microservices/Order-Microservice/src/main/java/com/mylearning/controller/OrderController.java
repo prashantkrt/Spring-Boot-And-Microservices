@@ -1,5 +1,6 @@
 package com.mylearning.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mylearning.entity.Order;
 import com.mylearning.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/")
-    public String placeOrder(@RequestBody Order order) {
+    public String placeOrder(@RequestBody Order order) throws JsonProcessingException {
       return orderService.createOrder(order);
     }
 

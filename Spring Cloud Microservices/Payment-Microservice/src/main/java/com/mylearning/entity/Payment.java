@@ -2,6 +2,7 @@ package com.mylearning.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name="Payment_Table")
+@Builder
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

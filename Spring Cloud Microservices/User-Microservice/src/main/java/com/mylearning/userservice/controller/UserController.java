@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/register")
     public User registerNewUser(@RequestBody User user) {
         return userService.addNewUser(user);
     }

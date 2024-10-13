@@ -18,6 +18,6 @@ public class OrderDto {
     private Double price;
     private Date orderDate;
     private String orderId;
-    private String userId;
+    private int userId;
     private String paymentMode;
 }
