@@ -22,6 +22,6 @@ public class Order {
     private Double price;
     private Date orderDate;
     private String orderId;
-    private String userId;
+    private Integer userId;
     private String paymentMode;
 }
