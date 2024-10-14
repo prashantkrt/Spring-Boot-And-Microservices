@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Course-Service-Producer" />
+        <module name="Service-Discovery" />
         <module name="Spring-Boot-Email" />
         <module name="Spring-Boot-Scheduler" />
         <module name="Scheduler" />
@@ -78,6 +79,7 @@
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="Scheduler" options="-parameters" />
+      <module name="Service-Discovery" options="-parameters" />
       <module name="Spring-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
