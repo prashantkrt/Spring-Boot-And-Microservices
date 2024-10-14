@@ -44,14 +44,15 @@ public class OrderProcessingConsumer {
             if (payment.getPayMode().equalsIgnoreCase("cod")) {
                 payment.setPaymentStatus("pending");
             } else {
-                UserDto userDto = restTemplate.getForObject(USER_SERVICE_URL + payment.getUserId(),UserDto.class);
+                UserDto userDto = restTemplate.getForObject(USER_SERVICE_URL + payment.getUserId(), UserDto.class);
 
-                if(userDto.getAvailableAmount() < payment.getAmount()){
+                if (userDto.getPaymentMethod().equalsIgnoreCase("cod"))
+                    payment.setPaymentStatus("pending");
+                else if (userDto.getAvailableAmount() < payment.getAmount()) {
                     payment.setPaymentStatus("pending");
                     throw new RuntimeException("Insufficient amount !");
-                }
-                else{
-                    restTemplate.put(USER_SERVICE_URL  + payment.getUserId() + "/" + payment.getAmount(), null);
+                } else {
+                    restTemplate.put(USER_SERVICE_URL + payment.getUserId() + "/" + payment.getAmount(), null);
                     payment.setPaymentStatus("success");
                 }
             }

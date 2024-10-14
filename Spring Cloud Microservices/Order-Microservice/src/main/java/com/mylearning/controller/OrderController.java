@@ -1,6 +1,7 @@
 package com.mylearning.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mylearning.dto.OrderResponseDto;
 import com.mylearning.entity.Order;
 import com.mylearning.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class OrderController {
     }
 
     @GetMapping("/{orderId}")
-    public String getOrder(@PathVariable String orderId){
+    public OrderResponseDto getOrder(@PathVariable String orderId){
         return orderService.getOrder(orderId);
     }
 
