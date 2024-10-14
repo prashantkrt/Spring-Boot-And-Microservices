@@ -19,7 +19,7 @@ import java.util.Date;
 @Slf4j
 public class OrderProcessingConsumer {
 
-    public static final String USER_SERVICE_URL = "http://localhost:9090/users/";
+    public static final String USER_SERVICE_URL = "http://localhost:9083/users/";
 
     @Autowired
     private RestTemplate restTemplate;
