@@ -21,8 +21,8 @@ import java.util.UUID;
 @Slf4j
 public class OrderService {
 
-    private final String PAYMENT_URL = "http://localhost:9082/payments/";
-    private final String USER_URL = "http://localhost:9083/users/";
+    private final String PAYMENT_URL = "http://PAYMENT-MICROSERVICE/payments/";
+    private final String USER_URL = "http://USER-MICROSERVICE/users/";
     @Autowired
     private OrderRepository orderRepository;
     @Autowired
