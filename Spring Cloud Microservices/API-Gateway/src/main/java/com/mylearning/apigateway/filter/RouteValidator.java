@@ -21,4 +21,20 @@ public class RouteValidator {
             request -> openApiEndpoints
                     .stream()
                     .noneMatch(uri -> request.getURI().getPath().contains(uri));
+
+
+//    public Predicate<ServerHttpRequest> isSecured = new Predicate<ServerHttpRequest>() {
+//        @Override
+//        public boolean test(ServerHttpRequest request) {
+//            return openApiEndpoints
+//                    .stream()
+//                    .noneMatch(new Predicate<String>() {
+//                        @Override
+//                        public boolean test(String uri) {
+//                            return request.getURI().getPath().contains(uri);
+//                        }
+//                    });
+//        }
+//    };
+
 }
