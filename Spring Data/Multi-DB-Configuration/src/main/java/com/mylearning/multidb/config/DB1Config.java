@@ -27,7 +27,7 @@ import java.util.HashMap;
 public class DB1Config {
 
     /*
-     *  Earlier Spring manages, now we have to manager it
+     *  Earlier Spring manages, now we have to manage it
      *
      *  1. DataSource
      *  2. EntityManager

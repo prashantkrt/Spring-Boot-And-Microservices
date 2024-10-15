@@ -34,6 +34,7 @@
         <module name="CRUD-H2" />
         <module name="Kafka-DeSerialization-Example" />
         <module name="Spring-AOP" />
+        <module name="Auth-Microservice" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
         <module name="Kafka-Retry" />
@@ -53,6 +54,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="API-Gateway" options="-parameters" />
+      <module name="Auth-Microservice" options="-parameters" />
       <module name="Bean-Validation" options="-parameters" />
       <module name="CRUD-H2" options="-parameters" />
       <module name="Consuming-Restful-Web-Services" options="-parameters" />
