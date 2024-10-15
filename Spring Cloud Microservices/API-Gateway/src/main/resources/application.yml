@@ -6,14 +6,20 @@ spring:
           uri: lb://ORDER-MICROSERVICE
           predicates:
             - Path=/orders/**
+          filters:
+            - JwtAuthFilter
         - id: payment-microservice
           uri: lb://PAYMENT-MICROSERVICE
           predicates:
             - Path=/payments/**
+          filters:
+            - JwtAuthFilter
         - id: user-microservice
           uri: lb://USER-MICROSERVICE
           predicates:
             - Path=/users/**
+          filters:
+            - JwtAuthFilter
         - id: auth-microservice
           uri: lb://AUTH-MICROSERVICE
           predicates:
