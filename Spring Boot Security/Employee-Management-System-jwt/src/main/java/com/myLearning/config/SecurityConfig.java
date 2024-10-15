@@ -47,6 +47,20 @@ public class SecurityConfig {
 
         return http.build();
     }
+// new way from 6.1
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http.csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests((requests) -> requests
+//                        .requestMatchers("/employees/welcome", "/employees/create", "/employees/authentication").permitAll()
+//                        .requestMatchers("/employees/**").authenticated()
+//                )
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .authenticationProvider(authenticationProvider())
+//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+//
+//        return http.build();
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
