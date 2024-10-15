@@ -14,7 +14,10 @@ spring:
           uri: lb://USER-MICROSERVICE
           predicates:
             - Path=/users/**
-
+        - id: auth-microservice
+          uri: lb://AUTH-MICROSERVICE
+          predicates:
+            - Path=/auth/**
 server:
   port: 9000
 
