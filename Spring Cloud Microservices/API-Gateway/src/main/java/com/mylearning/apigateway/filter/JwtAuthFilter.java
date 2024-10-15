@@ -6,6 +6,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 @Component
 public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Config> {
@@ -15,6 +16,9 @@ public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Co
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public JwtAuthFilter() {
         super(Config.class);
@@ -35,6 +39,9 @@ public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Co
                     authHeader = authHeader.substring(7);
                 }
                 try {
+                    // 1st way to validate token
+                    //restTemplate.getForObject("http://AUTH-MICROSERVICE//validate?token" + authHeader, String.class);
+                    //2nd way
                     jwtUtils.validateToken(authHeader);
                 } catch (Exception e) {
                     System.out.println("invalid access...!");
