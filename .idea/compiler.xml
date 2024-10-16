@@ -15,6 +15,7 @@
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
         <module name="Employee-Management-System" />
+        <module name="Spring-Cloud-Config-Server" />
         <module name="Kafka-Schema-Registry" />
         <module name="Exception-Handling" />
         <module name="Creating-Excel" />
@@ -89,6 +90,7 @@
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
+      <module name="Spring-Cloud-Config-Server" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />

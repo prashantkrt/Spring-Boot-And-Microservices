@@ -1,0 +1,17 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9080/eureka/
+
+spring:
+  application:
+    name: Spring-Cloud-Config-Server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/prashantkrt/Spring-Cloud-Config-Server
+
+server:
+  port: 9078

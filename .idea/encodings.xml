@@ -37,6 +37,7 @@
     <file url="file://$PROJECT_DIR$/Spring Cloud Microservices/Order-Microservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Cloud Microservices/Payment-Microservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Cloud Microservices/Service-Discovery/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring Cloud Microservices/Spring-Cloud-Config-Server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Cloud Microservices/User-Microservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Data/Multi-DB-Configuration/src/main/java" charset="UTF-8" />
   </component>
