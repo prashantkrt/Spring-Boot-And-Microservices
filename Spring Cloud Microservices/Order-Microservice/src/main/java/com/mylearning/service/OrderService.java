@@ -7,9 +7,11 @@ import com.mylearning.dto.PaymentDto;
 import com.mylearning.dto.UserDto;
 import com.mylearning.entity.Order;
 import com.mylearning.repository.OrderRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -28,6 +30,7 @@ public class OrderService {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
     @Autowired
+    @Lazy
     private RestTemplate restTemplate;
     @Value("${order.producer.topic.name}")
     private String topicName;
@@ -46,6 +49,9 @@ public class OrderService {
         return "Your Order created!!! with order id " + order.getOrderId() + "...Once confirmed will notify you!!!";
     }
 
+
+    // we should be using circuit breaker when service methods call another rest api of external microservice
+    @CircuitBreaker(name ="orderService" ,fallbackMethod = "getOrderDetails")
     public OrderResponseDto getOrder(String orderId) {
         Order order = orderRepository.findByOrderId(orderId);
 
@@ -62,4 +68,10 @@ public class OrderService {
                 .userInfo(userDTO)
                 .build();
     }
+    public OrderResponseDto getOrderDetails(String orderId, Exception ex) {
+        //you can call a DB
+        //you can invoke external api
+        return new OrderResponseDto("FAILED", null, null, null);
+    }
+
 }

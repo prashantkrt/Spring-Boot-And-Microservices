@@ -2,3 +2,68 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9080/eureka/
+
+##actuators
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /details
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+##circuit breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      orderService:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5
+        max-wait-duration-in-half-open-state:
+          seconds: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: count_based
+
+
+#
+#    => register-health-indicator: true
+#    This setting enables the health indicator for the circuit breaker.
+#    It allows you to check the status of the circuit breaker in the application's health checks. If set to true, you can see if the circuit breaker is open, closed, or half-open.
+#
+#    => event-consumer-buffer-size: 10
+#    This determines how many events (like failures, successful calls, etc.) can be stored in the buffer before they're consumed (processed). A size of 10 means you can keep track of up to 10 events in memory.
+#
+#    => failure-rate-threshold: 50
+#    This defines the percentage of failed calls that will trigger the circuit breaker to open. If 50% or more of the calls to the orderService fail, the circuit breaker will open to prevent further calls until the issue is resolved.
+#
+#    => minimum-number-of-calls: 5
+#     This is the minimum number of calls that need to be made to the orderService for the failure rate to be calculated. If fewer than 5 calls have been made, the circuit breaker won't open, even if there are failures.
+#
+#    => automatic-transition-from-open-to-half-open-enabled: true
+#    This allows the circuit breaker to automatically move from the open state to a half-open state after a specified time. When in half-open, it will allow a limited number of calls to the service to see if it has recovered.
+#
+#    => wait-duration-in-open-state: seconds: 5
+#    This is the duration the circuit breaker stays open before it transitions to the half-open state. Here, it will wait for 5 seconds before allowing some test calls to see if the service is back up.
+#
+#    => max-wait-duration-in-half-open-state: seconds: 5
+#    When the circuit breaker is in the half-open state, this setting specifies how long it will remain in this state before switching back to closed or open. It can stay half-open for 5 seconds.
+#
+#    =>permitted-number-of-calls-in-half-open-state: 3
+#    This is the number of calls that will be allowed while the circuit breaker is half-open. In this case, it will allow 3 calls to see if the service is functioning correctly.
+#
+#    =>sliding-window-size: 10
+#    This determines how many calls will be used to calculate the failure rate. Here, it uses the most recent 10 calls to evaluate whether to open or close the circuit.
+#
+#    =>sliding-window-type: count_based
+#    This indicates the type of sliding window used to count the calls. In this case, it’s set to count_based, meaning it tracks the number of calls. Other options could include time_based, which would track calls over a time period.

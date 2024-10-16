@@ -2,3 +2,37 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9080/eureka/
+
+
+##actuators
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /details
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+##circuit breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      paymentService:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5
+        max-wait-duration-in-half-open-state:
+          seconds: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: count_based
+

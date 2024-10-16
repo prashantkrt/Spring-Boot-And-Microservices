@@ -7,6 +7,7 @@ import com.mylearning.dto.OrderDto;
 import com.mylearning.dto.UserDto;
 import com.mylearning.entity.Payment;
 import com.mylearning.repository.PaymentRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -27,6 +28,8 @@ public class OrderProcessingConsumer {
     @Autowired
     private PaymentRepository paymentRepository;
 
+
+    @CircuitBreaker(name = "paymentService", fallbackMethod = "fallbackProcess")
     @KafkaListener(topics = "order-payment-topic", groupId = "payment-consumer-group")
     public void process(String orderJsonString) {
         try {
@@ -61,5 +64,24 @@ public class OrderProcessingConsumer {
             log.error(e.getMessage());
             throw new RuntimeException(e);
         }
+    }
+
+    public void fallbackProcess(String orderJsonString, Throwable t) throws JsonProcessingException {
+        log.error("Circuit breaker opened, fallback executed. Reason: {}", t.getMessage());
+        // Handle fallback logic (e.g., log, notify, etc.)
+
+        log.info("Payment processing is on hold due to server error, please try after sometime ");
+        OrderDto orderDto = new ObjectMapper().readValue(orderJsonString, OrderDto.class);
+
+        //build payment request
+        Payment payment = Payment.builder()
+                .payMode(orderDto.getPaymentMode())
+                .amount(orderDto.getPrice())
+                .paidDate(new Date())
+                .userId(orderDto.getUserId())
+                .orderId(orderDto.getOrderId())
+                .build();
+        payment.setPaymentStatus("declined");
+        paymentRepository.save(payment);
     }
 }
