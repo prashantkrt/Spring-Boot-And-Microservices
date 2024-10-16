@@ -7,23 +7,52 @@ spring:
           predicates:
             - Path=/orders/**
           filters:
-            - JwtAuthFilter
+#            - name: JwtAuthFilter
+            - name: CircuitBreaker
+              args:
+                name: callOrderFallback
+                fallbackUri: forward:/fallback/order
+#                statusCodes:
+#                  include:
+#                    - METHOD_NOT_ALLOWED
         - id: payment-microservice
           uri: lb://PAYMENT-MICROSERVICE
           predicates:
             - Path=/payments/**
           filters:
-            - JwtAuthFilter
+#            - name: JwtAuthFilter
+            - name: CircuitBreaker
+              args:
+                name: callPaymentFallback
+                fallbackUri: forward:/fallback/payment
+#                statusCodes:
+#                  include:
+#                    - METHOD_NOT_ALLOWED
         - id: user-microservice
           uri: lb://USER-MICROSERVICE
           predicates:
             - Path=/users/**
           filters:
-            - JwtAuthFilter
+#            - name: JwtAuthFilter
+            - name: CircuitBreaker
+              args:
+                name: callUserFallback
+                fallbackUri: forward:/fallback/user
+#                statusCodes:
+#                  include:
+#                    - METHOD_NOT_ALLOWED
         - id: auth-microservice
           uri: lb://AUTH-MICROSERVICE
           predicates:
             - Path=/auth/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: callAuthFallback
+                fallbackUri: forward:/fallback/auth
+#                statusCodes:
+#                  include:
+#                    - METHOD_NOT_ALLOWED
 server:
   port: 9000
 
