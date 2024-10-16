@@ -1,4 +1,8 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:9080/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:9080/eureka/
+spring:
+  config:
+    import:
+      - configserver:http://localhost:9078

@@ -7,7 +7,7 @@ spring:
           predicates:
             - Path=/orders/**
           filters:
-#            - name: JwtAuthFilter
+            - name: JwtAuthFilter
             - name: CircuitBreaker
               args:
                 name: callOrderFallback
@@ -20,7 +20,7 @@ spring:
           predicates:
             - Path=/payments/**
           filters:
-#            - name: JwtAuthFilter
+            - name: JwtAuthFilter
             - name: CircuitBreaker
               args:
                 name: callPaymentFallback
@@ -33,7 +33,7 @@ spring:
           predicates:
             - Path=/users/**
           filters:
-#            - name: JwtAuthFilter
+            - name: JwtAuthFilter
             - name: CircuitBreaker
               args:
                 name: callUserFallback
@@ -53,10 +53,16 @@ spring:
 #                statusCodes:
 #                  include:
 #                    - METHOD_NOT_ALLOWED
+
+  config:
+    import:
+      - configserver:http://localhost:9078
 server:
   port: 9000
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:9080/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:9080/eureka/
+
+
