@@ -11,6 +11,7 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -18,13 +19,24 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.UUID;
-
+/*
+* @RefreshScope annotation in Spring Cloud is used in applications to refresh beans dynamically at runtime without restarting the entire application.
+* Only the beans with @RefreshScope are refreshed, and other beans remain unchanged.
+ * */
 @Service
 @Slf4j
+@RefreshScope // any changes to config server value will be reflected here
 public class OrderService {
 
     private final String PAYMENT_URL = "http://PAYMENT-MICROSERVICE/payments/";
     private final String USER_URL = "http://USER-MICROSERVICE/users/";
+
+//    @Value("${microservice.payment-service.endpoints.fetchPaymentById.uri}")
+//    private String fetchPaymentUri;
+//
+//    @Value("${microservice.user-service.endpoints.fetchUserById.uri}")
+//    private String fetchUserUri;
+
     @Autowired
     private OrderRepository orderRepository;
     @Autowired
