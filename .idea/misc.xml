@@ -55,6 +55,7 @@
         <option value="$PROJECT_DIR$/Spring Cloud Microservices/API-Gateway/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Cloud Microservices/Auth-Microservice/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Cloud Microservices/Spring-Cloud-Config-Server/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JDBC/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
