@@ -11,6 +11,8 @@ public interface EmployeeRepository {
 
     public List<Employee> getAllEmployees();
 
+    public List<Employee> findAllEmployees();
+
     public Employee findById(Integer id);
 
     public Integer updateEmployee(Employee employee);
@@ -21,5 +23,5 @@ public interface EmployeeRepository {
 
     public Employee findByNameAndDepartment(String name, String department);
 
-    public List<Employee> findByNameAndDepartment(String department);
+    public List<Employee> findAllByNameAndDepartment(String name, String department);
 }
