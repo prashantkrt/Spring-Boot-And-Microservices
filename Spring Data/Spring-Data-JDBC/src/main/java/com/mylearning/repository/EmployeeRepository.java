@@ -5,7 +5,7 @@ import com.mylearning.entity.Employee;
 import java.util.List;
 
 public interface EmployeeRepository {
-    public String save(Employee employee);
+    public Integer save(Employee employee);
 
     public List<Employee> findAll();
 

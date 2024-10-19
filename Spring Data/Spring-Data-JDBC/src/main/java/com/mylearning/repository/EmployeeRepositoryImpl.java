@@ -14,8 +14,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public String save(Employee employee) {
-        return "";
+    public Integer save(Employee employee) {
+        String sql = "INSERT INTO Employees (name, department, email, phone, dateOfJoining) VALUES (?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, employee.getName(), employee.getDepartment(), employee.getEmail(), employee.getPhone(), employee.getDateOfJoining());
     }
 
     @Override
@@ -35,7 +36,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Integer updateEmployee(Employee employee) {
-        return 0;
+        return jdbcTemplate.update("UPDATE EMPLOYEES_DATA SET name =? , dept = ? , email = ? , doj = ?  WHERE id =?",
+                employee.getName(), employee.getDepartment(), employee.getEmail(), employee.getDateOfJoining(), employee.getId());
     }
 
     @Override
@@ -45,7 +47,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Integer delete(Integer id) {
-        return 0;
+        return jdbcTemplate.update("DELETE FROM EMPLOYEES_DATA WHERE id= ?", id);
     }
 
     @Override
