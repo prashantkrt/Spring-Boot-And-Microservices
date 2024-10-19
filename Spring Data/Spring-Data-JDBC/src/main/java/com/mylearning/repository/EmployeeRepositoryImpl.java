@@ -24,6 +24,11 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
+    public List<Employee> getAllEmployees() {
+        return List.of();
+    }
+
+    @Override
     public Employee findById(Integer id) {
         return null;
     }

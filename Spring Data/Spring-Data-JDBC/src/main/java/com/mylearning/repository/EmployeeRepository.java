@@ -9,6 +9,8 @@ public interface EmployeeRepository {
 
     public List<Employee> findAll();
 
+    public List<Employee> getAllEmployees();
+
     public Employee findById(Integer id);
 
     public Integer updateEmployee(Employee employee);
