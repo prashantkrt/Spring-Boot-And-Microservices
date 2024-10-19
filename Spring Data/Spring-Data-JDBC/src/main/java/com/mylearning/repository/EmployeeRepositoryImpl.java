@@ -105,6 +105,14 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
                 new BeanPropertyRowMapper<>(String.class), id);
     }
 
+    public String fetchNameById(Integer id) {
+        return jdbcTemplate.queryForObject(
+                "SELECT name FROM EMPLOYEES WHERE id = ?",
+                (rs, rowNum) -> rs.getString("name"), // Lambda RowMapper for a single column
+                id
+        );
+    }
+
     @Override
     public Integer delete(Integer id) {
         return jdbcTemplate.update("DELETE FROM EMPLOYEES_DATA WHERE id= ?", id);
