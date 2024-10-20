@@ -14,17 +14,17 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping
+    @PostMapping("save")
     public String saveEmployee(@RequestBody Employee employee) {
         return employeeService.saveEmployee(employee);
     }
 
-    @GetMapping
+    @GetMapping("/first")
     public List<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
 
-    @GetMapping("/2nd")
+    @GetMapping("/second")
     public List<Employee> getEmployeesBy2ndApproach() {
         return employeeService.getEmployeesUsingBeanPropertyRowMapper();
     }
@@ -44,7 +44,7 @@ public class EmployeeController {
         return employeeService.findEmployeesByNameAndDept(name, dept);
     }
 
-    @PutMapping
+    @PutMapping("update")
     public String updateEmployee(@RequestBody Employee employee) {
         return employeeService.updateEmployee(employee);
     }
