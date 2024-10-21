@@ -113,6 +113,27 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         );
     }
 
+    public String fetchNameWithId(Integer id) {
+        return jdbcTemplate.queryForObject(
+                "SELECT name FROM EMPLOYEES WHERE id = ?",
+                new RowMapper<String>() {
+                    @Override
+                    public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        return rs.getString("name"); // Map the result set to a String (name)
+                    }
+                },
+                id
+        );
+    }
+
+    public String fetchWithId(Integer id) {
+        return jdbcTemplate.queryForObject(
+                "SELECT name FROM EMPLOYEES WHERE id = ?",
+                new StringRowMapper(),
+                id
+        );
+    }
+
     @Override
     public Integer delete(Integer id) {
         return jdbcTemplate.update("DELETE FROM EMPLOYEES_DATA WHERE id= ?", id);
