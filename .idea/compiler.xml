@@ -97,6 +97,7 @@
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="Spring-Cloud-Config-Server" options="-parameters" />
       <module name="Spring-Data-JDBC" options="-parameters" />
+      <module name="Spring-Data-JPA" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
