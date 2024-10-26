@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Product {
     private Integer id;
     private String name;
-    private String descritpion;
+    private String description;
 }
