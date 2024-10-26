@@ -45,6 +45,7 @@
         <module name="Kafka-Producer-Example" />
         <module name="Spring-Security-OAuth2" />
         <module name="Employee-Management-System (1)" />
+        <module name="Spring-Data-JPA" />
         <module name="Spring-Boot-Profiles" />
         <module name="User-Microservice" />
         <module name="Spring-Data-JDBC" />
