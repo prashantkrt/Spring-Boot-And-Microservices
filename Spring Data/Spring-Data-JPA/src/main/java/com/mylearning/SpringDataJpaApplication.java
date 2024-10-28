@@ -11,4 +11,3 @@ public class SpringDataJpaApplication {
     }
 
 }
-// Specific to Crud Repository
