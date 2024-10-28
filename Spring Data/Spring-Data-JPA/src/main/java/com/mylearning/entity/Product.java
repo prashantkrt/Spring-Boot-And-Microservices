@@ -13,9 +13,14 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "productID")
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "price")
     private double price;
+    @Column(name="description")
     private String description;
+    @Column(name = "productType")
     private String productType;
 }
