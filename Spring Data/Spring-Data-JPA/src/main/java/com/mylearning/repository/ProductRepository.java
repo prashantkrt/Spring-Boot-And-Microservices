@@ -10,13 +10,26 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
 
     // Derived Query Methods
     List<Product> findByName(String name);
-    List<Product> findByPriceLessThan(double price);
     List<Product> findByProductType(String productType);
     List<Product> findByNameAndProductType(String name, String productType);
-    void deleteByName(String name);
+
     List<Product> findByDescriptionIsNotNull();
     List<Product> findByPriceOrDescription(double price, String description);
+    List<Product> findByNameIgnoreCaseContaining(String name);
 
+
+    List<Product> findByPriceGreaterThan(double price);
+    List<Product> findByPriceBetween(double lower, double upper);
+    List<Product> findByPriceIn(List<Double> prices);
+    List<Product> findByPriceLessThan(double price);
+
+    void deleteByName(String name);
+
+
+    //@Query(value = "SELECT * FROM PRODUCT_TBL WHERE price = ?1",nativeQuery = true)
+    @Query("from Product p where p.price= ?1 ") // position-based parameter
+    //@Query("from PRODUCT_TABLE p where p.price= :price") //named parameter base index
+    List<Product> getProductByPrice(double price);
 
     // Custom Query Methods
     @Query("SELECT p FROM Product p WHERE p.price > :price")
