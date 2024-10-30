@@ -12,12 +12,12 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
     List<Product> findByName(String name);
     List<Product> findByProductType(String productType);
     List<Product> findByNameAndProductType(String name, String productType);
+    List<Product> findByPriceOrDescription(double price, String description);
 
     List<Product> findByDescriptionIsNotNull();
-    List<Product> findByPriceOrDescription(double price, String description);
     List<Product> findByNameIgnoreCaseContaining(String name);
 
-
+    //prefix + field + operator
     List<Product> findByPriceGreaterThan(double price);
     List<Product> findByPriceBetween(double lower, double upper);
     List<Product> findByPriceIn(List<Double> prices);
