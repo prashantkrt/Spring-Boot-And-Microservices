@@ -29,6 +29,7 @@ public class ProductController {
     public Product getProductById(@PathVariable int id) {
         return productService.getProductById(id);
     }
+
     @GetMapping("/name/{name}")
     public List<Product> getProductByName(@PathVariable String name) {
         return productService.getProductByName(name);
@@ -36,13 +37,18 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable int id) {
-       productService.deleteProduct(id);
-       return "Product deleted successfully";
+        productService.deleteProduct(id);
+        return "Product deleted successfully";
     }
 
     @GetMapping("/type/{productType}")
     public List<Product> getProductsByType(@PathVariable String productType) {
         return productService.getProductsByType(productType);
+    }
+
+    @GetMapping("/{name}/{productType}")
+    public List<Product> getProductsByNameAndProductType(@PathVariable String name, @PathVariable String productType) {
+        return productService.getProductsByNameAndProductType(name, productType);
     }
 
 }
