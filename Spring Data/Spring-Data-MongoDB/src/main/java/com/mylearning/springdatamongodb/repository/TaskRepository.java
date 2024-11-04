@@ -15,6 +15,8 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
     List<Task> findByTaskAssigneeAndTaskPriority(String taskAssignee, Integer taskPriority);
 
+   //  Note:⇒ you must refer to the exact field names as they are stored in the MongoDB documents, not as they are defined in your entity class.
+
     @Query("{ 'status': 'active', 'priority': { $gt: ?0 } }")
     List<Task> findActiveTasksWithPriorityGreaterThan(Integer priority);
 
