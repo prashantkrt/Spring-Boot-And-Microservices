@@ -11,3 +11,29 @@ public class SpringDataRestApplication {
     }
 
 }
+
+/*
+*
+*    http://localhost:8080/ =>
+*   {
+*        "_links": {
+*        "employees": {
+*        "href": "http://localhost:8080/employees{?page,size,sort*}",
+*        "templated": true
+*        },
+*        "students": {
+*        "href": "http://localhost:8080/students{?page,size,sort*}",
+*        "templated": true
+*        },
+*        "profile": {
+*        "href": "http://localhost:8080/profile"
+*       }
+*      }
+*   }
+*    We can simply perform the crud operation without controller and service classes
+*    http://localhost:8080/employees   RequestBody => post
+*    http://localhost:8080/employees/1  => get
+*    http://localhost:8080/employees/2  => delete
+*    http://localhost:8080/employees/2  RequestBody => put
+*
+* */
