@@ -24,6 +24,7 @@ public interface TaskRepository extends MongoRepository<Task, String> {
     @Query("{ 'name': { $regex: ?0, $options: 'i' } }")
     List<Task> findByNameContainingIgnoreCase(String name);
 
+    //Return a list of Task objects (or a projection of them) that only includes the description and storyPoint fields.
     @Query(value = "{ assignee: ?0 ,priority: ?1}", fields = "{'description' : 1 , 'storyPoint': 2}")
     List<Task> findTaskWithAssigneeAndPriority(String assignee, String priority);
 
