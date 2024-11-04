@@ -33,8 +33,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     void deleteByName(String name);
 
     //@Query(value = "SELECT * FROM PRODUCT_TBL WHERE price = ?1",nativeQuery = true)
-    @Query("from Product p where p.price= ?1 ")
-    // position-based parameter
+    @Query("from Product p where p.price= ?1 ") // position-based parameter OR
     //@Query("from PRODUCT_TABLE p where p.price= :price") // named parameter base index
     List<Product> getProductByPrice(double price);
 
