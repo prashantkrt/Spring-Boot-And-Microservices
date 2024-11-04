@@ -45,6 +45,7 @@
         <module name="Kafka-Producer-Example" />
         <module name="Spring-Security-OAuth2" />
         <module name="Employee-Management-System (1)" />
+        <module name="Spring-Data-JPA-Pagination" />
         <module name="Spring-Data-JPA" />
         <module name="Spring-Boot-Profiles" />
         <module name="User-Microservice" />
@@ -99,6 +100,7 @@
       <module name="Spring-Cloud-Config-Server" options="-parameters" />
       <module name="Spring-Data-JDBC" options="-parameters" />
       <module name="Spring-Data-JPA" options="-parameters" />
+      <module name="Spring-Data-JPA-Pagination" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />

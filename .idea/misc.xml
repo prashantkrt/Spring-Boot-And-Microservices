@@ -57,6 +57,7 @@
         <option value="$PROJECT_DIR$/Spring Cloud Microservices/Spring-Cloud-Config-Server/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JDBC/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JPA/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Pagination/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
