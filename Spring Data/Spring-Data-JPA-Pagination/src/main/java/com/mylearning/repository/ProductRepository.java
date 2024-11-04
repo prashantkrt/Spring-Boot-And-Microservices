@@ -20,6 +20,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByDescriptionIsNotNull();
 
+    List<Product> findByDescriptionIsNull();
+
     List<Product> findByNameIgnoreCaseContaining(String name);
 
     //prefix + field + operator

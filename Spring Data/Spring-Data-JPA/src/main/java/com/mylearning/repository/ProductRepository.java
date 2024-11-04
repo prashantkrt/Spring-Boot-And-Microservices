@@ -22,6 +22,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByNameIgnoreCaseContaining(String name);
 
+//    List<Product> findByNameIgnoreCaseContaining(String name); both are same
+//    List<Product> findByNameContainingIgnoreCase(String name);
+
     //prefix + field + operator
     List<Product> findByPriceGreaterThan(double price);
 
