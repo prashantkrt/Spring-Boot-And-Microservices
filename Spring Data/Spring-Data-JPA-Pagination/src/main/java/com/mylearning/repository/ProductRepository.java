@@ -33,65 +33,26 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     void deleteByName(String name);
 
-    //@Query(value = "SELECT * FROM PRODUCT_TBL WHERE price = ?1",nativeQuery = true)
-    @Query("SELECT p FROM Product p WHERE p.price > ?1") // position-based parameter OR
-    //@Query("from PRODUCT_TABLE p where p.price= :price") // named parameter base index
+    @Query("SELECT p FROM Product p WHERE p.price > ?1")
     List<Product> getProductByPrice(double price);
 
-    // Custom Query Methods using JPQL
-    @Query("SELECT p FROM Product p WHERE p.price > :price") // use JPQL in a native query is false else it won't work
+    @Query("SELECT p FROM Product p WHERE p.price > :price")
     List<Product> findProductsByPriceGreaterThan(double price);
 
-
-    @Query("SELECT p FROM Product p WHERE p.price > :price") // If you change the parameter name in the method, you must use @Param to explicitly bind it:
+    @Query("SELECT p FROM Product p WHERE p.price > :price")
     List<Product> findProductsByPriceGreaterThanWithParamExample(@Param("price") double productPrice);
 
-    @Query("SELECT p FROM Product p WHERE p.productType = :productType ORDER BY p.price DESC") // JPQL
+    @Query("SELECT p FROM Product p WHERE p.productType = :productType ORDER BY p.price DESC")
     List<Product> findProductsByProductTypeOrderByPriceDesc(String productType);
 
-    @Query("SELECT p FROM Product p WHERE p.name LIKE %:name%") // JPQL
+    @Query("SELECT p FROM Product p WHERE p.name LIKE %:name%")
     List<Product> findProductsByNameContaining(String name);
 
-    @Query(value = "SELECT * FROM Product_Table WHERE product_type = ?1 LIMIT 1", nativeQuery = true) // SQL
+    @Query(value = "SELECT * FROM Product_Table WHERE product_type = ?1 LIMIT 1", nativeQuery = true)
     Product findFirstByProductType(String productType);
 
-    @Query(value = "SELECT * FROM Product_Table WHERE price < :price", nativeQuery = true) // SQL
+    @Query(value = "SELECT * FROM Product_Table WHERE price < :price", nativeQuery = true)
     List<Product> findProductsByPriceLesserThan(double price);
-
-
-//    Both are same
-//    @Query("SELECT p FROM Product p WHERE p.price > :price")
-//    List<Product> findProductsByPriceGreaterThan(double price);
-//    or
-//    @Query("SELECT p FROM Product p WHERE p.price > :price")
-//    List<Product> findProductsByPriceGreaterThan(@Param("price") double price);
-//
-//    Here param required since method parameter name is changed and different
-//    @Query("SELECT p FROM Product p WHERE p.price > :price")
-//   List<Product> findProductsByPriceGreaterThan(@Param("price") double productPrice);
-
-
-
 }
-//1. Standard CRUD Methods (Provided by JpaRepository)
-//By extending JpaRepository<Product, Integer>, we get the following basic CRUD operations:
-//
-// a.) save(Product product): Product
-//Description: Saves the given product to the database. If the product already exists (determined by the primary key), it updates the record; otherwise, it inserts a new one.
-//Return Type: Product (the saved entity)
-//
-// b.) findById(Integer id): Optional<Product>
-//Description: Retrieves a product by its ID.
-//Return Type: Optional<Product> (contains the product if found, otherwise empty)
-//
-// c.) findAll(): List<Product>
-//Description: Fetches all products in the database.
-//Return Type: List<Product> (list of all products)
-//
-// d.) deleteById(Integer id): void
-//Description: Deletes the product with the given ID.
-//Return Type: void
-//
-// e.) count(): long
-//Description: Returns the count of all products in the database.
-//Return Type: long
+
+
