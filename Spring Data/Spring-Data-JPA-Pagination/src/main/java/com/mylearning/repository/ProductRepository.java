@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    // Derived Query Methods
     List<Product> findByName(String name);
 
     List<Product> findByProductType(String productType);
@@ -22,7 +21,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByDescriptionIsNull();
 
-    //prefix + field + operator
     List<Product> findByPriceGreaterThan(double price);
 
     List<Product> findByPriceBetween(double lower, double upper);
