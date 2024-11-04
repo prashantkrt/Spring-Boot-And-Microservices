@@ -32,8 +32,8 @@ public class TaskController {
     }
 
     @PutMapping
-    public Task updateTask(@RequestBody Task taskRequest) {
-        return taskService.updateTask(taskRequest);
+    public Task updateTask(@RequestBody Task task) {
+        return taskService.updateTask(task);
     }
 
     @DeleteMapping("/{taskId}")
