@@ -3,7 +3,11 @@ package com.mylearning.service;
 import com.mylearning.entity.Product;
 import com.mylearning.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -23,6 +27,7 @@ public class ProductService {
     public Product getProductById(int id) {
         return productRepository.findById(id).get();
     }
+
     public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
@@ -46,6 +51,28 @@ public class ProductService {
         existingProduct.setPrice(productRequest.getPrice());
         existingProduct.setProductType(existingProduct.getProductType());
         return productRepository.save(existingProduct);
+    }
+
+
+
+    /*********Sorting*********/
+    // Sorting based on the given filed by the user
+    public List<Product> getProductsWithSorting(String fieldName) {
+        return productRepository.findAll(Sort.by(Sort.Direction.ASC, fieldName));
+    }
+
+
+    /*******Pagination****/
+    //    int page offset initial Value
+    //    int size limit value
+    public Page<Product> getProductsWithPaging(int offset, int limit) {
+        return productRepository.findAll(PageRequest.of(offset, limit));
+    }
+
+    /******Pagination + Sorting*****/
+    public Page<Product> getProductsWithSortingAndPagination(String fieldName, int offset, int limit) {
+        return productRepository.findAll(PageRequest.of(offset, limit, Sort.by(Sort.Direction.ASC, fieldName)));
+        //return productRepository.findAll(PageRequest.of(offset, limit).withSort(Sort.Direction.ASC, fieldName));
     }
 
 

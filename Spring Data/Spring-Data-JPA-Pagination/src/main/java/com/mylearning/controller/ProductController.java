@@ -55,4 +55,11 @@ public class ProductController {
         return productService.updateProduct(id, productRequest);
     }
 
+    // Sorting
+    // Dynamic sorting based on any other fields other than id
+    public List<Product> getAllProductsInSortedOder(String field) {
+      return productService.getProductsWithSorting(field);
+    }
+
+
 }
