@@ -22,8 +22,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByDescriptionIsNull();
 
-    List<Product> findByNameIgnoreCaseContaining(String name);
-
     //prefix + field + operator
     List<Product> findByPriceGreaterThan(double price);
 
@@ -32,6 +30,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByPriceIn(List<Double> prices);
 
     List<Product> findByPriceLessThan(double price);
+
+    List<Product> findByNameIgnoreCaseContaining(String name);
 
     void deleteByName(String name);
 
