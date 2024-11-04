@@ -43,4 +43,20 @@ public class TaskService {
         return "Successfully deleted task " + taskId;
     }
 
+    public List<Task> getTaskByAssigneeAndPriority(String assignee, Integer priority){
+        return taskRepository.findByTaskAssigneeAndTaskPriority(assignee, priority);
+    }
+
+    public List<Task> getTasksByStatus(String status) {
+        return taskRepository.findByTaskStatus(status);
+    }
+
+    public List<Task> getTasksByAssignee(String assignee) {
+        return taskRepository.findByTaskAssignee(assignee);
+    }
+
+    public List<Task> searchTasksByName(String name) {
+        return taskRepository.findByNameContainingIgnoreCase(name);
+    }
+
 }
