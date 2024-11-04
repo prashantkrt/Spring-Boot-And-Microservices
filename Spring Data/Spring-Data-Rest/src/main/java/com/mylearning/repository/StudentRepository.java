@@ -24,5 +24,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "student-api",path = "student-api")
 public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> findByName(String lastName);
-    //http://localhost:8080/student-api/search/findByName?name=Prashant
+    //http://localhost:8080/employees/search/findByName?name=Prashant
 }
