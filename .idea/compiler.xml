@@ -41,6 +41,7 @@
         <module name="Dependency-injection" />
         <module name="Kafka-Retry" />
         <module name="Spring-Boot-Actuator" />
+        <module name="Spring-Data-MongoDB" />
         <module name="Kafka-Consumer-Test" />
         <module name="Kafka-Producer-Example" />
         <module name="Spring-Security-OAuth2" />
@@ -101,6 +102,7 @@
       <module name="Spring-Data-JDBC" options="-parameters" />
       <module name="Spring-Data-JPA" options="-parameters" />
       <module name="Spring-Data-JPA-Pagination" options="-parameters" />
+      <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
