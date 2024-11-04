@@ -36,4 +36,6 @@ public class SpringDataRestApplication {
 *    http://localhost:8080/employees/2  => delete
 *    http://localhost:8080/employees/2  RequestBody => put
 *
+*    http://localhost:8080/employees?page=0&size=3&sort=name  // offset / limit / fieldName for sorting
+*
 * */
