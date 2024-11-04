@@ -39,4 +39,14 @@ public class ProductService {
         return productRepository.findByNameAndProductType(name, productType);
     }
 
+    public Product updateProduct(int id, Product productRequest) {
+        Product existingProduct = productRepository.findById(id).get(); // DB
+        existingProduct.setName(productRequest.getName());
+        existingProduct.setDescription(productRequest.getDescription());
+        existingProduct.setPrice(productRequest.getPrice());
+        existingProduct.setProductType(existingProduct.getProductType());
+        return productRepository.save(existingProduct);
+    }
+
+
 }
