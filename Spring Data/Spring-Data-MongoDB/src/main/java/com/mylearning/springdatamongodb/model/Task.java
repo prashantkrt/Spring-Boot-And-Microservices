@@ -1,4 +1,4 @@
-package com.mylearning.springdatamongodb.entity;
+package com.mylearning.springdatamongodb.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
