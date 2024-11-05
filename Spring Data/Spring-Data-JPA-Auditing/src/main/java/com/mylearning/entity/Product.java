@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name="Product_Details")
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
