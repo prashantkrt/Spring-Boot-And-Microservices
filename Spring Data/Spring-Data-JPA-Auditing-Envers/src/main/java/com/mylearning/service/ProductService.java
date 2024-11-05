@@ -1,6 +1,5 @@
 package com.mylearning.service;
 
-
 import com.mylearning.entity.Product;
 import com.mylearning.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +37,16 @@ public class ProductService {
     public long deleteProduct(long id) {
         productRepository.deleteById(id);
         return productRepository.count();
+    }
+
+
+    // Revision or version details fetch
+    public void printProductHistory(Long productId) {
+        productRepository.findRevisions(productId).forEach(revision -> {
+            System.out.println("Revision Number: " + revision.getRevisionNumber());
+            System.out.println("Revision Timestamp: " + revision.getRevisionInstant());
+            System.out.println("Product Data: " + revision.getEntity());
+        });
     }
 
 }

@@ -37,4 +37,9 @@ public class ProductController {
     public long deleteProduct(@PathVariable int id) {
         return productService.deleteProduct(id);
     }
+
+    @GetMapping("/history/{id}")
+    public void getRevisionDetails(@PathVariable long id) {
+        productService.printProductHistory(id);
+    }
 }

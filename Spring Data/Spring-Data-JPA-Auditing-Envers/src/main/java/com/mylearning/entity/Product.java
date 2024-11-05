@@ -19,6 +19,7 @@ import java.util.Date;
 @Entity
 @Table(name="Product_Details")
 @EntityListeners(AuditingEntityListener.class)
+@Audited // maintenance the revision or version or history changes
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
