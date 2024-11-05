@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mylearning</groupId>
-    <artifactId>Spring-Data-JPA-Auditing</artifactId>
+    <artifactId>Spring-Data-JPA-Auditing-Envers</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Spring-Data-JPA-Auditing</name>
-    <description>Spring-Data-JPA-Auditing</description>
+    <name>Spring-Data-JPA-Auditing-Envers</name>
+    <description>Spring-Data-JPA-Auditing-Envers</description>
     <url/>
     <licenses>
         <license/>

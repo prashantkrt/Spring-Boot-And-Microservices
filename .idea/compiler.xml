@@ -19,6 +19,7 @@
         <module name="Kafka-Schema-Registry" />
         <module name="Exception-Handling" />
         <module name="Creating-Excel" />
+        <module name="Spring-Data-JPA-Auditing-Envers" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
         <module name="Order-Microservice" />
@@ -104,6 +105,7 @@
       <module name="Spring-Data-JDBC" options="-parameters" />
       <module name="Spring-Data-JPA" options="-parameters" />
       <module name="Spring-Data-JPA-Auditing" options="-parameters" />
+      <module name="Spring-Data-JPA-Auditing-Envers" options="-parameters" />
       <module name="Spring-Data-JPA-Pagination" options="-parameters" />
       <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Data-Rest" options="-parameters" />
