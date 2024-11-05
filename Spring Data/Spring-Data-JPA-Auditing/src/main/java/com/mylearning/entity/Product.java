@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name="Product_Details")
-//@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,17 +29,21 @@ public class Product {
 
     //Auditors
     @CreatedBy
+    @Column(updatable = false)
     private String createdBy;
 
     @CreatedDate
     @Temporal(TemporalType.DATE)
+    @Column(updatable = false)
     private Date createdDate;
 
     @LastModifiedBy
+    @Column(updatable = false)
     private String lastModifiedBy;
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
     private Date lastModifiedDate;
 }
 
