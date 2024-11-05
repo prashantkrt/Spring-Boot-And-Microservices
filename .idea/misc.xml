@@ -60,6 +60,7 @@
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Pagination/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-MongoDB/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-Rest/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Auditing/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

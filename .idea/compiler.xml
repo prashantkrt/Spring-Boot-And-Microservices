@@ -52,6 +52,7 @@
         <module name="Spring-Boot-Profiles" />
         <module name="User-Microservice" />
         <module name="Spring-Data-JDBC" />
+        <module name="Spring-Data-JPA-Auditing" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -102,6 +103,7 @@
       <module name="Spring-Cloud-Config-Server" options="-parameters" />
       <module name="Spring-Data-JDBC" options="-parameters" />
       <module name="Spring-Data-JPA" options="-parameters" />
+      <module name="Spring-Data-JPA-Auditing" options="-parameters" />
       <module name="Spring-Data-JPA-Pagination" options="-parameters" />
       <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Data-Rest" options="-parameters" />
