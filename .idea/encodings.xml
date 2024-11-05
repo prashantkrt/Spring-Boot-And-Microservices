@@ -45,6 +45,7 @@
     <file url="file://$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Auditing/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Pagination/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Data/Spring-Data-JPA/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring Data/Spring-Data-Jasypt/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Data/Spring-Data-MongoDB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring Data/Spring-Data-Rest/src/main/java" charset="UTF-8" />
   </component>

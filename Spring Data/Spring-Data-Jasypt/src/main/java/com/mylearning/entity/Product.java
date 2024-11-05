@@ -1,0 +1,57 @@
+package com.mylearning.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.Date;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Entity
+@Table(name="Product_Details")
+@EntityListeners(AuditingEntityListener.class)
+@Audited // maintenance the revision or version or history changes
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private double price;
+    private String description;
+    private String productType;
+
+    //Auditors
+    @CreatedBy
+    @Column(updatable = false)
+    private String createdBy;
+
+    @CreatedDate
+    @Temporal(TemporalType.DATE)
+    @Column(updatable = false)
+    private Date createdDate;
+
+    @LastModifiedBy
+    @Column(updatable = false)
+    private String lastModifiedBy;
+
+    @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
+    private Date lastModifiedDate;
+}
+
+/*
+ Note:
+    TemporalType.DATE: Stores only the date (year, month, day) without the time.
+    TemporalType.TIME: Stores only the time (hours, minutes, seconds) without the date.
+    TemporalType.TIMESTAMP: Stores both the date and time (date and time up to
+*/

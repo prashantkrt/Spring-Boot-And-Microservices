@@ -14,6 +14,7 @@
         <module name="Spring-Boot-Scheduler" />
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
+        <module name="Spring-Data-Jasypt" />
         <module name="Employee-Management-System" />
         <module name="Spring-Cloud-Config-Server" />
         <module name="Kafka-Schema-Registry" />
@@ -107,6 +108,7 @@
       <module name="Spring-Data-JPA-Auditing" options="-parameters" />
       <module name="Spring-Data-JPA-Auditing-Envers" options="-parameters" />
       <module name="Spring-Data-JPA-Pagination" options="-parameters" />
+      <module name="Spring-Data-Jasypt" options="-parameters" />
       <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Data-Rest" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
