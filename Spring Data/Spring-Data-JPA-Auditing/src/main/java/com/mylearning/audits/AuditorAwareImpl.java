@@ -1,16 +1,18 @@
 package com.mylearning.audits;
 
 import org.springframework.data.domain.AuditorAware;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-public class AuditAwareImpl implements AuditorAware<String> {
+@Component
+public class AuditorAwareImpl implements AuditorAware<String> {
     @Override
     public Optional<String> getCurrentAuditor() {
-        //fetch the current user who logged in.. and use here
+        //fetch the current user who logged in
         //SecurityContextHolder
         //get the principal
         //get the user
-        return Optional.of("Current_User");
+        return Optional.of("Current_User"); // so by default createdBy and lastModifiedBy
     }
 }

@@ -18,7 +18,6 @@ import java.util.Date;
 @Entity
 @Table(name="Product_Details")
 @EntityListeners(AuditingEntityListener.class)
-
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
