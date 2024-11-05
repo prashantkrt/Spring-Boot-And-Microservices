@@ -48,8 +48,8 @@ public class Product {
 }
 
 /*
-Note:
-TemporalType.DATE: Stores only the date (year, month, day) without the time.
-TemporalType.TIME: Stores only the time (hours, minutes, seconds) without the date.
-TemporalType.TIMESTAMP: Stores both the date and time (date and time up to
+ Note:
+    TemporalType.DATE: Stores only the date (year, month, day) without the time.
+    TemporalType.TIME: Stores only the time (hours, minutes, seconds) without the date.
+    TemporalType.TIMESTAMP: Stores both the date and time (date and time up to
 */
