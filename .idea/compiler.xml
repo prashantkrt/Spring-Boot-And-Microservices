@@ -26,6 +26,7 @@
         <module name="Kafka-DeSerialization-Example" />
         <module name="Spring-AOP" />
         <module name="Auth-Microservice" />
+        <module name="Spring-Boot-Mapping-OneToOne" />
         <module name="Kafka-Consumer-Test" />
         <module name="Kafka-Producer-Example" />
         <module name="Spring-Security-OAuth2" />
@@ -102,6 +103,7 @@
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
+      <module name="Spring-Boot-Mapping-OneToOne" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="Spring-Cloud-Config-Server" options="-parameters" />
