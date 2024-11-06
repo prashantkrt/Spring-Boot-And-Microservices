@@ -34,6 +34,25 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
         employee.setEmployeeDepartment("IT");
         employee.setSalary(1234.00);
 
+        Address address1 = new Address();
+        address1.setAddressId(1);
+        address1.setStreet("23 road 11");
+        address1.setCity("San Francisco");
+        address1.setState("CA");
+        address1.setCountry("USA");
+
+        Address address2 = new Address();
+        address2.setAddressId(2);
+        address2.setStreet("23 road 12");
+        address2.setCity("San Francisco");
+        address2.setState("CA");
+        address2.setCountry("USA");
+
+        employee.setAddressList(List.of(address1, address2));
+
+        addressRepository.save(address1);
+        addressRepository.save(address2);
+
         Address address = new Address();
         address.setAddressId(101);
         address.setCity("San Francisco");
