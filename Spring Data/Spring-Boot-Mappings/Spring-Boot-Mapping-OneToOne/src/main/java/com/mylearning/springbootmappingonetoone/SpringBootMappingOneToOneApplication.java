@@ -40,7 +40,7 @@ public class SpringBootMappingOneToOneApplication implements CommandLineRunner {
         //studentRepository.save(student); // will be only reflected the student table
 
         // after CascadeType.All even if we save Student, Laptop data will be automatically loaded to the database
-        laptop.setStudent(student);
+        laptop.setStudent(student); // mandatory to set
         student.setLaptop(laptop);
         studentRepository.save(student);
 
