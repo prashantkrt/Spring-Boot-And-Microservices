@@ -14,14 +14,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name="Category")
+@Entity(name="Category_New_Table")
 public class Category {
     @Id
     private Integer categoryId;
     private String categoryName;
     private String categoryDescription;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "category")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "category",cascade = CascadeType.ALL)
     private List<Product> products;
 
     @Override

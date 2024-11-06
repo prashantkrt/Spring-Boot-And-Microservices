@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name="Product")
+@Entity(name="Product_New_Table")
 public class Product {
     @Id
     private Integer productId;
@@ -21,6 +21,7 @@ public class Product {
     private String productDescription;
     private Double productPrice;
 
+    //owner
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Category> category;
 
