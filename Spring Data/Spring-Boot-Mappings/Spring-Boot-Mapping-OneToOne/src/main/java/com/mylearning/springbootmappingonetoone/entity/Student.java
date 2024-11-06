@@ -16,6 +16,9 @@ public class Student {
     private String studentName;
     private String about;
 
+    // Child
+    // Student has mappedBy = "student",
+    // indicating that it is the inverse side and does not control the foreign key.
     @OneToOne(mappedBy = "student",cascade = CascadeType.ALL )
     private Laptop laptop;
 }

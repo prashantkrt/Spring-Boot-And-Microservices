@@ -31,20 +31,16 @@ public class SpringBootMappingOneToOneApplication implements CommandLineRunner {
         laptop.setModelNumber("AZ123");
         laptop.setBrand("Samsung");
 
-
-        // laptopRepository.save(laptop);
-
         // In the Student table it is not mandatory
         Student student = new Student();
         student.setStudentId(101);
         student.setStudentName("Ratan");
         student.setAbout("Topper Ladka Hero Heralal");
-        //studentRepository.save(student);
+        //studentRepository.save(student); // will be only reflected the student table
 
-
-        // after CascadeType.All even if we don't save Student will be automatically loaded to the database
+        // after CascadeType.All even if we save Student, Laptop data will be automatically loaded to the database
         laptop.setStudent(student);
-        laptopRepository.save(laptop);
+        studentRepository.save(student);
 
 
     }
