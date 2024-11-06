@@ -20,22 +20,18 @@ public class ExecuteExperiment implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // using this for making some experimental observation over database tables
         Category category = new Category();
-        category.setCategoryId(11);
+        category.setCategoryId(10002);
         category.setCategoryDescription("Category Description");
         category.setCategoryName("Category Name");
-        categoryRepo.save(category); // will be saved
+        categoryRepo.save(category);
 
         Item item = new Item();
-        item.setItemId(1002);
+        item.setItemId(102);
         item.setItemDescription("Product Description");
         item.setItemName("Product Name");
         item.setItemPrice(20000.00);
         category.setItems(Set.of(item));
-        //item.setCategory(category); //
-        itemRepo.save(item); // will be saved
-
-
+        itemRepo.save(item);
     }
 }
