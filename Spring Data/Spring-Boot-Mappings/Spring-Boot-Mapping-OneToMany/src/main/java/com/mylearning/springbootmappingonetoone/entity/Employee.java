@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name="Employee_Table")
+@Table(name = "Employee_Table")
 public class Employee {
     @Id
     private int employeeId;
@@ -18,8 +19,18 @@ public class Employee {
     private String employeeDepartment;
     private Double salary;
 
-//    @OneToMany(mappedBy = "address")
-    @OneToMany
+    @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
     private List<Address> addressList;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", employeeName='" + employeeName + '\'' +
+                ", employeeDepartment='" + employeeDepartment + '\'' +
+                ", salary=" + salary +
+                ", addressList=" + addressList +
+                '}';
+    }
 }
 
