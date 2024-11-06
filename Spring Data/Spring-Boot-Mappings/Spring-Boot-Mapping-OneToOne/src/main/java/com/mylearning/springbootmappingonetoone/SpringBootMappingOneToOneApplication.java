@@ -4,6 +4,7 @@ import com.mylearning.springbootmappingonetoone.entity.Laptop;
 import com.mylearning.springbootmappingonetoone.entity.Student;
 import com.mylearning.springbootmappingonetoone.repository.LaptopRepository;
 import com.mylearning.springbootmappingonetoone.repository.StudentRepository;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -27,13 +28,13 @@ public class SpringBootMappingOneToOneApplication implements CommandLineRunner {
 
         // In laptop table it is mandatory to add the mapped field before saving
         Laptop laptop = new Laptop();
-        laptop.setLaptopId(2);
+        laptop.setLaptopId(4);
         laptop.setModelNumber("AZA123");
         laptop.setBrand("Samsung");
 
         // In the Student table it is not mandatory
         Student student = new Student();
-        student.setStudentId(102);
+        student.setStudentId(103);
         student.setStudentName("Ratan");
         student.setAbout("Topper Ladka Hero Heralal");
 
@@ -44,6 +45,18 @@ public class SpringBootMappingOneToOneApplication implements CommandLineRunner {
         student.setLaptop(laptop);
         studentRepository.save(student);
 
+        fetchDetails();
+    }
 
+
+    public void fetchDetails() {
+        //Bi-Directional
+        Student student = studentRepository.findById(103).get();
+        System.out.println(student.getLaptop().getModelNumber());
+        System.out.println(student.getLaptop());
+
+        Laptop laptop = laptopRepository.findById(4).get();
+        System.out.println(laptop.getStudent().getStudentName());
+        System.out.println(laptop.getStudent());
     }
 }

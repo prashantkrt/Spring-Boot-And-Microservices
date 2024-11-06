@@ -7,6 +7,7 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,4 +26,12 @@ public class Laptop {
     @OneToOne
     @JoinColumn(name="Student_Id") // here it is mandatory to same
     private Student student; // will maintain the table
+
+    // Override the toString() method to avoid circular references
+    @Override
+    public String toString() {
+        return "Laptop{id=" + laptopId + ", model='" + modelNumber + "', brand='" + brand + "'}";
+    }
+
+
 }

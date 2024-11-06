@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,6 +22,12 @@ public class Student {
     // indicating that it is the inverse side and does not control the foreign key.
     @OneToOne(mappedBy = "student",cascade = CascadeType.ALL )
     private Laptop laptop;
+
+    // Override the toString() method to avoid circular references
+    @Override
+    public String toString() {
+        return "Student{id=" + studentId + ", name='" + studentName + "', about='" + about + "'}";
+    }
 }
 
 //@OneToOne(cascade = CascadeType.ALL) Propagates all operations (persist, merge, remove, refresh, detach) from the parent to the child.
