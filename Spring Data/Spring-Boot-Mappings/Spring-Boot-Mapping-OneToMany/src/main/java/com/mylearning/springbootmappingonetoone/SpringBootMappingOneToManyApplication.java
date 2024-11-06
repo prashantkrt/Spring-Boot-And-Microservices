@@ -64,7 +64,25 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
         address.setEmployee(employee);
         employee.setAddressList(List.of(address));
 
-        employeeRepository.save(employee);
+        employeeRepository.save(employee); // we update both the tables
+
+
+
+        Employee employee2 = new Employee();
+        employee.setEmployeeId(2);
+        employee.setEmployeeName("Harry Potter");
+        employee.setEmployeeDepartment("IT");
+        employee.setSalary(1234.00);
+
+        Address address3 = new Address();
+        address3.setAddressId(15);
+        address3.setStreet("23 road 11");
+        address3.setCity("San Francisco");
+        address3.setState("CA");
+        address3.setCountry("USA");
+        employee2.setAddressList(List.of(address3));
+
+        addressRepository.save(address3); // haven't updated both the tables, only updated address table
 
         fetchDetails();
     }
@@ -72,6 +90,9 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
 
     public void fetchDetails() {
         //Bi-Directional
+
+
+
 
     }
 }
