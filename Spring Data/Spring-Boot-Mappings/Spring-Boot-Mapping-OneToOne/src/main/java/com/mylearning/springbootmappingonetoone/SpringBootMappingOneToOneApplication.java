@@ -27,19 +27,21 @@ public class SpringBootMappingOneToOneApplication implements CommandLineRunner {
 
         // In laptop table it is mandatory to add the mapped field before saving
         Laptop laptop = new Laptop();
-        laptop.setLaptopId(1);
-        laptop.setModelNumber("AZ123");
+        laptop.setLaptopId(2);
+        laptop.setModelNumber("AZA123");
         laptop.setBrand("Samsung");
 
         // In the Student table it is not mandatory
         Student student = new Student();
-        student.setStudentId(101);
+        student.setStudentId(102);
         student.setStudentName("Ratan");
         student.setAbout("Topper Ladka Hero Heralal");
+
         //studentRepository.save(student); // will be only reflected the student table
 
         // after CascadeType.All even if we save Student, Laptop data will be automatically loaded to the database
         laptop.setStudent(student);
+        student.setLaptop(laptop);
         studentRepository.save(student);
 
 
