@@ -27,6 +27,20 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
     @Override
     public void run(String... args) throws Exception {
 
+        Employee employee = new Employee();
+        employee.setEmployeeId(1);
+        employee.setEmployeeName("Prasanna");
+        employee.setEmployeeDepartment("IT");
+        employee.setSalary(1234.00);
+
+
+
+        Address address = new Address();
+        address.setAddressId(101);
+        address.setCity("San Francisco");
+        address.setState("CA");
+        address.setCountry("USA");
+        address.setZip("123456");
 
         fetchDetails();
     }

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,5 +17,9 @@ public class Employee {
     private String employeeName;
     private String employeeDepartment;
     private Double salary;
+
+//    @OneToMany(mappedBy = "address")
+    @OneToMany
+    private List<Address> addressList;
 }
 
