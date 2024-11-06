@@ -94,9 +94,9 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
     }
 
 
+
     public void fetchDetails() {
         //Bi-Directional
-
         Category category = categoryRepo.findById(10002).get();
         System.out.println(category.getItems());
     }

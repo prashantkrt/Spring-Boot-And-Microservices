@@ -1,6 +1,7 @@
 package com.mylearning.springbootmappingonetoone.experiment;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ public class Item {
     private String itemDescription;
     private Double itemPrice;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
     @Override
