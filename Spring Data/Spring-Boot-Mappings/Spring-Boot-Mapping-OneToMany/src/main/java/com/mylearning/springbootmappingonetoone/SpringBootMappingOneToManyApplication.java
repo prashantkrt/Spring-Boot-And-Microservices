@@ -57,8 +57,8 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
 
         employee.setAddressList(List.of(address1, address2));
 
-        addressRepository.save(address1);
-        addressRepository.save(address2);
+        addressRepository.save(address1); // only for address
+        addressRepository.save(address2); // only for address
 
         Address address = new Address();
         address.setAddressId(101);
