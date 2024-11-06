@@ -7,54 +7,55 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="API-Gateway" />
         <module name="Course-Service-Producer" />
         <module name="Service-Discovery" />
-        <module name="Spring-Boot-Email" />
         <module name="Spring-Boot-Scheduler" />
-        <module name="Scheduler" />
-        <module name="Kafka-Producer" />
         <module name="Spring-Data-Jasypt" />
-        <module name="Employee-Management-System" />
-        <module name="Spring-Cloud-Config-Server" />
         <module name="Kafka-Schema-Registry" />
         <module name="Exception-Handling" />
         <module name="Creating-Excel" />
         <module name="Spring-Data-JPA-Auditing-Envers" />
-        <module name="Bean-Validation" />
-        <module name="Faculty-Service-Consumer" />
-        <module name="Order-Microservice" />
         <module name="Multi-DB-Configuration" />
-        <module name="Employee-Management-System (2)" />
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
         <module name="Employee-Management-System-jwt" />
-        <module name="first-project-autoconfiguration" />
-        <module name="Payment-Microservice" />
         <module name="Logging" />
-        <module name="Rest-Endpoint-Documentation" />
         <module name="Kafka-Consumer" />
         <module name="Kafka-Serialization-Producer" />
         <module name="CRUD-H2" />
         <module name="Kafka-DeSerialization-Example" />
         <module name="Spring-AOP" />
         <module name="Auth-Microservice" />
+        <module name="Kafka-Consumer-Test" />
+        <module name="Kafka-Producer-Example" />
+        <module name="Spring-Security-OAuth2" />
+        <module name="Spring-Data-JPA-Pagination" />
+        <module name="Spring-Boot-Profiles" />
+        <module name="Spring-Data-JPA-Auditing" />
+        <module name="API-Gateway" />
+        <module name="Spring-Boot-Email" />
+        <module name="Scheduler" />
+        <module name="Kafka-Producer" />
+        <module name="Employee-Management-System" />
+        <module name="Spring-Cloud-Config-Server" />
+        <module name="Bean-Validation" />
+        <module name="Faculty-Service-Consumer" />
+        <module name="Order-Microservice" />
+        <module name="Spring-Boot-JPA-JoinMapping" />
+        <module name="Employee-Management-System (2)" />
+        <module name="first-project-autoconfiguration" />
+        <module name="Payment-Microservice" />
+        <module name="Rest-Endpoint-Documentation" />
         <module name="Restful-webservices" />
         <module name="Dependency-injection" />
         <module name="Kafka-Retry" />
         <module name="Spring-Boot-Actuator" />
         <module name="Spring-Data-MongoDB" />
         <module name="Spring-Data-Rest" />
-        <module name="Kafka-Consumer-Test" />
-        <module name="Kafka-Producer-Example" />
-        <module name="Spring-Security-OAuth2" />
         <module name="Employee-Management-System (1)" />
-        <module name="Spring-Data-JPA-Pagination" />
         <module name="Spring-Data-JPA" />
-        <module name="Spring-Boot-Profiles" />
         <module name="User-Microservice" />
         <module name="Spring-Data-JDBC" />
-        <module name="Spring-Data-JPA-Auditing" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -100,6 +101,7 @@
       <module name="Spring-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
+      <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="Spring-Cloud-Config-Server" options="-parameters" />

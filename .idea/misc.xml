@@ -63,6 +63,7 @@
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Auditing/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-JPA-Auditing-Envers/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Data-Jasypt/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Data/Spring-Boot-JPA-JoinMapping/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
