@@ -16,6 +16,7 @@
         <module name="Creating-Excel" />
         <module name="Spring-Data-JPA-Auditing-Envers" />
         <module name="Multi-DB-Configuration" />
+        <module name="Spring-Boot-Mapping-OneToMany" />
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
         <module name="Employee-Management-System-jwt" />
@@ -103,6 +104,7 @@
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
+      <module name="Spring-Boot-Mapping-OneToMany" options="-parameters" />
       <module name="Spring-Boot-Mapping-OneToOne" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
