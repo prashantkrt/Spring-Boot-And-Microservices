@@ -2,6 +2,9 @@ package com.mylearning.springbootmappingonetoone;
 
 import com.mylearning.springbootmappingonetoone.entity.Employee;
 import com.mylearning.springbootmappingonetoone.entity.Address;
+import com.mylearning.springbootmappingonetoone.experiment.Category;
+import com.mylearning.springbootmappingonetoone.experimentRepository.CategoryRepo;
+import com.mylearning.springbootmappingonetoone.experimentRepository.ItemRepo;
 import com.mylearning.springbootmappingonetoone.repository.EmployeeRepository;
 import com.mylearning.springbootmappingonetoone.repository.AddressRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -15,10 +18,14 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
 
     private final EmployeeRepository employeeRepository;
     private final AddressRepository addressRepository;
+    private final CategoryRepo categoryRepo;
+    private final ItemRepo itemRepo;
 
-    public SpringBootMappingOneToManyApplication(EmployeeRepository employeeRepository, AddressRepository addressRepository) {
+    public SpringBootMappingOneToManyApplication(EmployeeRepository employeeRepository,AddressRepository addressRepository,CategoryRepo categoryRepo,ItemRepo itemRepo) {
         this.employeeRepository = employeeRepository;
         this.addressRepository = addressRepository;
+        this.categoryRepo = categoryRepo;
+        this.itemRepo = itemRepo;
     }
 
     public static void main(String[] args) {
@@ -67,7 +74,6 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
         employeeRepository.save(employee); // we update both the tables
 
 
-
         Employee employee2 = new Employee();
         employee.setEmployeeId(2);
         employee.setEmployeeName("Harry Potter");
@@ -91,8 +97,7 @@ public class SpringBootMappingOneToManyApplication implements CommandLineRunner 
     public void fetchDetails() {
         //Bi-Directional
 
-
-
-
+        Category category = categoryRepo.findById(10002).get();
+        System.out.println(category.getItems());
     }
 }
