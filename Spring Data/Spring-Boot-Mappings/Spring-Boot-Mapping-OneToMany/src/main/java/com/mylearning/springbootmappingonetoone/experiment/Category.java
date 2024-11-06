@@ -17,6 +17,7 @@ public class Category {
     private String categoryName;
     private String categoryDescription;
 
+    // we cannot apply mappedBy in @ManyToOne
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
     private Set<Item> items;
 
