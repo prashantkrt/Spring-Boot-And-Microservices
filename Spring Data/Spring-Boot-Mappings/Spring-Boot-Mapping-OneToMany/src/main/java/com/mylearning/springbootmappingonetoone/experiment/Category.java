@@ -17,7 +17,7 @@ public class Category {
     private String categoryName;
     private String categoryDescription;
 
-    @OneToMany
+    @OneToMany(mappedBy = "category")
     private Set<Item> items;
 
     @Override

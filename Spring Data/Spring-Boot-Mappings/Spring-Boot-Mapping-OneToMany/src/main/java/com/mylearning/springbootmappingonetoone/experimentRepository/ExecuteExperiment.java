@@ -33,10 +33,9 @@ public class ExecuteExperiment implements CommandLineRunner {
         item.setItemName("Product Name");
         item.setItemPrice(20000.00);
         category.setItems(Set.of(item));
-        item.setCategory(category); //
+        //item.setCategory(category); //
         itemRepo.save(item); // will be saved
 
-        // however the data will not be there in Mapped Join table since we weren't able to save the items list on category before saving
-        // this approach will not work
+
     }
 }
