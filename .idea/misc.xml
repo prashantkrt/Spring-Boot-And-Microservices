@@ -66,6 +66,7 @@
         <option value="$PROJECT_DIR$/Spring Data/Spring-Boot-JPA-JoinMapping/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Boot-Mappings/Spring-Boot-Mapping-OneToOne/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Data/Spring-Boot-Mappings/Spring-Boot-Mapping-OneToMany/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Data/Spring-Boot-Mappings/Spring-Boot-Mapping-ManyToMany/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -31,6 +31,7 @@
         <module name="Kafka-Consumer-Test" />
         <module name="Kafka-Producer-Example" />
         <module name="Spring-Security-OAuth2" />
+        <module name="Spring-Boot-Mapping-ManyToMany" />
         <module name="Spring-Data-JPA-Pagination" />
         <module name="Spring-Boot-Profiles" />
         <module name="Spring-Data-JPA-Auditing" />
@@ -104,6 +105,7 @@
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
+      <module name="Spring-Boot-Mapping-ManyToMany" options="-parameters" />
       <module name="Spring-Boot-Mapping-OneToMany" options="-parameters" />
       <module name="Spring-Boot-Mapping-OneToOne" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
