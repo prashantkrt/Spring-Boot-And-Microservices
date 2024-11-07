@@ -23,6 +23,7 @@ public class Address {
 
     // @ManyToOne side of the relationship is always the owning side and manages the foreign key,
     // so it doesn’t need or support mappedBy
+    // always owner side
     @ManyToOne
     @JoinColumn(name="employee_id")
     private Employee employee; // this will manage the relationship

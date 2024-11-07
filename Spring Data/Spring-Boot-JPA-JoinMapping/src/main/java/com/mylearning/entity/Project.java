@@ -26,6 +26,8 @@ public class Project {
     //Unidirectional
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
     @JoinColumn(
+            // Join Column bhale yaha likha hai par yeh join property banega Engineer table me
+            // because Engineer table is owner of the foreign key
             name = "Project_Id",
             referencedColumnName = "Id" // projectId yeh wala field jaega Engineer table me as foreign key!!!
     )
