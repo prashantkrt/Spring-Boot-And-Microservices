@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProjectRepository extends JpaRepository<Project,Integer> {
 
-    @Query(value = "SELECT p.projectName, p.projectCode, p.projectDescription, e.name, e.email FROM Project p JOIN Engineer e ON p.id = e.project_id", nativeQuery = true)
+    @Query(value = "SELECT p.projectName, p.projectCode, p.projectDescription, e.name, e.email FROM Project p JOIN Engineers e ON p.id = e.project_id", nativeQuery = true)
     public List<Object[]> getProjectSpecificInformationWithSQL();
 
     //p.employee is used instead of Engineer e since we are referring to the employee relationship directly in Project.
