@@ -35,4 +35,14 @@ public class ProjectManagerController {
     public String deleteProject(@PathVariable int projectId) {
         return projectManagerService.deleteProject(projectId);
     }
+
+    //custom method controllers
+    @GetMapping("/join/sql")
+    public List<Object[]> getProjectSpecificInfoSQL(){
+        return projectManagerService.getProjectSpecificInfoSQL();
+    }
+    @GetMapping("/join/jpql")
+    public List<Object[]> getProjectSpecificInfoJPQL(){
+        return projectManagerService.getProjectSpecificInfoJPQL();
+    }
 }

@@ -35,4 +35,14 @@ public class ProjectManagerService {
         projectRepository.deleteById(projectId);
         return "project "+projectId+" deleted !!!";
     }
+
+
+    //custom methods
+    public List<Object[]> getProjectSpecificInfoSQL(){
+        return projectRepository.getProjectSpecificInformationWithSQL();
+    }
+
+    public List<Object[]> getProjectSpecificInfoJPQL(){
+        return projectRepository.getProjectSpecificInformationWithJPQL();
+    }
 }
