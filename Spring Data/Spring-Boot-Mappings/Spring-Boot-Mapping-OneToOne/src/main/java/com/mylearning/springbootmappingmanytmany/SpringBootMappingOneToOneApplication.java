@@ -25,7 +25,7 @@ public class SpringBootMappingOneToOneApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // In laptop table it is mandatory to add the mapped field before saving
+        // In laptop table it is mandatory to add the mapped field before saving to save data to Student Table
         Laptop laptop = new Laptop();
         laptop.setLaptopId(4);
         laptop.setModelNumber("AZA123");
