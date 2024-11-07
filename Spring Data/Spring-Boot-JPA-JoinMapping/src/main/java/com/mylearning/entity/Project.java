@@ -27,7 +27,7 @@ public class Project {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(
             name = "Project_Id",
-            referencedColumnName = "Id" // projectId
+            referencedColumnName = "Id" // projectId yeh wala field jaega Engineer table me as foreign key!!!
     )
     private List<Engineer> engineer;
 }
