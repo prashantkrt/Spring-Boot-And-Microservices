@@ -23,6 +23,7 @@ public class Project {
     private String projectType;
     private String projectCode;
 
+    //Unidirectional
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(
             name = "Project_Id",
