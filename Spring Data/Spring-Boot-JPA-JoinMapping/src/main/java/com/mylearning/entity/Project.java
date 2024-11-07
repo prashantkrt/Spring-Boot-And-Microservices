@@ -24,7 +24,7 @@ public class Project {
     private String projectCode;
 
     //Unidirectional
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
     @JoinColumn(
             name = "Project_Id",
             referencedColumnName = "Id" // projectId yeh wala field jaega Engineer table me as foreign key!!!
