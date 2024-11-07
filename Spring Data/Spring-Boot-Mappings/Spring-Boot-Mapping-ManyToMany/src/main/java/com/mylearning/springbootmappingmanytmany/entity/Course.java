@@ -29,6 +29,6 @@ public class Course {
     private double fees;
 
     @ManyToMany(mappedBy = "courses") // Inverse side, referring to the courses field in Student
-    // @JsonManagedReference // tum karo response me manage yeh hum isko bol rahe hai
+    @JsonBackReference
     private List<Student> students = new ArrayList<>();
 }

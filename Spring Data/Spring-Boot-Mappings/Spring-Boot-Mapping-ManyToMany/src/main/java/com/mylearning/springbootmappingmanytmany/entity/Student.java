@@ -30,8 +30,7 @@ public class Student {
 
     //owner
     @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JsonIgnore // ha bhai chor chor usko karne de nhi toh dono karnege toh infinite loop response dega
-   // @JsonBackReference // tu rehne de usko manage karne de
+    @JsonManagedReference
     @JoinTable(
             name = "student_course", // Name of the join table
             joinColumns = @JoinColumn(name = "student_id",referencedColumnName = "id"), // Foreign key for Student in the join table
