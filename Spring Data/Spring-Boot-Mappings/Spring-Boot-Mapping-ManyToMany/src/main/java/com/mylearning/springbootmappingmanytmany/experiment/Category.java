@@ -24,7 +24,9 @@ public class Category {
     private String categoryName;
     private String categoryDescription;
 
-    @ManyToMany
+    //owner
+    //@ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Product> products = new ArrayList<>();
 
     public Category(String categoryName, String categoryDescription) {

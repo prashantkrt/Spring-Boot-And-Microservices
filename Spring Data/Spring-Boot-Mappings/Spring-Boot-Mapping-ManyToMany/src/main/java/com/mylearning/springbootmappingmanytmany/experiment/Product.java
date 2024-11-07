@@ -24,7 +24,6 @@ public class Product {
     private String productDescription;
     private Double productPrice;
 
-    //owner
     @ManyToMany(mappedBy = "products")
     private List<Category> category = new ArrayList<>();
 

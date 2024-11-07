@@ -19,7 +19,7 @@ public class TestExecuteExperiment2 implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        /// Products
+        // Products
         Product product1 = new Product("Product 1", "Description 1", 100.00);
         Product product2 = new Product("Product 2", "Description 2", 200.00);
         Product product3 = new Product("Product 3", "Description 3", 300.00);
@@ -39,10 +39,13 @@ public class TestExecuteExperiment2 implements CommandLineRunner {
         category3.getProducts().add(product2);
         category3.getProducts().add(product3);
 
-        // Saving categories will cascade and save products due to CascadeType.PERSIST
         categoryRepository.save(category1);
         categoryRepository.save(category2);
         categoryRepository.save(category3);
+
+
+        //Not working it should have done the auto save of Product as well but getting error
+        // detached entity passed to persist: com.mylearning.springbootmappingmanytmany.experiment.Product
     }
 
 }
