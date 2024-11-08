@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class PatientAppointmentRequest {
+
     private Patient patient;
 
     private Appointment appointment;
+
+
 }
