@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+//@Transactional ⇒ when all the methods of this class need the transactional features,then we should write at the class
 public class OnlineDoctorConsultingService {
 
     @Autowired
@@ -18,7 +19,6 @@ public class OnlineDoctorConsultingService {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
-
 
     @Transactional
     public String appointmentBooking(PatientAppointmentRequest patientAppointmentRequest) {
@@ -42,5 +42,4 @@ public class OnlineDoctorConsultingService {
         } else
             throw new RuntimeException("Invalid appointment");
     }
-
 }
