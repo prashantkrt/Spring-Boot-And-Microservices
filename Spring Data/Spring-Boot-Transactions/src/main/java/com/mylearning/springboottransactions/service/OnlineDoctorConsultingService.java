@@ -47,8 +47,9 @@ public class OnlineDoctorConsultingService {
             throw new RuntimeException("Invalid appointment");
     }
 
-    //Now this won't work in the existing transaction it will have it's own
+
     //@Transactional(propagation = Propagation.REQUIRED) by default will follow the same transaction
+    //Now this won't work in the existing transaction it will have its own
     @Transactional(propagation = Propagation.REQUIRES_NEW, timeout = 10)
     public void someMethod() {
         //Some logic
