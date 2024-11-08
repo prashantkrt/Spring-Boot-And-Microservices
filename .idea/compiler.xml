@@ -69,60 +69,61 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="API-Gateway" options="" />
-      <module name="Auth-Microservice" options="" />
-      <module name="Bean-Validation" options="" />
-      <module name="CRUD-H2" options="" />
+      <module name="API-Gateway" options="-parameters" />
+      <module name="Auth-Microservice" options="-parameters" />
+      <module name="Bean-Validation" options="-parameters" />
+      <module name="CRUD-H2" options="-parameters" />
       <module name="Consuming-Restful-Web-Services" options="-parameters" />
-      <module name="Course-Service-Producer" options="" />
-      <module name="Creating-Excel" options="" />
-      <module name="Dependency-injection" options="" />
+      <module name="Course-Service-Producer" options="-parameters" />
+      <module name="Creating-Excel" options="-parameters" />
+      <module name="Dependency-injection" options="-parameters" />
       <module name="Employee-Management-System" options="-parameters" />
-      <module name="Employee-Management-System (1)" options="" />
-      <module name="Employee-Management-System (2)" options="" />
+      <module name="Employee-Management-System (1)" options="-parameters" />
+      <module name="Employee-Management-System (2)" options="-parameters" />
       <module name="Employee-Management-System-Traditional-Approach" options="-parameters" />
       <module name="Employee-Management-System-jwt" options="-parameters" />
-      <module name="Exception-Handling" options="" />
-      <module name="Faculty-Service-Consumer" options="" />
-      <module name="Kafka-Consumer" options="" />
-      <module name="Kafka-Consumer-Example" options="" />
-      <module name="Kafka-Consumer-Test" options="" />
-      <module name="Kafka-DeSerialization-Example" options="" />
-      <module name="Kafka-Producer" options="" />
-      <module name="Kafka-Producer-Example" options="" />
-      <module name="Kafka-Retry" options="" />
-      <module name="Kafka-Schema-Registry" options="" />
-      <module name="Kafka-Serialization-Producer" options="" />
-      <module name="Kafka-producer-Test" options="" />
-      <module name="Logging" options="" />
-      <module name="Multi-DB-Configuration" options="" />
-      <module name="Order-Microservice" options="" />
-      <module name="Payment-Microservice" options="" />
-      <module name="Rest-Endpoint-Documentation" options="" />
-      <module name="Restful-webservices" options="" />
-      <module name="Scheduler" options="" />
-      <module name="Service-Discovery" options="" />
-      <module name="Spring-AOP" options="" />
-      <module name="Spring-Boot-Actuator" options="" />
-      <module name="Spring-Boot-Email" options="" />
-      <module name="Spring-Boot-JPA-JoinMapping" options="" />
-      <module name="Spring-Boot-Mapping-ManyToMany" options="" />
-      <module name="Spring-Boot-Mapping-OneToMany" options="" />
-      <module name="Spring-Boot-Mapping-OneToOne" options="" />
-      <module name="Spring-Boot-Profiles" options="" />
-      <module name="Spring-Boot-Scheduler" options="" />
-      <module name="Spring-Cloud-Config-Server" options="" />
-      <module name="Spring-Data-JDBC" options="" />
-      <module name="Spring-Data-JPA" options="" />
-      <module name="Spring-Data-JPA-Auditing" options="" />
-      <module name="Spring-Data-JPA-Auditing-Envers" options="" />
-      <module name="Spring-Data-JPA-Pagination" options="" />
-      <module name="Spring-Data-Jasypt" options="" />
-      <module name="Spring-Data-MongoDB" options="" />
-      <module name="Spring-Data-Rest" options="" />
-      <module name="Spring-Security-OAuth2" options="" />
-      <module name="User-Microservice" options="" />
-      <module name="first-project-autoconfiguration" options="" />
+      <module name="Exception-Handling" options="-parameters" />
+      <module name="Faculty-Service-Consumer" options="-parameters" />
+      <module name="Kafka-Consumer" options="-parameters" />
+      <module name="Kafka-Consumer-Example" options="-parameters" />
+      <module name="Kafka-Consumer-Test" options="-parameters" />
+      <module name="Kafka-DeSerialization-Example" options="-parameters" />
+      <module name="Kafka-Producer" options="-parameters" />
+      <module name="Kafka-Producer-Example" options="-parameters" />
+      <module name="Kafka-Retry" options="-parameters" />
+      <module name="Kafka-Schema-Registry" options="-parameters" />
+      <module name="Kafka-Serialization-Producer" options="-parameters" />
+      <module name="Kafka-producer-Test" options="-parameters" />
+      <module name="Logging" options="-parameters" />
+      <module name="Multi-DB-Configuration" options="-parameters" />
+      <module name="Order-Microservice" options="-parameters" />
+      <module name="Payment-Microservice" options="-parameters" />
+      <module name="Rest-Endpoint-Documentation" options="-parameters" />
+      <module name="Restful-webservices" options="-parameters" />
+      <module name="Scheduler" options="-parameters" />
+      <module name="Service-Discovery" options="-parameters" />
+      <module name="Spring-AOP" options="-parameters" />
+      <module name="Spring-Boot-Actuator" options="-parameters" />
+      <module name="Spring-Boot-Email" options="-parameters" />
+      <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
+      <module name="Spring-Boot-Mapping-ManyToMany" options="-parameters" />
+      <module name="Spring-Boot-Mapping-OneToMany" options="-parameters" />
+      <module name="Spring-Boot-Mapping-OneToOne" options="-parameters" />
+      <module name="Spring-Boot-Profiles" options="-parameters" />
+      <module name="Spring-Boot-Scheduler" options="-parameters" />
+      <module name="Spring-Boot-Transactions" options="-parameters" />
+      <module name="Spring-Cloud-Config-Server" options="-parameters" />
+      <module name="Spring-Data-JDBC" options="-parameters" />
+      <module name="Spring-Data-JPA" options="-parameters" />
+      <module name="Spring-Data-JPA-Auditing" options="-parameters" />
+      <module name="Spring-Data-JPA-Auditing-Envers" options="-parameters" />
+      <module name="Spring-Data-JPA-Pagination" options="-parameters" />
+      <module name="Spring-Data-Jasypt" options="-parameters" />
+      <module name="Spring-Data-MongoDB" options="-parameters" />
+      <module name="Spring-Data-Rest" options="-parameters" />
+      <module name="Spring-Security-OAuth2" options="-parameters" />
+      <module name="User-Microservice" options="-parameters" />
+      <module name="first-project-autoconfiguration" options="-parameters" />
     </option>
   </component>
 </project>
