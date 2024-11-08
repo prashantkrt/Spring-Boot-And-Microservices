@@ -8,6 +8,8 @@ import com.mylearning.springboottransactions.repository.PatientRepository;
 import com.mylearning.springboottransactions.utilty.PromoCodeValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -28,6 +30,8 @@ public class OnlineDoctorConsultingService {
         //Fetching the appointment
         //Validating the promo
         //Saving
+        someMethod();
+        readData();
         Appointment appointment = patientAppointmentRequest.getAppointment();
         if (appointment.getPromoCode() != null) {
             if (PromoCodeValidator.validatePromoCode(appointment.getPromoCode())) {
@@ -41,5 +45,27 @@ public class OnlineDoctorConsultingService {
             }
         } else
             throw new RuntimeException("Invalid appointment");
+    }
+
+    //Now this won't work in the existing transaction it will have it's own
+    //@Transactional(propagation = Propagation.REQUIRED) by default will follow the same transaction
+    @Transactional(propagation = Propagation.REQUIRES_NEW, timeout = 10)
+    public void someMethod() {
+        //Some logic
+    }
+
+    //@Transactional(timeout = 5) specifies that the transaction should complete within 5 seconds, or it will roll back.
+    @Transactional(readOnly = true, timeout = 20)
+    public void readData() {
+        // some logic to just fetch the data
+    }
+
+
+    //Defines the level of isolation between transactions to avoid issues like dirty reads or lost updates.
+    //@Transactional(isolation = Isolation.SERIALIZABLE) //Ensures full isolation by preventing dirty reads, non-repeatable reads, and phantom reads.
+    //@Transactional(isolation = Isolation.READ_UNCOMMITTED) //Allows dirty reads, meaning data changes from other uncommitted transactions can be read.
+    @Transactional(isolation = Isolation.READ_COMMITTED) //Prevents dirty reads; only committed changes are visible.
+    public String logicalMethod() {
+        return null;
     }
 }
