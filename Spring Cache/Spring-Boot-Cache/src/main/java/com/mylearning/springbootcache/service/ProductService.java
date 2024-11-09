@@ -2,6 +2,8 @@ package com.mylearning.springbootcache.service;
 
 import com.mylearning.springbootcache.entity.Product;
 import com.mylearning.springbootcache.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Service
+@Slf4j
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -29,7 +32,9 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    @Cacheable(cacheNames = "productsCache")
     public List<Product> getProducts() {
+        log.info("Inside DB product service => getProducts");
         return productRepository.findAll();
     }
 
