@@ -5,6 +5,9 @@ import com.mylearning.springbootcache.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class ProductService {
@@ -13,6 +16,13 @@ public class ProductService {
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
+    }
+
+    public void initDB() {
+        //new Random().nextInt(5000): Generates a random integer in the range from 0 (inclusive) up to but not including 5000.
+        //The resulting random integer will be in the range 0 to 4999.
+        productRepository.saveAll(IntStream.rangeClosed(1, 10000).mapToObj(i -> new Product("Product" + i, new Random().nextInt(5000), "Product Description => " + i, "product type => " + i))
+                .collect(Collectors.toList()));
     }
 
     public Product saveProduct(Product product) {
