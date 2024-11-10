@@ -1,0 +1,66 @@
+n Spring, @Cacheable, @CachePut, and @CacheEvict are annotations that provide caching behavior to improve performance by reducing database calls. Here’s a breakdown of how each works, when to use them, and their key differences:
+
+1. @Cacheable
+Purpose: Caches the result of a method call to avoid executing the method multiple times with the same input.
+How It Works:
+When a method annotated with @Cacheable is called, Spring checks if the result for the given cache key already exists in the cache.
+If a cached value is found, it returns the cached result without executing the method.
+If no value is found, it executes the method, caches the result, and returns it.
+Common Use Case: Frequently called methods with results that don’t change often (e.g., fetching product details by ID).
+Example:
+
+java
+Copy code
+@Cacheable(cacheNames = "productsCache", key = "#id")
+public Product getProductById(Long id) {
+    return productRepository.findById(id).orElse(null);
+}
+In this example:
+
+The method result is cached in productsCache with the key id.
+Future calls with the same id will return the cached result until the cache entry is invalidated.
+2. @CachePut
+Purpose: Updates the cache with the latest method result every time the method is called, even if the data was already cached.
+How It Works:
+Unlike @Cacheable, @CachePut always executes the method and then caches the result.
+It’s often used when you want to update or refresh the cache after modifying data.
+Common Use Case: Methods that update or save data in the database (e.g., updating product information).
+Example:
+
+java
+Copy code
+@CachePut(cacheNames = "productsCache", key = "#product.id")
+public Product updateProduct(Product product) {
+    return productRepository.save(product);
+}
+In this example:
+
+The method result is stored in productsCache with product.id as the key.
+Even if the cache already has an entry for product.id, this annotation will update it with the latest result.
+3. @CacheEvict
+Purpose: Removes data from the cache, allowing for cache invalidation.
+How It Works:
+@CacheEvict clears specific entries from the cache (based on the key) or the entire cache.
+It can be used for single entries (by specifying a key) or for clearing the whole cache.
+Common Use Case: Methods that delete data or when you need to clear outdated data from the cache.
+Example:
+
+java
+Copy code
+@CacheEvict(cacheNames = "productsCache", key = "#id")
+public void deleteProduct(Long id) {
+    productRepository.deleteById(id);
+}
+In this example:
+
+The deleteProduct method removes the entry with the key id from productsCache.
+Future calls to fetch the product will not find it in the cache, ensuring fresh data is loaded if needed.
+Summary of Differences
+Annotation	Purpose	Executes Method?	Updates Cache?
+@Cacheable	Caches method result for repeated use	Only if not cached	Yes, only if not already cached
+@CachePut	Updates the cache with latest method data	Always	Yes
+@CacheEvict	Removes data from the cache	Always	Removes specified/entire cache
+When to Use Each
+@Cacheable: Use for methods where you want to avoid redundant executions by caching results for frequent access.
+@CachePut: Use for methods that modify data to ensure the cache has the latest values.
+@CacheEvict: Use for methods that delete or invalidate data to ensure stale data is removed from the cache.
