@@ -35,7 +35,8 @@ public class RedisConfig {
         // configuration.setDatabase(0);  // Default is 0
         //return new LettuceConnectionFactory(configuration);  // Create LettuceConnectionFactory using the configuration
 
-        return new JedisConnectionFactory();
+        //return new JedisConnectionFactory();
+        return new LettuceConnectionFactory();
     }
 
     //helper
