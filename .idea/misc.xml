@@ -70,6 +70,7 @@
         <option value="$PROJECT_DIR$/Spring Data/Spring-Boot-Transactions/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Cache/Spring-Boot-Cache/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Cache/Spring-Boot-Cache/Spring-Boot-Data-Redis/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Cache/Spring-Boot-Data-Redis/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
