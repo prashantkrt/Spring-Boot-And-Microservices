@@ -47,13 +47,15 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    // will reduce the fetch timing due to caching
+    // Will reduce the fetch timing due to caching
     // The first time you call getProducts(), the method will fetch all the data from the database and store it in the cache (productsCache).
     // When you call getProducts() again, it will return the data from the cache, not including the new data, because the cache was never updated with the new data.
     // When using @Cacheable, the cache will be populated only the first time the method is called (assuming no data is already present in the cache).
-    // If there is already data in the cache and you add new data without updating the cache (for example, by not using @CachePut), the cache will not automatically include the new data.
+    // If there is already data in the cache, and you add new data without updating the cache (for example, by not using @CachePut), the cache will not automatically include the new data.
     @Cacheable(cacheNames = "productsCache")
     public List<Product> getProducts() {
+        // first time in db
+        // in later call will load if from cache memory
         log.info("Inside DB product service => getProducts");
         return productRepository.findAll();
     }
