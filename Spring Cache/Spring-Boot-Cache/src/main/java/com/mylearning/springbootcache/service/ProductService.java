@@ -3,6 +3,7 @@ package com.mylearning.springbootcache.service;
 import com.mylearning.springbootcache.entity.Product;
 import com.mylearning.springbootcache.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Service
 @Slf4j
+//@CacheConfig(cacheNames="productsCache") // now we don't have to write the cache name
 public class ProductService {
 
     private final ProductRepository productRepository;
