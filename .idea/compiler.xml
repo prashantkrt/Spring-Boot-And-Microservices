@@ -41,6 +41,7 @@
         <module name="Spring-Boot-Email" />
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
+        <module name="Spring-Boot-Data-Redis" />
         <module name="Employee-Management-System" />
         <module name="Spring-Cloud-Config-Server" />
         <module name="Bean-Validation" />
@@ -106,6 +107,7 @@
       <module name="Spring-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
+      <module name="Spring-Boot-Data-Redis" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
       <module name="Spring-Boot-Mapping-ManyToMany" options="-parameters" />
