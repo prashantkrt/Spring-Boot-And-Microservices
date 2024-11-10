@@ -19,7 +19,7 @@ public class CustomerService {
 
     // Saving or updating a customer
     public Customer saveOrUpdateCustomer(Customer customer) {
-        // customer:hash 1 {"id":1, "name":"John Doe", "email":"john.doe@example.com"}
+        // customer:hash 1 {"id":1, "name": "John Doe", "email": "john.doe@example.com"}
         // Storing the customer object in Redis hash, using customer.getId() as the field.
         redisTemplate.opsForHash().put(HASH_KEY, customer.getId(), customer);
         return customer;
@@ -68,8 +68,5 @@ public class CustomerService {
         } else {
             throw new RuntimeException("Customer not found !");
         }
-
     }
-
-
 }
