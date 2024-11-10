@@ -80,7 +80,6 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/Spring Boot/Consuming-Restful-Web-Services/pom.xml" />
-        <option value="$PROJECT_DIR$/Spring Cache/Spring-Boot-Data-Redis-Cache-2/pom.xml" />
       </set>
     </option>
   </component>

@@ -21,6 +21,7 @@
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
         <module name="Employee-Management-System-jwt" />
+        <module name="Spring-Boot-Data-Redis-Cache-2" />
         <module name="Logging" />
         <module name="Kafka-Consumer" />
         <module name="Kafka-Serialization-Producer" />
@@ -70,7 +71,6 @@
     <bytecodeTargetLevel>
       <module name="Consuming-Restful-Web-Services" target="17" />
       <module name="Employee-Management-System-Traditional-Approach" target="1.8" />
-      <module name="Spring-Boot-Data-Redis-Cache-2" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
