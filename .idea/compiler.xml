@@ -24,6 +24,7 @@
         <module name="Logging" />
         <module name="Kafka-Consumer" />
         <module name="Kafka-Serialization-Producer" />
+        <module name="Spring-Boot-Data-Redis-2" />
         <module name="CRUD-H2" />
         <module name="Kafka-DeSerialization-Example" />
         <module name="Spring-AOP" />
@@ -109,6 +110,7 @@
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-Redis" options="-parameters" />
+      <module name="Spring-Boot-Data-Redis-2" options="-parameters" />
       <module name="Spring-Boot-Data-Redis-CRUDRepo" options="-parameters" />
       <module name="Spring-Boot-Email" options="-parameters" />
       <module name="Spring-Boot-JPA-JoinMapping" options="-parameters" />
