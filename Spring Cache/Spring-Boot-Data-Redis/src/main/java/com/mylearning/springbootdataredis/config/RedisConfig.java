@@ -13,7 +13,9 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableRedisRepositories
 public class RedisConfig {
 
-    // Bean for RedisConnectionFactory
+    // template
+    // Bean for RedisConnectionFactory or
+    // Bean for JedisConnectionFactory
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         // You can configure Lettuce or Jedis Connection Factory depending on your Redis client.
@@ -36,6 +38,7 @@ public class RedisConfig {
         return new JedisConnectionFactory();
     }
 
+    //helper
     @Bean
     public RedisTemplate<Object,Object> template(){
         RedisTemplate<Object,Object> template=new RedisTemplate<>();
