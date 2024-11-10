@@ -36,19 +36,21 @@ public class RedisConfig {
 
 
 
-//RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-//configuration.setHostName("localhost");
-//configuration.setPort(6379);
-//configuration.setPassword(RedisPassword.of("yourpassword"));  // Optional password
-//configuration.setDatabase(1);  // Optional: Choose a different database (default is 0)
-
-
 
 
 
 
 
 }
+
+
+
+//RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
+//configuration.setHostName("localhost");
+//configuration.setPort(6379);
+//configuration.setPassword(RedisPassword.of("yourpassword"));  // Optional password
+//configuration.setDatabase(1);  // Optional: Choose a different database (default is 0)
+
 /*
 
 or

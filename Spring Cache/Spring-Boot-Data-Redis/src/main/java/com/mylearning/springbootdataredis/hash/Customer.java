@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@RedisHash("CustomersInfo")
+@RedisHash("Customers")
 public class Customer {
     @Id
     private Integer id;
