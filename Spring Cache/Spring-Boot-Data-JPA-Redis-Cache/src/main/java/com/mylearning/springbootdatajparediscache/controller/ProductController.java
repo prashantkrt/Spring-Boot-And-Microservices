@@ -1,5 +1,5 @@
 package com.mylearning.springbootdatajparediscache.controller;
-import com.mylearning.springbootdatajparediscache.ProductService;
+import com.mylearning.springbootdatajparediscache.service.ProductService;
 import com.mylearning.springbootdatajparediscache.entity.Product;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

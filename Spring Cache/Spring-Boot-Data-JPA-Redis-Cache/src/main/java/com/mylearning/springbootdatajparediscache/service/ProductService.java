@@ -1,4 +1,4 @@
-package com.mylearning.springbootdatajparediscache;
+package com.mylearning.springbootdatajparediscache.service;
 import com.mylearning.springbootdatajparediscache.entity.Product;
 import com.mylearning.springbootdatajparediscache.repository.ProductRepository;
 import org.springframework.cache.annotation.CacheEvict;
