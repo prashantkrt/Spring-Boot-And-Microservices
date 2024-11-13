@@ -87,6 +87,42 @@ public class ProductService {
         long countAfter = productRepository.count();
         return countBefore - countAfter;
     }
+
+
+
+
+//    1. condition: Determines when to cache the result.
+//    It controls whether or not the method's return value will be cached.
+//    If the condition evaluates to true, the result will be cached.
+//    If the condition evaluates to false, the caching will not occur, and t
+//    he method will return as if no caching is involved.
+
+    //agar conditon true huwa to cache karega , nhi toh cahche nhi karega
+    @Cacheable(value = "products", key = "#product.id", condition = "#product.amount > 1000")
+    public Product getProduct(Product product) {
+        // Simulate a long-running method
+        return productRepository.findById(product.getId()).get();
+
+        //Here, the cache will only be used if the product.amount is greater than 1000. If it's less than or equal to 1000, the result will not be cached.
+    }
+
+
+//    2. unless: Determines when to skip caching the result (i.e., when not to store the result in the cache).
+//    It works in the opposite way to condition.
+//    If the unless condition evaluates to true, the result will not be cached, even if @Cacheable is set up to cache the result.
+
+
+    //agar unless true huwa to cache nhi karega , nhi toh cache karega
+    @Cacheable(value = "products", key = "#product.id", unless = "#product.amount < 0")
+    public Product getProduct2(Product product) {
+        // Simulate a long-running method
+        return productRepository.findById(product.getId()).get();
+
+//        Here, if the product.amount is less than 0, the result will not be cached, even though the @Cacheable annotation is present.
+//        If product.amount is greater than or equal to 0, the result will be cached.
+
+    }
+
 }
 
 /*
