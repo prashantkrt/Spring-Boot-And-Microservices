@@ -8,13 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-@Aspect
+@Aspect // class where we have secondary logic is Aspect
 public class LoggingAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-    // return Type , class name , method name , args
-    // PointCut -> (* *.*.(..))  all return type , all classes , all methods and all args
+    // return Type, class name, method name, args
+    // PointCut -> (* *.*.(..))  all return type , all classes, all methods and all args
 
     @Before("execution (* com.mylearning.aop.service.JobService.getJob(..)) || execution (* com.mylearning.aop.service.JobService.getAllJobs(..))")
     public void logMethodCall(JoinPoint joinpoint) {
