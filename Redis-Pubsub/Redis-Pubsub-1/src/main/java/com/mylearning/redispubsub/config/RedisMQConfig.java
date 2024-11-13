@@ -32,6 +32,4 @@ public class RedisMQConfig {
         container.addMessageListener(listenerAdapter, topic());
         return container;
     }
-
-
 }
