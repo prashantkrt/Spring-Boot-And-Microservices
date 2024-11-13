@@ -12,6 +12,7 @@ import java.util.Map;
 @Service
 public class ProductService {
 
+    // dummy database usecase :)
     private Map<String, Product> productDatabase = new HashMap<>();
 
     // Example of @Cacheable
