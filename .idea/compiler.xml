@@ -38,6 +38,7 @@
         <module name="Kafka-Producer-Example" />
         <module name="Spring-Security-OAuth2" />
         <module name="Spring-Boot-Mapping-ManyToMany" />
+        <module name="Spring-Boot-Data-JPA-Redis-Cache" />
         <module name="Spring-Data-JPA-Pagination" />
         <module name="Spring-Boot-Profiles" />
         <module name="Spring-Data-JPA-Auditing" />
@@ -111,6 +112,7 @@
       <module name="Spring-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
+      <module name="Spring-Boot-Data-JPA-Redis-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-Redis" options="-parameters" />
       <module name="Spring-Boot-Data-Redis-2" options="-parameters" />
       <module name="Spring-Boot-Data-Redis-CRUDRepo" options="-parameters" />
