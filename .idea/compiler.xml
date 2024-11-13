@@ -13,7 +13,9 @@
         <module name="Spring-Boot-Scheduler" />
         <module name="Spring-Data-Jasypt" />
         <module name="Kafka-Schema-Registry" />
+        <module name="Redis-Pubsub-1" />
         <module name="Exception-Handling" />
+        <module name="Redis-Pubsub-2" />
         <module name="Creating-Excel" />
         <module name="Spring-Data-JPA-Auditing-Envers" />
         <module name="Multi-DB-Configuration" />
@@ -49,7 +51,6 @@
         <module name="Spring-Cloud-Config-Server" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
-        <module name="Redis-Pubsub" />
         <module name="Order-Microservice" />
         <module name="Spring-Boot-JPA-JoinMapping" />
         <module name="first-project-autoconfiguration" />
@@ -101,7 +102,8 @@
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Order-Microservice" options="-parameters" />
       <module name="Payment-Microservice" options="-parameters" />
-      <module name="Redis-Pubsub" options="-parameters" />
+      <module name="Redis-Pubsub-1" options="-parameters" />
+      <module name="Redis-Pubsub-2" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="Scheduler" options="-parameters" />

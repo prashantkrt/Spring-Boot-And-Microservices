@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mylearning</groupId>
-    <artifactId>Redis-Pubsub</artifactId>
+    <artifactId>Redis-Pubsub-1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Redis-Pubsub</name>
     <description>Redis-Pubsub</description>
