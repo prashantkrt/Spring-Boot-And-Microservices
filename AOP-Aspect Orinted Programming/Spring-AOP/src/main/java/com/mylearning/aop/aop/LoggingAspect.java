@@ -81,7 +81,7 @@ public class LoggingAspect {
 *  Terminology for Aspect Orin ted Programming
 *
 *  1. Aspect ⇒ A module that contains cross-cutting concerns (e.g., logging, security).
-*  2. JointPoint ⇒ the point where this method is called is a JoinPoint where advice can be applied. A method call is a typical JoinPoint
+*  2. JoinPoint ⇒ the point where this method is called is a JoinPoint where advice can be applied. A method call is a typical JoinPoint
 *  3. Advice ⇒ Before, after, and around are types of advice
 *  4. PointCut ⇒ A Pointcut is a set of rules that defines where and when to apply the advice
 *
@@ -117,7 +117,7 @@ public class LoggingAspect {
 *
 *
 *
-*  5. Target Object => The object whose methods are being advised by AOP. This is the actual object that contains the business logic (e.g., a service or repository class).
+*  5. Target Object is ⇒ The object whose methods are being advised by AOP. This is the actual object that contains the business logic (e.g., a service or repository class).
     @Service
      public class UserService {
       public void createUser(String username) {
@@ -135,8 +135,8 @@ public class LoggingAspect {
         }
     }
 
-*  6. Weaving =>Weaving is the process of applying aspects to target objects. Weaving happens at runtime, using proxies to apply the advice dynamically to method executions.
+*  6. Weaving => Weaving is the process of applying aspects to target objects. Weaving happens at runtime, using proxies to apply the advice dynamically to method executions.
 *  Spring weaves the aspect at runtime by creating a proxy for the target object.
-*  The proxy intercepts method calls to the target object and applies the advice (logging, security checks, etc.).
+*  The proxy intercepts method calls the target object and applies the advice (logging, security checks, etc.).
 *
 * */
