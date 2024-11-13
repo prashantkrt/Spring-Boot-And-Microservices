@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -20,10 +21,20 @@ public class LoggingAdvice {
     }
 
     @Before("logPointcut()")
-    public void logRequest(JoinPoint joinPoint) throws JsonProcessingException {
+    public void logRequestForSave(JoinPoint joinPoint) throws JsonProcessingException {
         log.info("class name {} ,method name {} ", joinPoint.getTarget(), joinPoint.getSignature().getName());
         log.info("Request Body {} ", new ObjectMapper().writeValueAsString(joinPoint.getArgs()));
     }
 
+    @Before(value = "execution (* com.mylearning.service.ProductService.*(..))")
+    public void logRequest(JoinPoint joinPoint) throws JsonProcessingException {
+        log.info("class name->{} ,method name->{} ", joinPoint.getTarget(), joinPoint.getSignature().getName());
+        log.info("Request Body->{} ", new ObjectMapper().writeValueAsString(joinPoint.getArgs()));
+    }
 
+    @After(value = "execution (* com.mylearning.service.ProductService.*(..))")
+    public void logResponse(JoinPoint joinPoint) throws JsonProcessingException {
+        log.info("LoggingAdvice::logResponse class name {} ,method name {} ", joinPoint.getTarget(), joinPoint.getSignature().getName());
+        log.info("LoggingAdvice::logResponse Response Body {} ", new ObjectMapper().writeValueAsString(joinPoint.getArgs()));
+    }
 }
