@@ -19,16 +19,17 @@ public class RedisMQConfig {
     }
 
     // define the consumer in Adapter
+    @Bean(name="messageListenerAdapter")
     public MessageListenerAdapter messageListenerAdapter(MessageSubscriber subscriber) {
         return new MessageListenerAdapter(subscriber);
     }
 
     // set the values of adapter and topic in container
     @Bean
-    public RedisMessageListenerContainer redisMessageListenerContainer(RedisConnectionFactory connectionFactory ) {
+    public RedisMessageListenerContainer redisMessageListenerContainer(RedisConnectionFactory connectionFactory,MessageListenerAdapter messageListenerAdapter ) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        container.addMessageListener(messageListenerAdapter(), channelTopic());
+        container.addMessageListener(messageListenerAdapter, channelTopic());
         return container;
     }
 
