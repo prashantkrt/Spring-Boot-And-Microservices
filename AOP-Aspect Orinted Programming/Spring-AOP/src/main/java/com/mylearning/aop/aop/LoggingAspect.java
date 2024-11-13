@@ -69,3 +69,67 @@ public class LoggingAspect {
         return obj;
     }
 }
+
+/*
+*  Terminology for Aspect Orin ted Programming
+*
+*  1. Aspect ⇒ A module that contains cross-cutting concerns (e.g., logging, security).
+*  2. JointPoint ⇒ the point where this method is called is a JoinPoint where advice can be applied. A method call is a typical JoinPoint
+*  3. Advice ⇒ Before, after, and around are types of advice
+*  4. PointCut ⇒ A Pointcut is a set of rules that defines where and when to apply the advice
+*
+*   // Define the pointcut expression
+    @Pointcut("execution(* com.example.service.*.*(..))")
+    public void serviceMethods() {
+        // This is a placeholder for the pointcut
+    }
+
+    // Apply advice (e.g., Before advice) to the methods matching the pointcut
+    @Before("serviceMethods()")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Before method execution: " + joinPoint.getSignature());
+    }
+
+    // Apply After advice to the same pointcut
+    @After("serviceMethods()")
+    public void logAfter(JoinPoint joinPoint) {
+        System.out.println("After method execution: " + joinPoint.getSignature());
+    }
+
+   // Directly writing the pointcut expression inside the advice annotation
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Before method execution: " + joinPoint.getSignature());
+    }
+
+    @After("execution(* com.example.service.*.*(..))")
+    public void logAfter(JoinPoint joinPoint) {
+         System.out.println("After method execution: " + joinPoint.getSignature());
+    }
+
+*
+*
+*
+*  5. Target Object => The object whose methods are being advised by AOP. This is the actual object that contains the business logic (e.g., a service or repository class).
+    @Service
+     public class UserService {
+      public void createUser(String username) {
+        System.out.println("User created: " + username);
+    }
+   }
+  Now, if you apply an aspect to log method execution, the UserService object becomes the target object.
+   @Aspect
+   @Component
+    public class LoggingAspect {
+
+        @Before("execution(* com.example.service.UserService.*(..))")
+        public void logBefore(JoinPoint joinPoint) {
+            System.out.println("Before method execution: " + joinPoint.getSignature());
+        }
+    }
+
+*  6. Weaving =>Weaving is the process of applying aspects to target objects. Weaving happens at runtime, using proxies to apply the advice dynamically to method executions.
+*  Spring weaves the aspect at runtime by creating a proxy for the target object.
+*  The proxy intercepts method calls to the target object and applies the advice (logging, security checks, etc.).
+*
+* */
