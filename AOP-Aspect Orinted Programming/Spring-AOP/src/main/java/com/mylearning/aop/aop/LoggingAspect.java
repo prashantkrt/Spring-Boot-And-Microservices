@@ -35,7 +35,7 @@ public class LoggingAspect {
         System.out.println("Fetching all job posts...");
     }
 
-    // when we use After it act as After Finally it will execute even some issue comes
+    // when we use After it acts as After, Finally it will execute, even some issue comes
     @After("execution (* com.mylearning.aop.service.JobService.getJob(..)) || execution(* com.mylearning.aop.service.JobService.updateJob(..))")
     public void logMethodExecuted(JoinPoint jp) {
         logger.info("Method Executed " + jp.getSignature().getName());
