@@ -39,6 +39,7 @@
         <module name="Spring-Security-OAuth2" />
         <module name="Spring-Boot-Mapping-ManyToMany" />
         <module name="Spring-Boot-Data-JPA-Redis-Cache" />
+        <module name="Spring-Boot-AOP" />
         <module name="Spring-Data-JPA-Pagination" />
         <module name="Spring-Boot-Profiles" />
         <module name="Spring-Data-JPA-Auditing" />
@@ -110,6 +111,7 @@
       <module name="Scheduler" options="-parameters" />
       <module name="Service-Discovery" options="-parameters" />
       <module name="Spring-AOP" options="-parameters" />
+      <module name="Spring-Boot-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-JPA-Redis-Cache" options="-parameters" />

@@ -28,6 +28,13 @@ public class LoggingAspect {
         logger.info(joinpoint.getSignature().getDeclaringTypeName() + "." + joinpoint.getSignature().getName());
     }
 
+    @Before("execution(* com.mylearning.aop.service.JobService.getAllJobs(..))")
+    //(..) in a pointcut expression means with or without parameters.
+    //@Before("execution(* com.example.service.JobService.getAllJobs())") also you can do so for more specififc => both will work
+    public void logBeforeGetAllJobs() {
+        System.out.println("Fetching all job posts...");
+    }
+
     // when we use After it act as After Finally it will execute even some issue comes
     @After("execution (* com.mylearning.aop.service.JobService.getJob(..)) || execution(* com.mylearning.aop.service.JobService.updateJob(..))")
     public void logMethodExecuted(JoinPoint jp) {

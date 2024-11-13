@@ -79,6 +79,7 @@
         <option value="$PROJECT_DIR$/Redis-Pubsub/Redis-Pubsub-1/pom.xml" />
         <option value="$PROJECT_DIR$/Redis-Pubsub/Redis-Pubsub-2/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Cache/Spring-Boot-Data-JPA-Redis-Cache/pom.xml" />
+        <option value="$PROJECT_DIR$/AOP-Aspect Orinted Programming/Spring-Boot-AOP/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
