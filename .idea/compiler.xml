@@ -49,9 +49,9 @@
         <module name="Spring-Cloud-Config-Server" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
+        <module name="Redis-Pubsub" />
         <module name="Order-Microservice" />
         <module name="Spring-Boot-JPA-JoinMapping" />
-        <module name="Employee-Management-System (2)" />
         <module name="first-project-autoconfiguration" />
         <module name="Payment-Microservice" />
         <module name="Rest-Endpoint-Documentation" />
@@ -62,7 +62,6 @@
         <module name="Spring-Boot-Actuator" />
         <module name="Spring-Data-MongoDB" />
         <module name="Spring-Data-Rest" />
-        <module name="Employee-Management-System (1)" />
         <module name="Spring-Data-JPA" />
         <module name="User-Microservice" />
         <module name="Spring-Data-JDBC" />
@@ -84,8 +83,6 @@
       <module name="Creating-Excel" options="-parameters" />
       <module name="Dependency-injection" options="-parameters" />
       <module name="Employee-Management-System" options="-parameters" />
-      <module name="Employee-Management-System (1)" options="-parameters" />
-      <module name="Employee-Management-System (2)" options="-parameters" />
       <module name="Employee-Management-System-Traditional-Approach" options="-parameters" />
       <module name="Employee-Management-System-jwt" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
@@ -104,6 +101,7 @@
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Order-Microservice" options="-parameters" />
       <module name="Payment-Microservice" options="-parameters" />
+      <module name="Redis-Pubsub" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
       <module name="Restful-webservices" options="-parameters" />
       <module name="Scheduler" options="-parameters" />

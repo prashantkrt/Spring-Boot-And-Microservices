@@ -48,4 +48,19 @@ public class ProductService {
     public boolean productExists(String id) {
         return redisTemplate.opsForValue().get(PRODUCT_KEY + id) != null;
     }
+
+    // Update a Product by ID
+    public void updateProduct(String id, Product updatedProduct) {
+        // Retrieve the existing product
+        Product existingProduct = (Product) redisTemplate.opsForValue().get(PRODUCT_KEY + id);
+        if (existingProduct != null) {
+            // Update fields of the existing product as per the updatedProduct
+            existingProduct.setName(updatedProduct.getName());
+            existingProduct.setPrice(updatedProduct.getPrice());
+            // Save the updated product back to Redis
+            saveProduct(existingProduct);
+        } else {
+            throw new RuntimeException("Product with ID " + id + " does not exist.");
+        }
+    }
 }
