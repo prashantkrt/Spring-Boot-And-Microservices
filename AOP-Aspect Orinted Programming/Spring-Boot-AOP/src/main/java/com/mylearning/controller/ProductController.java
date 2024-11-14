@@ -37,4 +37,11 @@ public class ProductController {
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
     }
+
+    //dummy method
+    @GetMapping("/getProduct")
+    public String getProduct() {
+        // Some business logic
+        return "Product details";
+    }
 }
