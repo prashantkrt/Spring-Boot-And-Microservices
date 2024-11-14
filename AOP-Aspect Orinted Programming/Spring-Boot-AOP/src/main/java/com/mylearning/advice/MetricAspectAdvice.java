@@ -24,6 +24,7 @@ public class MetricAspectAdvice {
     public void sendMetrics(JoinPoint joinPoint) {
         log.info("Application collecting metrics for method: " + joinPoint.getSignature().getName());
 
+        // Parameter => your observer-name and the registry
         Observation.createNotStarted(joinPoint.getSignature().getName(), registry)
                 .observe(() -> {
                     // Supplier FI
@@ -43,6 +44,7 @@ public class MetricAspectAdvice {
          *  and stops the observation after the task completes.
          *
          * */
+        // Parameter => your observer-name and the registry
         Observation.createNotStarted("performTask.observation", registry)
                 .observe(() -> {
                     // this will be the part of the metric
@@ -64,6 +66,7 @@ public class MetricAspectAdvice {
         log.info("Application collecting metrics for method: " + joinPoint.getSignature().getName());
 
         // Observation only captures what's inside observe()
+        // Parameter => your observer-name and the registry
         Observation.createNotStarted(joinPoint.getSignature().getName(), registry)
                 .observe(() -> {
                     // Code here is captured as a metric
