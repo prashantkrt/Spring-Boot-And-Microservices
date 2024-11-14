@@ -16,7 +16,7 @@ public class ExceptionAdvice {
     public void alertFor() {
     }
 
-    @AfterThrowing(value = "alertFor()", throwing = "exception")
+    @AfterThrowing(value = "alertFor()", throwing = "exception") // Exception same name which we are using in param
     public void captureErrorAndSetAlerts(JoinPoint joinPoint, Exception exception) {
         log.error("Exception occurs in {}", joinPoint.getSignature());
         log.error("Exception message  {}", exception.getMessage());
@@ -31,6 +31,5 @@ public class ExceptionAdvice {
             //trigger an email to DEV team
             System.out.println("RuntimeException occurs");
         }
-
     }
 }

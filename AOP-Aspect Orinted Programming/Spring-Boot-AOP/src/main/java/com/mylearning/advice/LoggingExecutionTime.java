@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class LoggingExecutionTime {
-
+    
+    // Will check for this annotation and will
     @Around("@annotation(com.mylearning.annotation.TrackMethodExecutionTime)")
-   // @Around("execution (* com.mylearning.*.*.*(..))")
+    // @Around("execution (* com.mylearning.*.*.*(..))")
     public Object logExecutionDuration(ProceedingJoinPoint pjp) throws Throwable {
         //before advice
         long startTime = System.currentTimeMillis();
