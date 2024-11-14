@@ -1,5 +1,6 @@
 package com.mylearning.service;
 
+import com.mylearning.annotation.TrackMethodExecutionTime;
 import com.mylearning.entity.Product;
 import com.mylearning.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     // Create or update product
+    @TrackMethodExecutionTime
     public Product saveOrUpdateProduct(Product product) {
         return productRepository.save(product);
     }
@@ -30,6 +32,7 @@ public class ProductService {
     }
 
     // Delete product by ID
+    @TrackMethodExecutionTime
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
