@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ShapeTest {
+public class AssertionShapeTest {
     // Test for Rectangle's area and perimeter
     @Test
     void testRectangle() {

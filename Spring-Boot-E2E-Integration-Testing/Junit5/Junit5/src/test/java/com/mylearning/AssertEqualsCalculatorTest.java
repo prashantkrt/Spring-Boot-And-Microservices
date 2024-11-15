@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 // Test Driven Development
 // Write test then code
-public class CalculatorTest {
+public class AssertEqualsCalculatorTest {
 
     //assertEquals(expected, actual);
 

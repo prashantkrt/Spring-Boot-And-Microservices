@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Calculator2Test {
+public class AssertThrowsCalculatorTest {
 //    assertThrows(Class<T> expectedType, Executable executable);
 //    @FunctionalInterface
 //    public interface Executable {

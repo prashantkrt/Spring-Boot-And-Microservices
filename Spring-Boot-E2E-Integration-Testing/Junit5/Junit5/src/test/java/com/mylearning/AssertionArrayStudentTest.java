@@ -2,7 +2,7 @@ package com.mylearning;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-class StudentTest {
+class AssertionArrayStudentTest {
 
     @Test
     void testStudentGrades() {
