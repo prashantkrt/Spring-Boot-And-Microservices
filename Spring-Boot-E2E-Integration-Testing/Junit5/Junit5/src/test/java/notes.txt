@@ -1,0 +1,8 @@
+@BeforeAll: Runs once before all tests in the class. The method must be static.
+@BeforeEach: Runs before each test method.
+@AfterEach: Runs after each test method.
+@AfterAll: Runs once after all tests in the class. The method must be static.
+@Test: Marks a method as a test case.
+@Disabled: Temporarily disables a test method.
+@Timeout: Sets a timeout for a test.
+@TestInstance: Controls whether a new instance of the test class is created for each test.
