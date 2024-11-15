@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.mylearning</groupId>
-  <artifactId>Junit-01</artifactId>
+  <artifactId>Junit5</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 

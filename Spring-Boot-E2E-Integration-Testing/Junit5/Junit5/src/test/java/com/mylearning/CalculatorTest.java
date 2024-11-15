@@ -40,4 +40,24 @@ public class CalculatorTest {
         int result = calculator.divide(10, 2);
         assertEquals(5, result, "Division result should be 5");
     }
+
+//    In JUnit 5, the third parameter of assertEquals can either be:
+//    A simple String (for the error message), or
+//    A Supplier<String> (for lazy evaluation of the error message).
+//    You don’t need to use a Supplier<String> if you just want to pass a simple string message.
+
+    @Test
+    void testAddition() {
+        Calculator calculator = new Calculator();
+        int result = calculator.add(2, 3);
+
+        // Using a Supplier for the message
+        assertEquals(5, result, () -> "Addition result should be " + 5);
+
+
+        // will only execute it the test case is failing if we use supplier
+        // If you want to lazily evaluate the message (only when the assertion fails), you use a Supplier<String> like this:
+        // Using Supplier for an error message
+        assertEquals(5, result, () -> "Expected 5 but got " + result);
+    }
 }

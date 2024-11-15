@@ -54,6 +54,7 @@
         <module name="Spring-Boot-Data-Redis" />
         <module name="Employee-Management-System" />
         <module name="Spring-Cloud-Config-Server" />
+        <module name="Junit5" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
         <module name="Order-Microservice" />
@@ -61,7 +62,6 @@
         <module name="first-project-autoconfiguration" />
         <module name="Payment-Microservice" />
         <module name="Rest-Endpoint-Documentation" />
-        <module name="Junit-01" />
         <module name="Restful-webservices" />
         <module name="Spring-Boot-Data-Redis-CRUDRepo" />
         <module name="Dependency-injection" />
