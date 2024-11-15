@@ -63,4 +63,11 @@ public class TimeoutTest {
         Thread.sleep(2000);  // This will complete in 2 seconds
     }
 
+//    Old approach from junit4
+//    @Test(timeout = 1000)  // Timeout set to 1000 milliseconds (1 second)
+//    public void testWithTimeout() throws InterruptedException {
+//        Thread.sleep(500);  // This will pass because it sleeps for 500ms (within the 1 second limit)
+//    }
+
+
 }
