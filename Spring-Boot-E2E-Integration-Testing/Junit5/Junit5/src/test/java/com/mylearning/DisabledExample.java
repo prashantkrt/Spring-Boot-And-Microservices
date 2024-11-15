@@ -16,6 +16,13 @@ public class DisabledExample {
     void test2() {
         System.out.println("Test 2");
     }
+
+    //skip this
+    @Test
+    @Disabled
+    void test3() {
+        System.out.println("Test 2");
+    }
 }
 
 //Test 1
