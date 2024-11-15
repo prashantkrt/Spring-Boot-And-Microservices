@@ -26,4 +26,6 @@ public class DisabledExample {
 }
 
 //Test 1
-//test2() will be skipped.
+//This test is temporarily disabledThis test is temporarily disabled
+//void com.mylearning.DisabledExample.test3() is @Disabled
+
