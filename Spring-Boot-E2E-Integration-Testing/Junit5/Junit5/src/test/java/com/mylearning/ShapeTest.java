@@ -69,6 +69,35 @@ public class ShapeTest {
         assertEquals(18.84955592153876, circle.getPerimeter(), () -> "Perimeter of circle should be " + (2 * Math.PI * 3));
     }
 
+//    assertFalse(rectangle.isCircle()) ensures that for a rectangle, the isCircle() method correctly returns false.
+//    assertTrue(circle.isCircle()) checks that a circle returns true.
+
+
+    //We use assertFalse to verify that the condition (rectangle.isCircle()) is false for rectangles.
+    //If the condition is true when we expect it to be false, the test will fail.
+
+    @Test
+    void testIsCircleForRectangle() {
+        // Create an instance of Shape (outer class)
+        Shape shape = new Shape();
+
+        // Create a Rectangle using the createRectangle method
+        Shape.Rectangle rectangle = new Shape.Rectangle(3,4);
+
+        // Assert that isCircle() returns false for a Rectangle
+        assertFalse(rectangle.isCircle(), "Rectangle should not be a circle");
+    }
+
+    @Test
+    void testIsCircleTrue() {
+        // Create a circle shape
+         Shape shape = new Shape();
+
+         Shape.Circle circle = new Shape.Circle(3);
+        // Assert that isCircle() returns true for a circle shape
+        assertFalse(circle.isCircle(), "Shape should not be a circle");
+    }
+
     /*
     assertEquals(3.14, 3.14159, 0.001, "Values should be close to each other");
 

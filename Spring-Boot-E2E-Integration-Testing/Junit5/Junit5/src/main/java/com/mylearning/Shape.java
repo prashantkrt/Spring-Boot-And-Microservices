@@ -18,6 +18,10 @@ public class Shape {
         public double getPerimeter() {
             return 2 * (width + height);
         }
+
+        public boolean isCircle() {
+            return false;
+        }
     }
 
     // Circle class with radius
@@ -34,6 +38,10 @@ public class Shape {
 
         public double getPerimeter() {
             return 2 * Math.PI * radius;
+        }
+
+        public boolean isCircle() {
+            return true;
         }
     }
 }
