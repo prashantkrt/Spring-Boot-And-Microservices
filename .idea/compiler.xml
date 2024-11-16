@@ -10,6 +10,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Spring-boot-Mockito" />
         <module name="Course-Service-Producer" />
         <module name="Service-Discovery" />
         <module name="Spring-Boot-Transactions" />
@@ -143,6 +144,7 @@
       <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Data-Rest" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
+      <module name="Spring-boot-Mockito" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
     </option>
