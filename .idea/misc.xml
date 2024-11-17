@@ -85,6 +85,8 @@
         <option value="$PROJECT_DIR$/Spring-Boot-E2E-Integration-Testing/Junit5/Junit-01/pom.xml" />
         <option value="$PROJECT_DIR$/Spring-Boot-E2E-Integration-Testing/Junit5/Junit5/pom.xml" />
         <option value="$PROJECT_DIR$/Spring-Boot-E2E-Integration-Testing/Mockito/Spring-boot-Mockito/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-Boot-E2E-Integration-Testing/Mockito/Spring-boot-Mockito-1/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-Boot-E2E-Integration-Testing/Mockito/Spring-boot-Mockito-2/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

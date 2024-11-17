@@ -10,7 +10,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Spring-boot-Mockito" />
         <module name="Course-Service-Producer" />
         <module name="Service-Discovery" />
         <module name="Spring-Boot-Transactions" />
@@ -22,6 +21,8 @@
         <module name="Redis-Pubsub-2" />
         <module name="Creating-Excel" />
         <module name="Spring-Data-JPA-Auditing-Envers" />
+        <module name="Spring-boot-Mockito-2" />
+        <module name="Spring-boot-Mockito-1" />
         <module name="Multi-DB-Configuration" />
         <module name="Spring-Boot-Mapping-OneToMany" />
         <module name="Kafka-Consumer-Example" />
@@ -144,7 +145,8 @@
       <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Data-Rest" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
-      <module name="Spring-boot-Mockito" options="-parameters" />
+      <module name="Spring-boot-Mockito-1" options="-parameters" />
+      <module name="Spring-boot-Mockito-2" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
       <module name="first-project-autoconfiguration" options="-parameters" />
     </option>

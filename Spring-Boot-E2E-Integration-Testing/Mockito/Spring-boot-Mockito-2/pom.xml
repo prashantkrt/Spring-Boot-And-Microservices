@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mylearning</groupId>
-    <artifactId>Spring-boot-Mockito</artifactId>
+    <artifactId>Spring-boot-Mockito-2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-boot-Mockito</name>
     <description>Spring-boot-Mockito</description>
