@@ -63,4 +63,7 @@ public class ProductService {
             throw new RuntimeException("Product Id cannot be negative");
     }
 
+    public void findProductById(long l) {
+        productRepository.findById(l);
+    }
 }

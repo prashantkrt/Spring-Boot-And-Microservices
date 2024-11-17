@@ -143,4 +143,55 @@ public class ProductServiceTest1 {
         verify(mockService, times(1)).deleteProduct3(1L);
     }
 
+    @Test
+    void testUnexpectedInteraction() {
+
+        productService.findProductById(1L);
+        productService.findProductById(2L);
+        //productService.findProductById(3L); fail case
+
+        // Simulate calling save() method
+        productRepository.save(new Product( "Another Product",3L));
+
+        // Verify specific interactions
+        verify(productRepository).findById(1L);
+        verify(productRepository).findById(2L);
+        verify(productRepository).save(new Product("Another Product",3L)); // Verify save() method was called
+
+        // Now we can call verifyNoMoreInteractions without failure
+        verifyNoMoreInteractions(productRepository); // Passes because we've verified all interactions
+    }
+
+    @Test
+    void testUnexpectedInteraction2() {
+        productService.findProductById(1L);
+        productService.findProductById(2L);
+
+        // Verify specific interactions
+        verify(productRepository).findById(1L);
+        verify(productRepository).findById(2L);
+
+        // Now let's simulate an unexpected interaction
+        productRepository.save(new Product("Another Product",3L));
+
+        // This will fail because an unexpected method was called
+        verifyNoMoreInteractions(productRepository); // Fails here
+    }
+
+    @Test
+    void testProductService() {
+
+        productService.findProductById(1L);
+        productService.findProductById(2L);
+
+        // Verify interactions with the mock
+        verify(productRepository).findById(1L);  // First verification
+        verify(productRepository).findById(2L);  // Second verification
+
+        // Now, we ensure there are no additional interactions
+        verifyNoMoreInteractions(productRepository); // Ensures no other methods are called after these verifications
+    }
+
+
+
 }
