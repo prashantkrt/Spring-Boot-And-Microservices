@@ -44,4 +44,9 @@ public class ProductService {
         return "Deleted product with id: " + id;
     }
 
+    // Real implementation throws an exception
+    public void deleteProduct3(Long id) {
+        throw new UnsupportedOperationException("Cannot delete");
+    }
+
 }

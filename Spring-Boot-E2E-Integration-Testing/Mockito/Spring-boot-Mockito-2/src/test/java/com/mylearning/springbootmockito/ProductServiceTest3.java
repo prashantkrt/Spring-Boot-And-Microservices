@@ -136,7 +136,7 @@ class ProductServiceTest3 {
         assertNotNull(result); // Pass
         assertEquals("Matching Product", result.getName()); // Pass
 
-        // Point of failure: id <= 0 will return empty
+        // Point of failure: id ⇐ 0 will return empty
         Optional<Product> failureResult = productService.getProductById(-1L);
         assertTrue(failureResult.isEmpty()); // Pass
     }

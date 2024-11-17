@@ -12,8 +12,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class) // enable mockito
 public class ProductServiceTest1 {
@@ -91,5 +91,56 @@ public class ProductServiceTest1 {
         Mockito.verifyNoMoreInteractions(productRepository);
     }
 
+    @Test
+    public void testDeleteProductSuccessfully() {
+        Long productId = 1L;
+        //you use doNothing to specify that the void method should do nothing when called.
+        doNothing().when(productRepository).deleteById(productId);
+
+        //If you want to mock a void method that throws an exception, you can use doThrow:
+        //doThrow(new RuntimeException("Error occurred")).when(productRepository).deleteById(1L);
+        productService.deleteProduct(productId);
+        verify(productRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    public void testDeleteProduct3_withDoNothing() {
+        // Step 1: Mock the service containing deleteProduct3
+        ProductService mockService = Mockito.mock(ProductService.class);
+
+        //Using doNothing, we mock this method to override its behavior so it doesn’t throw an exception during the test.
+        // Step 2: Stub the method to do nothing
+        doNothing().when(mockService).deleteProduct3(1L);
+
+        // Step 3: Call the method to verify no exception is thrown
+        mockService.deleteProduct3(1L);
+
+        // Step 4: Verify the method was called
+        verify(mockService, times(1)).deleteProduct3(1L);
+    }
+
+    //To mock void methods or any methods with specific exception-throwing behavior.
+    //Useful when you want to simulate error scenarios and validate your application's error-handling logic.
+    @Test
+    public void testDeleteProduct3_withDoThrow() {
+        // Step 1: Mock the ProductService
+        ProductService mockService = Mockito.mock(ProductService.class);
+
+        // Step 2: Stub deleteProduct3 to throw an exception
+        doThrow(new UnsupportedOperationException("Cannot delete"))
+                .when(mockService).deleteProduct3(1L);
+
+        // Step 3: Verify the exception is thrown when the method is called
+        UnsupportedOperationException exception = assertThrows(
+                UnsupportedOperationException.class,
+                () -> mockService.deleteProduct3(1L)
+        );
+
+        // Step 4: Validate the exception message
+        assertEquals("Cannot delete", exception.getMessage());
+
+        // Step 5: Verify the method was called once
+        verify(mockService, times(1)).deleteProduct3(1L);
+    }
 
 }
