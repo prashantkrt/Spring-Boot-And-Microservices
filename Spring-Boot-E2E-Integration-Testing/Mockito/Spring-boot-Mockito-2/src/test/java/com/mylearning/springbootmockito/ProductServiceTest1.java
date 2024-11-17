@@ -192,6 +192,24 @@ public class ProductServiceTest1 {
         verifyNoMoreInteractions(productRepository); // Ensures no other methods are called after these verifications
     }
 
+    @Test
+    void testGetProductById() {
+
+        Product product = new Product(1L, "Sample Product", 100.0);
+        // void method
+        // Mock the delete method using doReturn (although it's void, we simulate the behavior)
+        doReturn(null).when(productRepository).delete(product);
+
+        // Mock the return value of getProductById using doReturn
+        // doReturn(product).when(productRepository).getProductById(1L);
+        // Product product = productService.getProductById(1L);
+
+        productService.deleteProduct(product);
+        verify(productRepository).delete(product); // Verify that the method was called
+    }
+
+
+
 
 
 }

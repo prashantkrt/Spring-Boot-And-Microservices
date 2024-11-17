@@ -39,6 +39,10 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    public void deleteProduct(Product product) {
+        productRepository.delete(product);
+    }
+
     public String deleteProduct2(long id) {
         productRepository.deleteById(id);
         return "Deleted product with id: " + id;
@@ -65,5 +69,10 @@ public class ProductService {
 
     public void findProductById(long l) {
         productRepository.findById(l);
+    }
+
+    public Product getProductById(Long id) {
+        // Imagine this calls a database and returns a product.
+        return new Product("Product Name", id);
     }
 }
