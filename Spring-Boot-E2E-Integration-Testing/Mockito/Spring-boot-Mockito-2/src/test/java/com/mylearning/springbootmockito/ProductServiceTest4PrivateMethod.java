@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 // @ExtendWith(PowerMockExtension.class) using powermock
 public class ProductServiceTest4PrivateMethod {
 
+
+    private ProductService productService;
+
     @Test
     public void testPrivateValidateMethod() throws Exception {
         // Create an instance of ProductService

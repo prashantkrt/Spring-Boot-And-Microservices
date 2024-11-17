@@ -14,6 +14,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.inOrder;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -103,9 +105,28 @@ class ProductServiceTest3 {
         productService.getAllProducts();
 
         // Assert: Verify the order of method calls
-        InOrder inOrder = Mockito.inOrder(productRepository);
+        // Create an InOrder verifier for productRepository
+        InOrder inOrder = inOrder(productRepository);
+
+        // Verify the interactions in order
         inOrder.verify(productRepository).save(Mockito.any(Product.class)); // Pass
         inOrder.verify(productRepository).findAll(); // Pass
+
+        // This will fail if the methods were not called in this order
+    }
+    @Test
+    void testOrderOfInteractions() {
+
+        // Call methods in a specific order
+        productRepository.findById(1L); // First
+        productRepository.save(new Product("Test Product",2L)); // Second
+
+        // Create an InOrder verifier for productRepository
+        InOrder inOrder = inOrder(productRepository);
+
+        // Verify the methods were called in the correct order
+        inOrder.verify(productRepository).findById(1L); // Must be called first
+        inOrder.verify(productRepository).save(Mockito.any(Product.class)); // Must be called second
     }
 
     @Test

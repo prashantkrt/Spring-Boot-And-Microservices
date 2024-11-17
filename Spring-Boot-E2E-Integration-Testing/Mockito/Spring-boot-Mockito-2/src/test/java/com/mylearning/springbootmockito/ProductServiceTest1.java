@@ -1,6 +1,7 @@
 package com.mylearning.springbootmockito;
 
 import com.mylearning.springbootmockito.entity.Product;
+import com.mylearning.springbootmockito.repository.ProductRepo;
 import com.mylearning.springbootmockito.repository.ProductRepository;
 import com.mylearning.springbootmockito.service.ProductService;
 import org.junit.jupiter.api.Assertions;
@@ -11,8 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class) // enable mockito
@@ -54,7 +54,7 @@ public class ProductServiceTest1 {
         Product productTest = productService.saveProduct(product); // will not reflect in db
         System.out.println(productTest); //Product(id=null, name=Lamp, price=1200.0)
 
-        Assertions.assertNotNull(productTest);
+        assertNotNull(productTest);
         Assertions.assertEquals(product.getId(), productTest.getId());
         Assertions.assertTrue(productTest.getId() == 1);
         //or
@@ -208,8 +208,39 @@ public class ProductServiceTest1 {
         verify(productRepository).delete(product); // Verify that the method was called
     }
 
+//    mock() creates a full mock of the object where all methods are mocked (i.e., no actual behavior is executed).
+//    spy() creates a partial mock where you can specify which methods to mock, and the other methods will use their real implementation.
 
+//    @Test
+//    void testAddProductWithSpy() {
+//
+//        // Create a mock ProductRepository interface
+//        ProductRepository mockRepo = mock(ProductRepository.class);
+//
+//        // Create a spy of the mock (we could use a real instance here if needed)
+//        ProductRepository spyRepo = spy(mockRepo);
+//
+//        // Create a ProductService with the spy
+//        ProductService productService = new ProductService(spyRepo);
+//
+//        // Define behavior for mock methods (we'll mock 'save' method here)
+//        Product product = new Product("Product A",1L);
+//        doReturn(product).when(spyRepo).save(any(Product.class)); // Mock save method
+//
+//        // Test addProduct method with mocked behavior
+//        Product result = productService.addProduct(product);
+//
+//        // Verify the interaction and assert result
+//        assertNotNull(result);
+//        assertEquals("Product A", result.getName());
+//
+//        // Verify that the 'save' method was called once
+//        verify(spyRepo, times(1)).save(any(Product.class));
+//    }
 
+//    Use Mockito.spy() when you want to partially mock an object, keeping the default behavior of most methods and only mocking the methods you care about for the test.
+//    It's particularly useful when you want to test a real object, but mock some specific interactions (like a method call) without altering the entire behavior.
 
+ //   For a repository interface like ProductRepository, if there are no custom methods, the methods inherited from JpaRepository (e.g., findById(), save(), etc.) will work as they are, and you can mock them if needed.
 
 }

@@ -2,6 +2,7 @@ package com.mylearning.springbootmockito.service;
 
 import com.mylearning.springbootmockito.entity.Product;
 import com.mylearning.springbootmockito.repository.ProductRepository;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,5 +75,9 @@ public class ProductService {
     public Product getProductById(Long id) {
         // Imagine this calls a database and returns a product.
         return new Product("Product Name", id);
+    }
+
+    public Product getProductByName(String name) {
+        return productRepository.findByName(name);
     }
 }
