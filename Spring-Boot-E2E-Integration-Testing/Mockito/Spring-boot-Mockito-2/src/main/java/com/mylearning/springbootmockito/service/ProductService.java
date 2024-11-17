@@ -49,4 +49,18 @@ public class ProductService {
         throw new UnsupportedOperationException("Cannot delete");
     }
 
+
+    private boolean validate(Long id) {
+        if (id < 0)
+            return false;
+        else return true;
+    }
+
+    public Product addProduct(Product product) {
+        if (validate(product.getId())) {
+            return productRepository.save(product);
+        } else
+            throw new RuntimeException("Product Id cannot be negative");
+    }
+
 }
