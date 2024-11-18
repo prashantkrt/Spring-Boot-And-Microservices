@@ -71,6 +71,7 @@
         <module name="Spring-Boot-Actuator" />
         <module name="Spring-Data-MongoDB" />
         <module name="Spring-Data-Rest" />
+        <module name="Spring-Boot-MockMVC" />
         <module name="Spring-Data-JPA" />
         <module name="User-Microservice" />
         <module name="Spring-Data-JDBC" />
@@ -132,6 +133,7 @@
       <module name="Spring-Boot-Mapping-ManyToMany" options="-parameters" />
       <module name="Spring-Boot-Mapping-OneToMany" options="-parameters" />
       <module name="Spring-Boot-Mapping-OneToOne" options="-parameters" />
+      <module name="Spring-Boot-MockMVC" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="Spring-Boot-Transactions" options="-parameters" />
