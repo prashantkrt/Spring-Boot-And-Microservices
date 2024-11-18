@@ -1,7 +1,6 @@
 package com.mylearning.springbootmockito;
 
 import com.mylearning.springbootmockito.entity.Product;
-import com.mylearning.springbootmockito.repository.ProductRepo;
 import com.mylearning.springbootmockito.repository.ProductRepository;
 import com.mylearning.springbootmockito.service.ProductService;
 import org.junit.jupiter.api.Assertions;
@@ -92,6 +91,61 @@ public class ProductServiceTest1 {
     }
 
     @Test
+    public void testDeleteProduct2() {
+        Long productId = 1L;
+
+        // Call the deleteProduct method which should interact with the productRepository
+        productService.deleteProduct(productId);
+        productService.findProductById(productId);
+
+        // Verify that deleteById was called with the correct argument
+        verify(productRepository).deleteById(productId); // Ensures deleteById was called
+
+        // Verify that findById was called once (if applicable)
+        verify(productRepository, times(1)).findById(productId); // Ensures findById was called exactly once
+
+        // Ensure no other methods were called on the mock
+        Mockito.verifyNoMoreInteractions(productRepository); // Verifies no other method was called
+    }
+
+    @Test
+    void testDeleteProduct_withDoNothing() {
+
+        // Stubbing the deleteById method to do nothing
+        doNothing().when(productRepository).deleteById(Mockito.anyLong());
+
+        // Call deleteProduct, which would normally call deleteById on the mock
+        productService.deleteProduct(1L);
+
+        // Verify that deleteById was called
+        verify(productRepository).deleteById(1L);
+
+        // No real deletion happened as doNothing() was used
+        // This just confirms the method was called without any side effects
+    }
+
+    @Test
+    void testDeleteProduct_withDoThrow() {
+
+        // Stubbing the findById method to throw an exception when it's called
+        doThrow(new RuntimeException("Product not found"))
+                .when(productRepository).findById(anyLong());
+
+        // Verify that calling deleteProduct will throw an exception
+        assertThrows(RuntimeException.class, () -> {
+            productService.deleteProduct(1L);
+        });
+
+        // Verify that findById was called
+        verify(productRepository).findById(1L);
+
+        // Ensure that deleteById was not called
+        verify(productRepository, times(0)).deleteById(1L);
+    }
+
+
+
+    @Test
     public void testDeleteProductSuccessfully() {
         Long productId = 1L;
         //you use doNothing to specify that the void method should do nothing when called.
@@ -108,7 +162,8 @@ public class ProductServiceTest1 {
         // Step 1: Mock the service containing deleteProduct3
         ProductService mockService = Mockito.mock(ProductService.class);
 
-        //Using doNothing, we mock this method to override its behavior so it doesn’t throw an exception during the test.
+        // Using doNothing, we mock this method to override its behavior,
+        // so it does not throw an exception during the test.
         // Step 2: Stub the method to do nothing
         doNothing().when(mockService).deleteProduct3(1L);
 
@@ -206,6 +261,18 @@ public class ProductServiceTest1 {
 
         productService.deleteProduct(product);
         verify(productRepository).delete(product); // Verify that the method was called
+    }
+
+    @Test
+    void testInteractions() {
+        // Mock a repository
+        ProductRepository productRepository = mock(ProductRepository.class);
+
+        // No method is called on productRepository here
+
+        // Verify the interactions happened
+        verify(productRepository).findById(1L); // This will fail
+        verify(productRepository).save(any(Product.class)); // This will also fail
     }
 
 //    mock() creates a full mock of the object where all methods are mocked (i.e., no actual behavior is executed).

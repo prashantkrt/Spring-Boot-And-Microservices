@@ -54,6 +54,11 @@ public class ProductService {
         throw new UnsupportedOperationException("Cannot delete");
     }
 
+    public void deleteProduct(Long productId) {
+        Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+        productRepository.deleteById(productId); // void method
+    }
+
 
     private boolean validate(Long id) {
         if (id < 0)
@@ -79,5 +84,20 @@ public class ProductService {
 
     public Product getProductByName(String name) {
         return productRepository.findByName(name);
+    }
+
+
+    public Product findProduct(Long id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
+    //Test this using inorder
+
+    public void checkAndAddProduct(Long id, Product product) {
+        // Check if the product exists
+        Product existingProduct = findProduct(id);
+        if (existingProduct == null) {
+            addProduct(product);
+        }
     }
 }
