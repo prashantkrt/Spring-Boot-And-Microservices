@@ -47,6 +47,7 @@
         <module name="Spring-Boot-AOP" />
         <module name="Spring-Data-JPA-Pagination" />
         <module name="Spring-Boot-Profiles" />
+        <module name="Spring-Boot-MockMVC-2" />
         <module name="Spring-Data-JPA-Auditing" />
         <module name="API-Gateway" />
         <module name="Spring-Boot-Cache" />
@@ -134,6 +135,7 @@
       <module name="Spring-Boot-Mapping-OneToMany" options="-parameters" />
       <module name="Spring-Boot-Mapping-OneToOne" options="-parameters" />
       <module name="Spring-Boot-MockMVC" options="-parameters" />
+      <module name="Spring-Boot-MockMVC-2" options="-parameters" />
       <module name="Spring-Boot-Profiles" options="-parameters" />
       <module name="Spring-Boot-Scheduler" options="-parameters" />
       <module name="Spring-Boot-Transactions" options="-parameters" />
