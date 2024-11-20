@@ -70,6 +70,7 @@
         <module name="Rest-Endpoint-Documentation" />
         <module name="Restful-webservices" />
         <module name="Spring-Boot-Data-Redis-CRUDRepo" />
+        <module name="RabbitMQ-Pubsub" />
         <module name="Dependency-injection" />
         <module name="Kafka-Retry" />
         <module name="Spring-Boot-Actuator" />
@@ -132,6 +133,7 @@
       <module name="Multi-DB-Configuration" options="-parameters" />
       <module name="Order-Microservice" options="-parameters" />
       <module name="Payment-Microservice" options="-parameters" />
+      <module name="RabbitMQ-Pubsub" options="-parameters" />
       <module name="Redis-Pubsub-1" options="-parameters" />
       <module name="Redis-Pubsub-2" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
