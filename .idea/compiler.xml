@@ -10,6 +10,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Spring-boot-Mockito" />
         <module name="Course-Service-Producer" />
         <module name="Service-Discovery" />
         <module name="Spring-Boot-Transactions" />
@@ -55,6 +56,7 @@
         <module name="Scheduler" />
         <module name="Kafka-Producer" />
         <module name="Spring-Boot-Data-Redis" />
+        <module name="Spring-Boot-Data-Redis (1)" />
         <module name="Employee-Management-System" />
         <module name="Spring-Cloud-Config-Server" />
         <module name="Junit5" />
@@ -62,6 +64,7 @@
         <module name="Faculty-Service-Consumer" />
         <module name="Order-Microservice" />
         <module name="Spring-Boot-JPA-JoinMapping" />
+        <module name="Employee-Management-System (2)" />
         <module name="first-project-autoconfiguration" />
         <module name="Payment-Microservice" />
         <module name="Rest-Endpoint-Documentation" />
@@ -76,6 +79,20 @@
         <module name="Spring-Data-JPA" />
         <module name="User-Microservice" />
         <module name="Spring-Data-JDBC" />
+      </profile>
+      <profile name="Annotation profile for Employee Management Application" enabled="true">
+        <sourceOutputDir name="../Employee-Management-System/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../Employee-Management-System/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Employee-Management-System (1)" />
+      </profile>
+      <profile name="Annotation profile for Spring-Boot-Data-Redis" enabled="true">
+        <sourceOutputDir name="../Spring-Boot-Data-Redis-2/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../Spring-Boot-Data-Redis-2/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Spring-Boot-Data-Redis (3)" />
+        <module name="Spring-Boot-Data-Redis (4)" />
+        <module name="Spring-Boot-Data-Redis (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -95,6 +112,8 @@
       <module name="Creating-Excel" options="-parameters" />
       <module name="Dependency-injection" options="-parameters" />
       <module name="Employee-Management-System" options="-parameters" />
+      <module name="Employee-Management-System (1)" options="-parameters" />
+      <module name="Employee-Management-System (2)" options="-parameters" />
       <module name="Employee-Management-System-Traditional-Approach" options="-parameters" />
       <module name="Employee-Management-System-jwt" options="-parameters" />
       <module name="Exception-Handling" options="-parameters" />
@@ -125,6 +144,10 @@
       <module name="Spring-Boot-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-JPA-Redis-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-Redis" options="-parameters" />
+      <module name="Spring-Boot-Data-Redis (1)" options="-parameters" />
+      <module name="Spring-Boot-Data-Redis (2)" options="-parameters" />
+      <module name="Spring-Boot-Data-Redis (3)" options="-parameters" />
+      <module name="Spring-Boot-Data-Redis (4)" options="-parameters" />
       <module name="Spring-Boot-Data-Redis-2" options="-parameters" />
       <module name="Spring-Boot-Data-Redis-CRUDRepo" options="-parameters" />
       <module name="Spring-Boot-Data-Redis-Cache" options="-parameters" />
@@ -149,6 +172,7 @@
       <module name="Spring-Data-MongoDB" options="-parameters" />
       <module name="Spring-Data-Rest" options="-parameters" />
       <module name="Spring-Security-OAuth2" options="-parameters" />
+      <module name="Spring-boot-Mockito" options="-parameters" />
       <module name="Spring-boot-Mockito-1" options="-parameters" />
       <module name="Spring-boot-Mockito-2" options="-parameters" />
       <module name="User-Microservice" options="-parameters" />
