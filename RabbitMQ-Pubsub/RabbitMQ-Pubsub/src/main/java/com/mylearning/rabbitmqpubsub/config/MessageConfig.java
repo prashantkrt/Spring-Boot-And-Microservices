@@ -14,7 +14,7 @@ public class MessageConfig {
     //Queue set karo
     @Bean
     public Queue queue() {
-        return new Queue("paytm_queue");
+        return new Queue("paytm_queue",true);
     }
 
     //exchange banao
@@ -37,11 +37,21 @@ public class MessageConfig {
     }
 
 
-    //template me daalao :))
+    //template me daalo :))
     @Bean
     public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(messageConverter());
         return rabbitTemplate;
     }
+
 }
+
+/*
+*
+This configuration ensures that:
+The paytm_queue is durable.
+The paytm_exchange exists and is bound to the queue.
+The message converter is set to handle JSON messages.
+*
+* */

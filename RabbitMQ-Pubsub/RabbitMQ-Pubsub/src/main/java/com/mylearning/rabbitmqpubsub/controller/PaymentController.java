@@ -1,59 +1,29 @@
 package com.mylearning.rabbitmqpubsub.controller;
 
 import com.mylearning.rabbitmqpubsub.dto.PaymentRequest;
-import com.mylearning.rabbitmqpubsub.entity.Payment;
 import com.mylearning.rabbitmqpubsub.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/payments")
 public class PaymentController {
+
     @Autowired
     private PaymentService paymentService;
 
-    @PostMapping
-    public ResponseEntity<Payment> createPayment(@RequestBody PaymentRequest paymentRequest) {
-        Payment payment = new Payment();
-        payment.setTransactionId(paymentRequest.getTransactionId());
-        payment.setSourceAccount(paymentRequest.getSourceAccount());
-        payment.setDestinationAccount(paymentRequest.getDestinationAccount());
-        payment.setAmount(paymentRequest.getAmount());
-        payment.setTransactionDate(paymentRequest.getTransactionDate());
-        Payment savedPayment = paymentService.createPayment(payment);
-        return ResponseEntity.ok(savedPayment);
+    @PostMapping("/publish")
+    public String publishMessage(@RequestBody PaymentRequest paymentRequest) {
+        paymentService.publishPayment(paymentRequest);
+        return "Payment message published successfully!";
     }
 
-    @GetMapping
-    public ResponseEntity<List<Payment>> getAllPayments() {
-        return ResponseEntity.ok(paymentService.getAllPayments());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Payment> getPaymentById(@PathVariable Long id) {
-        return new ResponseEntity<>(paymentService.getPaymentById(id), HttpStatus.OK);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Payment> updatePayment(
-            @PathVariable Long id, @RequestBody PaymentRequest paymentRequest) {
-        Payment paymentDetails = new Payment();
-        paymentDetails.setTransactionId(paymentRequest.getTransactionId());
-        paymentDetails.setSourceAccount(paymentRequest.getSourceAccount());
-        paymentDetails.setDestinationAccount(paymentRequest.getDestinationAccount());
-        paymentDetails.setAmount(paymentRequest.getAmount());
-        paymentDetails.setTransactionDate(paymentRequest.getTransactionDate());
-        Payment updatedPayment = paymentService.updatePayment(id, paymentDetails);
-        return ResponseEntity.ok(updatedPayment);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePayment(@PathVariable Long id) {
-        paymentService.deletePayment(id);
-        return ResponseEntity.noContent().build();
+    @PostMapping("/send")
+    public String sendMessage(@RequestBody String messageBody) {
+        paymentService.sendRawMessage(messageBody);
+        return "Raw message sent successfully!";
     }
 }

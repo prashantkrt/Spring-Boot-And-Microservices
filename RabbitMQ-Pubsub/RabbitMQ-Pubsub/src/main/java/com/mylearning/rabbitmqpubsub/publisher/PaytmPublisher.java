@@ -7,17 +7,18 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
-@Component
+@Service
 public class PaytmPublisher {
 
-    public static final String PAYTM_EXCHANGE = "paytm-exchange";
-    public static final String PAYTM_QUEUE = "paytm-queue";
-    public static final String PAYTM_ROUTING_KEY = "paytm-routing-key";
+    public static final String PAYTM_EXCHANGE = "paytm_exchange";
+    public static final String PAYTM_ROUTING_KEY = "paytm_routingKey";
+
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -25,7 +26,7 @@ public class PaytmPublisher {
     public void publish(PaymentRequest request) {
         request.setTransactionId(UUID.randomUUID().toString().split("-")[0]);
         request.setAmount(12000.00);
-        request.setTransactionDate(LocalDate.now());
+        request.setTransactionDate(new Date());
         request.setSourceAccount(UUID.randomUUID().toString().split("-")[0]+"Source Account");
         request.setDestinationAccount(UUID.randomUUID().toString().split("-")[0] + "Destination Account");
         //void convertAndSend(String exchange, String routingKey, Object message);
@@ -43,4 +44,5 @@ public class PaytmPublisher {
         //void send(String exchange, String routingKey, Message message);
         rabbitTemplate.send(exchange, routingKey, message);
     }
+
 }
