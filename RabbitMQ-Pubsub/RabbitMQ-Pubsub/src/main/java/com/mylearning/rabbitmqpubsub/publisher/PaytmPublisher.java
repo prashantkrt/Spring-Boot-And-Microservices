@@ -6,7 +6,7 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.support.MessageBuilder;
+
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -28,6 +28,7 @@ public class PaytmPublisher {
         request.setTransactionDate(LocalDate.now());
         request.setSourceAccount(UUID.randomUUID().toString().split("-")[0]+"Source Account");
         request.setDestinationAccount(UUID.randomUUID().toString().split("-")[0] + "Destination Account");
+        //void convertAndSend(String exchange, String routingKey, Object message);
         rabbitTemplate.convertAndSend(PAYTM_EXCHANGE, PAYTM_ROUTING_KEY, request);
     }
 
@@ -39,6 +40,7 @@ public class PaytmPublisher {
         // Message message = new Message(messageBody.getBytes(), messageProperties);
         messageProperties.setContentType("application/json");
         Message message = new Message(messageBody.getBytes(), messageProperties);
+        //void send(String exchange, String routingKey, Message message);
         rabbitTemplate.send(exchange, routingKey, message);
     }
 }
