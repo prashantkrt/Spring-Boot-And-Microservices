@@ -39,6 +39,4 @@ public class PaymentCRUDService {
     public void deletePayment(Long paymentId) {
         paymentRepository.deleteById(paymentId);
     }
-
-
 }

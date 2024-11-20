@@ -20,6 +20,7 @@
         <module name="Redis-Pubsub-1" />
         <module name="Exception-Handling" />
         <module name="Redis-Pubsub-2" />
+        <module name="RabbitMQ-Pubsub-2" />
         <module name="Creating-Excel" />
         <module name="Spring-Data-JPA-Auditing-Envers" />
         <module name="Spring-boot-Mockito-2" />
@@ -134,6 +135,7 @@
       <module name="Order-Microservice" options="-parameters" />
       <module name="Payment-Microservice" options="-parameters" />
       <module name="RabbitMQ-Pubsub" options="-parameters" />
+      <module name="RabbitMQ-Pubsub-2" options="-parameters" />
       <module name="Redis-Pubsub-1" options="-parameters" />
       <module name="Redis-Pubsub-2" options="-parameters" />
       <module name="Rest-Endpoint-Documentation" options="-parameters" />
