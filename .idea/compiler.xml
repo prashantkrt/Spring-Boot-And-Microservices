@@ -20,6 +20,7 @@
         <module name="Redis-Pubsub-1" />
         <module name="Exception-Handling" />
         <module name="Redis-Pubsub-2" />
+        <module name="Spring-Boot-Batch" />
         <module name="RabbitMQ-Pubsub-2" />
         <module name="Creating-Excel" />
         <module name="Spring-Data-JPA-Auditing-Envers" />
@@ -145,6 +146,7 @@
       <module name="Spring-AOP" options="-parameters" />
       <module name="Spring-Boot-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
+      <module name="Spring-Boot-Batch" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-JPA-Redis-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-Redis" options="-parameters" />

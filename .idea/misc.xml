@@ -91,6 +91,7 @@
         <option value="$PROJECT_DIR$/Spring-Boot-E2E-Integration-Testing/MockMVC/Spring-Boot-MockMVC-2/pom.xml" />
         <option value="$PROJECT_DIR$/RabbitMQ-Pubsub/RabbitMQ-Pubsub/pom.xml" />
         <option value="$PROJECT_DIR$/RabbitMQ-Pubsub/RabbitMQ-Pubsub-2/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-Boot-Batch/Spring-Boot-Batch/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
