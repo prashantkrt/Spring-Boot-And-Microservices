@@ -39,7 +39,7 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
         }
 
         // Convert dateOfBirth to a specific format
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String formattedDate = formatter.format(formatter.parse(item.getDateOfBirth()));
         item.setDateOfBirth(formattedDate);
 

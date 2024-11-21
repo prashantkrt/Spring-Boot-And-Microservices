@@ -9,6 +9,9 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineMapper;
@@ -22,7 +25,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-@EnableBatchProcessing
+//@EnableBatchProcessing
 public class ApplicationBatchConfiguration {
 
     @Autowired
@@ -86,6 +89,7 @@ public class ApplicationBatchConfiguration {
     }
 
 
+    // Step
     @Bean
     public Step customerStep() {
         return new StepBuilder("step-1", jobRepository)
@@ -110,6 +114,24 @@ public class ApplicationBatchConfiguration {
 
     }
 
+    // better understanding with params
+    // lets create a step-2
+    @Bean(name="step2")
+    public Step customerStep2(ItemReader<Customer> reader,
+                             ItemProcessor<Customer, Customer> processor,
+                             ItemWriter<Customer> writer,
+                             JobRepository jobRepository,
+                             PlatformTransactionManager transactionManager) {
+        return new StepBuilder("step-2", jobRepository)
+                .<Customer, Customer>chunk(10, transactionManager)  // The chunk size is 10, transaction manager is used for transactional processing
+                .reader(reader)                                    // The ItemReader to read data
+                .processor(processor)                               // The ItemProcessor to process each item
+                .writer(writer)                                     // The ItemWriter to write processed data
+                .build();
+    }
+
+
+    //Job
     @Bean
     public Job job() {
         ////return new JobBuilder("customers-import", jobRepository).start(step()).next(step2()).next(step3()).build();
