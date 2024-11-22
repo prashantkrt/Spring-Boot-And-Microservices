@@ -22,9 +22,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import java.io.FileNotFoundException;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 public class ApplicationBatchConfiguration {
@@ -56,7 +57,7 @@ public class ApplicationBatchConfiguration {
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
         lineTokenizer.setDelimiter(",");
         lineTokenizer.setStrict(false);
-        lineTokenizer.setNames("customerId", "firstName", "lastName", "email", "gender", "contactNo", "country", "dateOfBirth","age");
+        lineTokenizer.setNames("customerId", "firstName", "lastName", "email", "gender", "contactNo", "country", "dateOfBirth", "age");
 
         BeanWrapperFieldSetMapper<Customer> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
         fieldSetMapper.setTargetType(Customer.class);
@@ -93,10 +94,8 @@ public class ApplicationBatchConfiguration {
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
-                .faultTolerant() //Specifies the maximum number of items that can be skipped during the step execution before the job fails.
-                .skipLimit(Integer.MAX_VALUE) // if the value is 5 => Allow up to 5 invalid items to be skipped
-                .skip(NullPointerException.class) // Specify the exception type to skip
-                .noSkip(FileNotFoundException.class) // if file not found do not skip
+                .faultTolerant()
+                .skipPolicy(new MySkipPolicy())
                 .taskExecutor(taskExecutor()) // custom async execution
                 .build();
     }
@@ -112,11 +111,24 @@ public class ApplicationBatchConfiguration {
     }
 
 
-    // optional to create
+    // optional to create =>
+
     @Bean
     public TaskExecutor taskExecutor() {
         SimpleAsyncTaskExecutor taskExecutor = new SimpleAsyncTaskExecutor();
         taskExecutor.setConcurrencyLimit(10);// Limits the number of concurrent tasks to 10
+        taskExecutor.setThreadNamePrefix("BatchThread-"); // Sets a custom thread name prefix
+        return taskExecutor;
+    }
+
+    @Bean(name="taskExecutorAdvance")
+    public TaskExecutor taskExecutor2() {
+        ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+        taskExecutor.setCorePoolSize(5); // min
+        taskExecutor.setMaxPoolSize(10); // max
+        taskExecutor.setQueueCapacity(25); // queue size
+        taskExecutor.setThreadNamePrefix("MonitorThreadPool-");
+        taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
         return taskExecutor;
     }
 }
