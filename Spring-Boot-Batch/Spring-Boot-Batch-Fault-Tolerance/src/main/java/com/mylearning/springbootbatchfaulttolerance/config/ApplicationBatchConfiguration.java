@@ -91,6 +91,9 @@ public class ApplicationBatchConfiguration {
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
+                .faultTolerant() //Specifies the maximum number of items that can be skipped during the step execution before the job fails.
+                .skipLimit(Integer.MAX_VALUE)
+                .skip(NullPointerException.class) // Specify the exception type to skip
                 .taskExecutor(taskExecutor())
                 .build();
     }

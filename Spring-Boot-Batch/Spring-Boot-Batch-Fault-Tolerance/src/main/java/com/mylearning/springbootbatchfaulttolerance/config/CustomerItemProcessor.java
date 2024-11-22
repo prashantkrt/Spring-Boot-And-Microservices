@@ -19,13 +19,13 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
 
         // Validate email
         if (item.getEmail() == null || !item.getEmail().contains("@")) {
-            return null;
+            return null;   // Returning null will cause the item to be skipped
         }
 
         //validate age
         int age = item.getAge();
         if (age < 18 || age > 60) {
-            return null;
+            return null;   // Returning null will cause the item to be skipped
         }
 
         // Normalize first and last names
