@@ -96,6 +96,7 @@ public class ApplicationBatchConfiguration {
                 .writer(writer)
                 .faultTolerant()
                 .skipPolicy(new MySkipPolicy())
+                .listener(new MyStepEventListener())
                 .taskExecutor(taskExecutor()) // custom async execution
                 .build();
     }
