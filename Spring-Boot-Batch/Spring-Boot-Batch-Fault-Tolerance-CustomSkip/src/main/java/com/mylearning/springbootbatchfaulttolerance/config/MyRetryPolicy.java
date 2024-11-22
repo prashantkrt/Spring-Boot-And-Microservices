@@ -1,12 +1,13 @@
 package com.mylearning.springbootbatchfaulttolerance.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.retry.RetryContext;
 import org.springframework.retry.RetryPolicy;
 import org.springframework.retry.context.RetryContextSupport;
 
 import java.io.FileNotFoundException;
 
-// way 1
+// way 1 for retry
 public class MyRetryPolicy implements RetryPolicy {
 
     private final int maxRetries;  // Max number of retries

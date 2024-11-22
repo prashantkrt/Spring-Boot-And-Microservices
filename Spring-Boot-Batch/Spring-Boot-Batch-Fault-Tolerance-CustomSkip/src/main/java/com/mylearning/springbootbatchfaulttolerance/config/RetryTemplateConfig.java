@@ -8,7 +8,7 @@ import org.springframework.retry.support.RetryTemplate;
 @Configuration
 public class RetryTemplateConfig {
 
-    @Bean
+    @Bean(name="retryTemplate1")
     public RetryTemplate retryTemplate() {
         RetryTemplate retryTemplate = new RetryTemplate();
         retryTemplate.setRetryPolicy(new MyRetryPolicy(3));  // Set custom retry policy (max 3 retries)

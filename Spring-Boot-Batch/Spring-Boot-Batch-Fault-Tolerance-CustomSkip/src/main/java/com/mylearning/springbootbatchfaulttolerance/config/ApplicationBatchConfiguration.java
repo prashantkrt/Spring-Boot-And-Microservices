@@ -3,6 +3,7 @@ package com.mylearning.springbootbatchfaulttolerance.config;
 import com.mylearning.springbootbatchfaulttolerance.entity.Customer;
 import com.mylearning.springbootbatchfaulttolerance.repository.CustomerRepository;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.SkipListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
@@ -87,15 +88,13 @@ public class ApplicationBatchConfiguration {
 
 
     //step
-    @Bean(name = "customerStep")
-    public Step customerStep(ItemReader<Customer> reader,
-                             ItemProcessor<Customer, Customer> processor,
-                             ItemWriter<Customer> writer) {
+    @Bean
+    public Step customerStep() {
         return new StepBuilder("step-1", jobRepository)
                 .<Customer, Customer>chunk(10, transactionManager)
-                .reader(reader)
-                .processor(processor)
-                .writer(writer)
+                .reader(customerItemReader())
+                .processor(customerItemProcessor())
+                .writer(customerItemWriter())
                 .faultTolerant()
                 .skipPolicy(new MySkipPolicy())
                 .retryLimit(3)
@@ -116,6 +115,7 @@ public class ApplicationBatchConfiguration {
     }
 
 
+    // optional beans which we can use
     // optional to create =>
 
     @Bean
@@ -138,7 +138,7 @@ public class ApplicationBatchConfiguration {
     }
 
     // optional not needed
-    @Bean
+    @Bean(name="retryTemplate2")
     public RetryTemplate retryTemplate() {
         RetryTemplate retryTemplate = new RetryTemplate();
         SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
