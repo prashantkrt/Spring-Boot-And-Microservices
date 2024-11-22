@@ -14,12 +14,6 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
         item.setFirstName(item.getFirstName().trim().toUpperCase());
         item.setLastName(item.getLastName().trim().toUpperCase());
 
-        // Validate email
-        if (item.getEmail() == null || !item.getEmail().contains("@")) {
-            // Skip the record if email is invalid
-            return null;
-        }
-
         // Mask contact number
         String contactNo = item.getContactNo();
         if (contactNo != null && contactNo.length() > 4) {
@@ -28,15 +22,17 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
 
         // Enrich customer data with country code
         switch (item.getCountry().toLowerCase()) {
-            case "united states": item.setCountry("US"); break;
-            case "india": item.setCountry("IN"); break;
-            case "canada": item.setCountry("CA"); break;
-            default: item.setCountry("UNKNOWN");
-        }
-
-        // Exclude customers from a specific country
-        if ("UNKNOWN".equalsIgnoreCase(item.getCountry())) {
-            return null; // Returning null skips this item
+            case "united states":
+                item.setCountry("US");
+                break;
+            case "india":
+                item.setCountry("IN");
+                break;
+            case "canada":
+                item.setCountry("CA");
+                break;
+            default:
+                item.setCountry("UNKNOWN");
         }
 
         // Convert dateOfBirth to a specific format
@@ -45,9 +41,22 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
         item.setDateOfBirth(formattedDate);
 
 
-        // Combine the first and last name into a single field
-        //item.setFirstName(item.getFirstName() + " " + item.getLastName());
-        //item.setLastName(null); // Clear the lastName field
+        // validation
+
+        // Exclude customers from a specific country
+        if ("UNKNOWN".equalsIgnoreCase(item.getCountry())) {
+            return null; // Returning null skips this item
+        }
+
+        // Validate email
+        if (item.getEmail() == null || !item.getEmail().contains("@")) {
+            return null;
+        }
+        //validate age
+        int age = item.getAge();
+        if (age < 18 || age> 60) {
+            return null;
+        }
 
         return item;
 

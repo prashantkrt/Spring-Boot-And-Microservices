@@ -40,14 +40,8 @@ public class ApplicationBatchConfiguration {
     // Item Reader
     @Bean
     public FlatFileItemReader<Customer> customerItemReader() {
-
         FlatFileItemReader<Customer> itemReader = new FlatFileItemReader<>();
-
-        // Set the resource to point to the file in your system's Documents folder
-        // reader.setResource(new FileSystemResource("/Users/username/Documents/customers.csv"));
-
-        // Set the resource to point to the file in the classpath
-        itemReader.setResource(new ClassPathResource("MOCK_DATA.csv")); // Specify the relative path within the resources folder
+        itemReader.setResource(new ClassPathResource("MOCK_DATA_FAULT.csv"));
         itemReader.setLinesToSkip(1);
         itemReader.setLineMapper(lineMapper());
         return itemReader;
@@ -60,9 +54,8 @@ public class ApplicationBatchConfiguration {
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
         lineTokenizer.setDelimiter(",");
         lineTokenizer.setStrict(false);
-        lineTokenizer.setNames("customerId", "firstName", "lastName", "email", "gender", "contactNo", "country", "dateOfBirth");
+        lineTokenizer.setNames("customerId", "firstName", "lastName", "email", "gender", "contactNo", "country", "dateOfBirth","age");
 
-        //set it to type customer type
         BeanWrapperFieldSetMapper<Customer> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
         fieldSetMapper.setTargetType(Customer.class);
 
@@ -87,15 +80,17 @@ public class ApplicationBatchConfiguration {
         return itemWriter;
     }
 
+
+    //step
     @Bean(name = "customerStep")
     public Step customerStep(ItemReader<Customer> reader,
                              ItemProcessor<Customer, Customer> processor,
                              ItemWriter<Customer> writer) {
         return new StepBuilder("step-2", jobRepository)
-                .<Customer, Customer>chunk(10, transactionManager)  // The chunk size is 10, transaction manager is used for transactional processing
-                .reader(reader)                                    // The ItemReader to read data
-                .processor(processor)                               // The ItemProcessor to process each item
-                .writer(writer)                                     // The ItemWriter to write processed data
+                .<Customer, Customer>chunk(10, transactionManager)
+                .reader(reader)
+                .processor(processor)
+                .writer(writer)
                 .taskExecutor(taskExecutor())
                 .build();
     }
@@ -110,6 +105,8 @@ public class ApplicationBatchConfiguration {
                 .build();
     }
 
+
+    // optional to create
     @Bean
     public TaskExecutor taskExecutor() {
         SimpleAsyncTaskExecutor taskExecutor = new SimpleAsyncTaskExecutor();
