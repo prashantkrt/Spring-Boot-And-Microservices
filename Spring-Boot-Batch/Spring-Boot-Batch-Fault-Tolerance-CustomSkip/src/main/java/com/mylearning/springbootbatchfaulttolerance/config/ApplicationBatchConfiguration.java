@@ -3,14 +3,10 @@ package com.mylearning.springbootbatchfaulttolerance.config;
 import com.mylearning.springbootbatchfaulttolerance.entity.Customer;
 import com.mylearning.springbootbatchfaulttolerance.repository.CustomerRepository;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.SkipListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineMapper;
@@ -23,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -88,7 +85,7 @@ public class ApplicationBatchConfiguration {
 
 
     //step
-    @Bean
+    @Bean(name="customerStep")
     public Step customerStep() {
         return new StepBuilder("step-1", jobRepository)
                 .<Customer, Customer>chunk(10, transactionManager)
@@ -96,10 +93,10 @@ public class ApplicationBatchConfiguration {
                 .processor(customerItemProcessor())
                 .writer(customerItemWriter())
                 .faultTolerant()
-                .skipPolicy(new MySkipPolicy())
-                .retryLimit(3)
-                .retry(NullPointerException.class)  // Retry on exception
-                .listener(new MyStepEventListener())
+                .skipPolicy(new MySkipPolicy())  // Custom skipping logic
+                .retryLimit(3)                   // Maximum retry attempts
+                .retry(ObjectOptimisticLockingFailureException.class) // Retry for specific exception
+//                .listener(new MyStepEventListener())  // Listener for step event
                 //.taskExecutor(taskExecutor()) // custom async execution
                 .build();
     }

@@ -45,6 +45,7 @@ public class MyRetryPolicy implements RetryPolicy {
 
     @Override
     public void registerThrowable(RetryContext context, Throwable throwable) {
+        context.setAttribute("lastThrowable", throwable);
         retryCount++;
         // Log the exception and track the retry count
         if (context.getRetryCount() < maxRetries) {

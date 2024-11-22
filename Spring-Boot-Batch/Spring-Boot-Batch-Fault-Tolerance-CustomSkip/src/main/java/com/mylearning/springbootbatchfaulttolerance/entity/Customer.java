@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity(name="Customer_Table_Details")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +22,7 @@ public class Customer {
     private String country;
     private String dateOfBirth;
     private Integer age;
+
+    @Version
+    private Long version;
 }
