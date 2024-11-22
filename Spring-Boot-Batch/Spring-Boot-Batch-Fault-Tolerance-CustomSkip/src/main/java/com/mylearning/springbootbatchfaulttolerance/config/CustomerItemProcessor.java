@@ -13,7 +13,7 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
         // Do all validation checks
 
         // Exclude customers from a specific country
-        if ("UNKNOWN".equalsIgnoreCase(item.getCountry())) {
+        if ("Canada".equalsIgnoreCase(item.getCountry())) {
             return null; // Returning null skips this item
         }
 

@@ -18,8 +18,14 @@ public class MySkipPolicy implements SkipPolicy {
             return true;
         }
 
+        // Skip on any other exception if within skip limit
+        if (skipCount <= 10000) {
+            System.out.println("Skipping item due to exception: " + t.getClass().getSimpleName());
+            return true;
+        }
 
-        if (skipCount > 100) {
+
+        if (skipCount > 10000) {
             System.out.println("Skip limit exceeded!");
             return false; // Do not skip if skip limit is exceeded
         }

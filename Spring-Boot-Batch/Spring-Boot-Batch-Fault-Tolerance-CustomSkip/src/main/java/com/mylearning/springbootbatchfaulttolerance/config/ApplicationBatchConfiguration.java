@@ -22,6 +22,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.retry.policy.SimpleRetryPolicy;
+import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -89,15 +91,17 @@ public class ApplicationBatchConfiguration {
     public Step customerStep(ItemReader<Customer> reader,
                              ItemProcessor<Customer, Customer> processor,
                              ItemWriter<Customer> writer) {
-        return new StepBuilder("step-2", jobRepository)
+        return new StepBuilder("step-1", jobRepository)
                 .<Customer, Customer>chunk(10, transactionManager)
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
                 .faultTolerant()
                 .skipPolicy(new MySkipPolicy())
+                .retryLimit(3)
+                .retry(NullPointerException.class)  // Retry on exception
                 .listener(new MyStepEventListener())
-                .taskExecutor(taskExecutor()) // custom async execution
+                //.taskExecutor(taskExecutor()) // custom async execution
                 .build();
     }
 
@@ -131,5 +135,15 @@ public class ApplicationBatchConfiguration {
         taskExecutor.setThreadNamePrefix("MonitorThreadPool-");
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
         return taskExecutor;
+    }
+
+    // optional not needed
+    @Bean
+    public RetryTemplate retryTemplate() {
+        RetryTemplate retryTemplate = new RetryTemplate();
+        SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
+        retryPolicy.setMaxAttempts(3);  // Set the maximum retry attempts
+        retryTemplate.setRetryPolicy(retryPolicy);
+        return retryTemplate;
     }
 }
