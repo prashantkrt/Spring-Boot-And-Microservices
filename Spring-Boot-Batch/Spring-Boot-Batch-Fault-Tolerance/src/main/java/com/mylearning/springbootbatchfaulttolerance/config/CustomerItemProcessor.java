@@ -52,9 +52,10 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
         if (item.getEmail() == null || !item.getEmail().contains("@")) {
             return null;
         }
+
         //validate age
         int age = item.getAge();
-        if (age < 18 || age> 60) {
+        if (age < 18 || age > 60) {
             return null;
         }
 
