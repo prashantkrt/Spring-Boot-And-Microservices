@@ -1,6 +1,6 @@
-package com.mylearning.springbootbatch.config;
+package com.mylearning.springbootbatchfaulttolerance.config;
 
-import com.mylearning.springbootbatch.entity.Customer;
+import com.mylearning.springbootbatchfaulttolerance.entity.Customer;
 import org.springframework.batch.item.ItemProcessor;
 
 import java.text.SimpleDateFormat;

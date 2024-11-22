@@ -31,6 +31,7 @@
         <module name="Kafka-Consumer-Example" />
         <module name="Kafka-producer-Test" />
         <module name="Employee-Management-System-jwt" />
+        <module name="Spring-Boot-Batch-Fault-Tolerance" />
         <module name="Spring-Boot-Data-Redis-Cache-2" />
         <module name="Logging" />
         <module name="Kafka-Consumer" />
@@ -147,6 +148,7 @@
       <module name="Spring-Boot-AOP" options="-parameters" />
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Batch" options="-parameters" />
+      <module name="Spring-Boot-Batch-Fault-Tolerance" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-JPA-Redis-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-Redis" options="-parameters" />
