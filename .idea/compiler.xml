@@ -63,6 +63,7 @@
         <module name="Employee-Management-System" />
         <module name="Spring-Cloud-Config-Server" />
         <module name="Junit5" />
+        <module name="Spring-Boot-Batch-Fault-Tolerance-CustomSkip" />
         <module name="Bean-Validation" />
         <module name="Faculty-Service-Consumer" />
         <module name="Order-Microservice" />
@@ -149,6 +150,7 @@
       <module name="Spring-Boot-Actuator" options="-parameters" />
       <module name="Spring-Boot-Batch" options="-parameters" />
       <module name="Spring-Boot-Batch-Fault-Tolerance" options="-parameters" />
+      <module name="Spring-Boot-Batch-Fault-Tolerance-CustomSkip" options="-parameters" />
       <module name="Spring-Boot-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-JPA-Redis-Cache" options="-parameters" />
       <module name="Spring-Boot-Data-Redis" options="-parameters" />
