@@ -24,6 +24,8 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import java.io.FileNotFoundException;
+
 @Configuration
 public class ApplicationBatchConfiguration {
 
@@ -94,6 +96,7 @@ public class ApplicationBatchConfiguration {
                 .faultTolerant() //Specifies the maximum number of items that can be skipped during the step execution before the job fails.
                 .skipLimit(Integer.MAX_VALUE) // if the value is 5 => Allow up to 5 invalid items to be skipped
                 .skip(NullPointerException.class) // Specify the exception type to skip
+                .noSkip(FileNotFoundException.class) // if file not found do not skip
                 .taskExecutor(taskExecutor()) // custom async execution
                 .build();
     }
