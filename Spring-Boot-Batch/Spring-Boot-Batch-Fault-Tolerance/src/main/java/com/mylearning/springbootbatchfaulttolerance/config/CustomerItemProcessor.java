@@ -10,6 +10,24 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
     @Override
     public Customer process(Customer item) throws Exception {
 
+        // Do all validation checks
+
+        // Exclude customers from a specific country
+        if ("UNKNOWN".equalsIgnoreCase(item.getCountry())) {
+            return null; // Returning null skips this item
+        }
+
+        // Validate email
+        if (item.getEmail() == null || !item.getEmail().contains("@")) {
+            return null;
+        }
+
+        //validate age
+        int age = item.getAge();
+        if (age < 18 || age > 60) {
+            return null;
+        }
+
         // Normalize first and last names
         item.setFirstName(item.getFirstName().trim().toUpperCase());
         item.setLastName(item.getLastName().trim().toUpperCase());
@@ -39,25 +57,6 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String formattedDate = formatter.format(formatter.parse(item.getDateOfBirth()));
         item.setDateOfBirth(formattedDate);
-
-
-        // validation
-
-        // Exclude customers from a specific country
-        if ("UNKNOWN".equalsIgnoreCase(item.getCountry())) {
-            return null; // Returning null skips this item
-        }
-
-        // Validate email
-        if (item.getEmail() == null || !item.getEmail().contains("@")) {
-            return null;
-        }
-
-        //validate age
-        int age = item.getAge();
-        if (age < 18 || age > 60) {
-            return null;
-        }
 
         return item;
 
